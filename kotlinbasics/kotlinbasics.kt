@@ -236,7 +236,49 @@ fun add(num1: Int, num2: Int) : Int{
     return num1 + num2
 }
 
+// Return functions 
+fun main() {
+    val operatingSystem = "Chrome OS"
+    val emailId = "sample@gmail.com"
+
+    println(displayAlertMessage(operatingSystem, emailId))
+}
+
+// Define your displayAlertMessage() below this line.
+fun displayAlertMessage(os : String, mail : String) : String{
+    return "New os sign in $os on email Account $mail"
+}
+
 // 
+fun main() {
+    val operatingSystem = "Chrome OS"
+    val emailId = "sample@gmail.com"
+
+    println(displayAlertMessage(operatingSystem, emailId))
+    println(displayAlertMessage(operatingSystem,emailId))
+	println(displayAlertMessage())
+}
+
+// Define your displayAlertMessage() below this line..
+fun displayAlertMessage(os : String = "unkown", mail : String="none") : String{
+    return "New sign in $os on email account $mail"
+}
+
+// Calories burn
+fun main() {
+    val Steps = 4000
+    val caloriesBurned = pedometerStepsCounter(Steps);
+    println("Walking $Steps steps burns $caloriesBurned calories") 
+}
+
+fun pedometerStepsCounter(numOfSteps: Int): Double {
+    val caloriesBurnEachStep = 0.04
+    val totalCalBurn = numOfSteps * caloriesBurnEachStep
+    return totalCalBurn
+}
+
+
+
 
 
 
