@@ -160,6 +160,83 @@ fun greetings() : String {
 }
 
 
+// Function and paramenters
+/*
+parameters are declared in the function brackets and 
+arguements are passed while creating the function 
+*/
+fun main(){
+    println(greetings("Jane"))
+    println(greetings("Timz"))
+}
+fun greetings(name: String) : String {
+    val name = "hello $name"
+    val age = "you are 22 years old"
+    return "$name \n $age "
+}
+
+// Multiple parameter functions
+fun main(){
+    println(greetings("Jane", 41))
+    println(greetings("Timz",63))
+}
+fun greetings(name: String, age : Int) : String {
+    val nameGreeting= "hello $name"
+    val ageGreeting = "you are $age years old"
+    return "$nameGreeting \n $ageGreeting "
+}
+
+
+// Named Arguements
+fun main(){
+    println(greetings(name="Timz", age = 22))
+}
+fun greetings(name : String, age : Int) : String {
+    val nameGreeting= "hello $name"
+    val ageGreeting = "you are $age years old"
+    return "$nameGreeting \n $ageGreeting "
+}
+
+
+// Default arguements
+fun main(){
+    println(greetings())
+}
+fun greetings(name : String = "Owen", age : Int=25) : String {
+    val nameGreeting= "hello $name"
+    val ageGreeting = "you are $age years old"
+    return "$nameGreeting \n $ageGreeting "
+}
+
+// Ex 2 ( specify one of them . the other picks a default value)
+fun main(){
+    println(greetings(name="Limz"))
+}
+fun greetings(name : String = "Owen", age : Int=25) : String {
+    val nameGreeting= "hello $name"
+    val ageGreeting = "you are $age years old"
+    return "$nameGreeting \n $ageGreeting "
+}
+
+// Adding two numbers. 
+fun main() {
+    val firstNumber = 10
+    val secondNumber = 5
+    val thirdNumber = 8
+    
+    val result = add(firstNumber, secondNumber)
+    val anotherResult = add(firstNumber, thirdNumber)
+
+    println("$firstNumber + $secondNumber = $result")
+    println("$firstNumber + $thirdNumber = $anotherResult")
+}
+
+// Define add() function below this line
+fun add(num1: Int, num2: Int) : Int{
+    return num1 + num2
+}
+
+// 
 
 
 
