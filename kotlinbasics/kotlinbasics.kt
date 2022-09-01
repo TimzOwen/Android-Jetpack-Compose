@@ -264,6 +264,27 @@ fun displayAlertMessage(os : String = "unkown", mail : String="none") : String{
     return "New sign in $os on email account $mail"
 }
 
+// Boolean comparison
+fun main() {
+    println("Have I spent more time using my phone today: ${compareTime(300, 250)}")
+    println("Have I spent more time using my phone today: ${compareTime(300, 300)}")
+    println("Have I spent more time using my phone today: ${compareTime(200, 220)}")
+}
+
+fun compareTime(timeSpentToday: Int, timeSpentYesterday: Int): Boolean {
+    return timeSpentToday > timeSpentYesterday
+}
+
+// similar
+fun main(){
+    println("I spend more time usinf my phone today: ${timeSpent(800, 700)}")
+}
+fun timeSpent(today: Int, yesterday: Int): Boolean{
+    return today>yesterday
+}
+
+
+
 // Calories burn
 fun main() {
     val Steps = 4000
@@ -277,6 +298,41 @@ fun pedometerStepsCounter(numOfSteps: Int): Double {
     return totalCalBurn
 }
 
+// Function grouping
+// Remove the duplicate and create a simple function to do the same
+fun main() {
+    println("City: Ankara")
+    println("Low temperature: 27, High temperature: 31")
+    println("Chance of rain: 82%")
+    println()
+
+    println("City: Tokyo")
+    println("Low temperature: 32, High temperature: 36")
+    println("Chance of rain: 10%")
+    println()
+    
+    println("City: Cape Town")
+    println("Low temperature: 59, High temperature: 64")
+    println("Chance of rain: 2%")
+    println()
+    
+    println("City: Guatemala City")
+    println("Low temperature: 50, High temperature: 55")
+    println("Chance of rain: 7%")
+    println()
+}
+
+// solution
+fun main() {
+    cityState("Nairobi",45, 70, 8)
+    cityState("Nakuru",35, 75, 12)
+}
+fun cityState(name : String,lowT : Int, highT : Int, rain : Int){
+    println("City : $name")
+    println("Low Temperature: $lowT, High Temperature : $highT")
+    println("Chance of rain: $rain%")
+    println()
+}
 
 
 
