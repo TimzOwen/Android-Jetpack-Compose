@@ -249,7 +249,7 @@ fun displayAlertMessage(os : String, mail : String) : String{
     return "New os sign in $os on email Account $mail"
 }
 
-// 
+// variables in functions
 fun main() {
     val operatingSystem = "Chrome OS"
     val emailId = "sample@gmail.com"
@@ -334,6 +334,11 @@ fun cityState(name : String,lowT : Int, highT : Int, rain : Int){
     println()
 }
 
+
+
+
+// Android Related topics
+// working with layout 
 
 
 
