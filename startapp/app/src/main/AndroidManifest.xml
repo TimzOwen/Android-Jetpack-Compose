@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.timzowen.myapplication">
 
-    <!--- Add internet persmissions->
+    <!--- Add internet persmissions-->
 
     <application
         android:allowBackup="true"
