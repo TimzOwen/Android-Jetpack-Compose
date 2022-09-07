@@ -351,6 +351,12 @@ fun cityState(name : String,lowT : Int, highT : Int, rain : Int){
 }
 
 
+// classes and objects 
+/*
+class -> is a blue print for objects
+object--> is an instance of an object
+*/
+
 
 
 // Android Related topics
