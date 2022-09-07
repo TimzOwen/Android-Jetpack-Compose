@@ -124,6 +124,22 @@ fun main() {
 // COMMENTS
 // commenets are either using forward slash 0r /* for long comments */
 
+
+
+// Conditional statements
+val time = 20
+if(time<20){
+    println("Good morning")
+}else if(time>20){
+    println("Good afternoon")
+}else{
+    println("Goodninght")
+}
+
+
+// Arrays 
+
+
 // FUNCTIONS
 // uses the fun -> keyword to declare functions, name and paramenters then body
 /*
