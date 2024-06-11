@@ -1,6 +1,5 @@
 package com.timzowen.uat
 
-import android.graphics.Paint.Align
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -9,12 +8,10 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.layout.wrapContentSize
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -39,25 +36,34 @@ fun MainScreen() {
         color = Color.Gray,
         modifier = Modifier.fillMaxSize()
     ) {
-        Column(modifier = Modifier.fillMaxSize(),
+        Column(
+            modifier = Modifier.fillMaxSize(),
             verticalArrangement = Arrangement.SpaceEvenly,
-            horizontalAlignment = Alignment.CenterHorizontally) {
-            HorizontalBars(Color.Red)
-            HorizontalBars(Color.Green)
-            HorizontalBars(Color.Yellow)
-            HorizontalBars(Color.Magenta)
-            HorizontalBars(Color.Blue)
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceEvenly
+            ) {
+                SquareBars(Color.Magenta)
+                SquareBars(Color.Blue)
+            }
+            SquareBars(Color.Red)
+            SquareBars(Color.Green)
+            SquareBars(Color.Yellow)
+            SquareBars(Color.Magenta)
+            SquareBars(Color.Blue)
         }
     }
 }
 
 @Composable
-fun HorizontalBars(color: Color) {
+fun SquareBars(color: Color) {
     Surface(
         color = color,
         modifier = Modifier
             .height(100.dp)
-            .width(300.dp)
+            .width(100.dp)
     ) {}
 
 }
