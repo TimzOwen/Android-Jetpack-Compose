@@ -1,24 +1,20 @@
 package com.timzowen.uat
 
+import android.graphics.Paint.Align
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.TextUnit
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import com.timzowen.uat.ui.theme.UatTheme
 
 class MainActivity : ComponentActivity() {
@@ -26,29 +22,28 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            Greeting(" world")
+            MainScreen()
         }
     }
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-            .clickable {  }
-            .padding(24.dp)
-            .width(200.dp)
-            .height(300.dp),
-        style = MaterialTheme.typography.bodyMedium,
-        fontWeight = FontWeight.Bold
-    )
+fun MainScreen(){
+    Surface(color = Color.Gray,modifier = Modifier.fillMaxSize()) {
+        Surface(color = Color.Cyan,
+            modifier = Modifier.wrapContentSize(align = Alignment.TopEnd)) {
+            Text(text = "Jetpack compose",
+                style = MaterialTheme.typography.displaySmall
+            )
+        }
+    }f
 }
+
 
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
     UatTheme {
-        Greeting("World")
+        MainScreen()
     }
 }
