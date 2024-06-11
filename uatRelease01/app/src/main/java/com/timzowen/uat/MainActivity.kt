@@ -8,6 +8,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -39,11 +40,8 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
             .padding(24.dp)
             .width(200.dp)
             .height(300.dp),
-        style = TextStyle(
-            fontSize = 24.sp,
-            fontWeight = FontWeight.Bold,
-            color = Color.Blue
-        )
+        style = MaterialTheme.typography.bodyMedium,
+        fontWeight = FontWeight.Bold
     )
 }
 
