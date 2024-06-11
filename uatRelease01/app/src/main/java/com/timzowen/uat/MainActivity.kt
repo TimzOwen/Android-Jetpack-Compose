@@ -11,8 +11,13 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.timzowen.uat.ui.theme.UatTheme
 
 class MainActivity : ComponentActivity() {
@@ -30,10 +35,15 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
     Text(
         text = "Hello $name!",
         modifier = modifier
-            .width(200.dp)
-            .height(250.dp)
             .clickable {  }
-            .padding(start = 24.dp)
+            .padding(24.dp)
+            .width(200.dp)
+            .height(300.dp),
+        style = TextStyle(
+            fontSize = 24.sp,
+            fontWeight = FontWeight.Bold,
+            color = Color.Blue
+        )
     )
 }
 
