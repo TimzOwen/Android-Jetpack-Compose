@@ -11,35 +11,41 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateListOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-
-private val namesList: ArrayList<String> = arrayListOf("Timz", "Owen", "Shem", "John", "Kiptoo")
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            GreetingList(names = namesList)
+            MainScreen()
         }
     }
 }
 
 @Composable
-fun GreetingList(names: ArrayList<String>) {
+fun MainScreen() {
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.SpaceEvenly,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        for (name in names) {
-            Greeting(name = name)
-        }
-        Button(onClick = { namesList.add("New Name") }) {
-            Text(text = "Add Name")
-        }
+        GreetingList()
+    }
+}
+
+@Composable
+fun GreetingList(){
+    val greetingListState = remember { mutableStateListOf("timz","William") }
+    for (name in greetingListState) {
+        Greeting(name = name)
+    }
+    Button(onClick = { greetingListState.add("New Name") }) {
+        Text(text = "Add Name")
     }
 }
 
@@ -51,5 +57,5 @@ fun Greeting(name: String) {
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
-    GreetingList(names = namesList)
+    MainScreen()
 }
