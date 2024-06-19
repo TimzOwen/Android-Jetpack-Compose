@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.timzowen.dynamiccontent"
+    namespace = "com.timzowen.profilelayout"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.timzowen.dynamiccontent"
+        applicationId = "com.timzowen.profilelayout"
         minSdk = 28
         targetSdk = 34
         versionCode = 1
@@ -51,7 +51,6 @@ android {
 
 dependencies {
 
-    implementation(libs.androidx.lifecycle.livedata.ktx)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
@@ -60,7 +59,6 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
-    implementation(libs.androidx.runtime.livedata)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
