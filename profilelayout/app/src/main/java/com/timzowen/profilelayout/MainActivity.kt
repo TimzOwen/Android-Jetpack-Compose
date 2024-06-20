@@ -7,6 +7,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -34,13 +35,17 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.wear.compose.material.ContentAlpha
 import androidx.wear.compose.material.LocalContentAlpha
+import com.timzowen.profilelayout.ui.theme.ProfileLayoutTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            MainScreen()
+            ProfileLayoutTheme {
+                MainScreen()
+            }
+
         }
     }
 }
@@ -49,7 +54,6 @@ class MainActivity : ComponentActivity() {
 fun MainScreen() {
     Surface(
         modifier = Modifier.fillMaxSize(),
-        color = Color.LightGray
     ) {
         ProfileCard()
     }
@@ -72,7 +76,6 @@ fun ProfileCard() {
             ProfilePicture()
             ProfileContent()
         }
-
     }
 }
 
@@ -95,8 +98,11 @@ fun ProfilePicture() {
 
 @Composable
 fun ProfileContent() {
-    Column(modifier = Modifier.padding(8.dp)
-        .fillMaxWidth()) {
+    Column(
+        modifier = Modifier
+            .padding(8.dp)
+            .fillMaxWidth()
+    ) {
         Text(text = "Timz Owen", style = MaterialTheme.typography.headlineSmall)
         CompositionLocalProvider(LocalContentAlpha provides ContentAlpha.medium) {
             Text(text = "Active now", style = MaterialTheme.typography.bodySmall)
@@ -108,5 +114,7 @@ fun ProfileContent() {
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
-    MainScreen()
+    ProfileLayoutTheme {
+        MainScreen()
+    }
 }
