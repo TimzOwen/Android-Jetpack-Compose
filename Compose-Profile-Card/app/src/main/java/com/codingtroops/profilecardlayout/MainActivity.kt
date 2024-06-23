@@ -39,16 +39,14 @@ class MainActivity : AppCompatActivity() {
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
-fun MainScreen() {
+fun MainScreen(userProfiles: List<UserProfile> = userProfileList) {
     Scaffold(topBar = { AppBar() }) {
         Surface(
             modifier = Modifier.fillMaxSize(),
         ) {
             Column {
-                ProfileCard(userProfileList[0])
-                ProfileCard(userProfileList[1])
-                ProfileCard(userProfileList[2])
-                ProfileCard(userProfileList[3])
+                for (userProfile in userProfiles)
+                    ProfileCard(userProfile = userProfile)
             }
         }
     }
@@ -117,10 +115,13 @@ fun ProfileContent(userName: String, onlineStatus: Boolean) {
             .padding(8.dp)
             .fillMaxWidth()
     ) {
-        Text(
-            text = userName,
-            style = MaterialTheme.typography.h5
-        )
+        CompositionLocalProvider(LocalContentAlpha provides (
+                if (onlineStatus) 1f else ContentAlpha.medium) ) {
+            Text(
+                text = userName,
+                style = MaterialTheme.typography.h5
+            )
+        }
         CompositionLocalProvider(LocalContentAlpha provides (ContentAlpha.medium)) {
             Text(
                 text = if (onlineStatus) "Active now" else "offline",
