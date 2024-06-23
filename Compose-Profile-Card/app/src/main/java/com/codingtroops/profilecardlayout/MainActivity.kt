@@ -2,6 +2,7 @@ package com.codingtroops.profilecardlayout
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.text.BoringLayout
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.BorderStroke
@@ -21,6 +22,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.codingtroops.profilecardlayout.UserProfile.Companion.userProfileList
 import com.codingtroops.profilecardlayout.ui.MyTheme
 import com.codingtroops.profilecardlayout.ui.lightGreen
 
@@ -43,8 +45,10 @@ fun MainScreen() {
             modifier = Modifier.fillMaxSize(),
         ) {
             Column {
-                ProfileCard()
-                ProfileCard()
+                ProfileCard(userProfileList[0])
+                ProfileCard(userProfileList[1])
+                ProfileCard(userProfileList[2])
+                ProfileCard(userProfileList[3])
             }
         }
     }
@@ -65,10 +69,10 @@ fun AppBar() {
 }
 
 @Composable
-fun ProfileCard() {
+fun ProfileCard(userProfile: UserProfile) {
     Card(
         modifier = Modifier
-            .padding(16.dp)
+            .padding(start = 16.dp, end = 16.dp, top = 8.dp, bottom = 8.dp)
             .fillMaxWidth()
             .wrapContentHeight(align = Alignment.Top),
         elevation = 8.dp,
@@ -79,26 +83,26 @@ fun ProfileCard() {
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.Start
         ) {
-            ProfilePicture()
-            ProfileContent()
+            ProfilePicture(userProfile.drawableId, userProfile.onlineStatus)
+            ProfileContent(userProfile.userName, userProfile.onlineStatus)
         }
 
     }
 }
 
 @Composable
-fun ProfilePicture() {
+fun ProfilePicture(drawableId: Int, onlineStatus: Boolean) {
     Card(
         shape = CircleShape,
         border = BorderStroke(
             width = 2.dp,
-            color = MaterialTheme.colors.lightGreen
+            color = if (onlineStatus) MaterialTheme.colors.lightGreen else Color.Red
         ),
         modifier = Modifier.padding(16.dp),
         elevation = 4.dp
     ) {
         Image(
-            painter = painterResource(id = R.drawable.profile_picture),
+            painter = painterResource(id = drawableId),
             modifier = Modifier.size(72.dp),
             contentScale = ContentScale.Crop,
             contentDescription = ""
@@ -107,19 +111,19 @@ fun ProfilePicture() {
 }
 
 @Composable
-fun ProfileContent() {
+fun ProfileContent(userName: String, onlineStatus: Boolean) {
     Column(
         modifier = Modifier
             .padding(8.dp)
             .fillMaxWidth()
     ) {
         Text(
-            text = "John Doe",
+            text = userName,
             style = MaterialTheme.typography.h5
         )
         CompositionLocalProvider(LocalContentAlpha provides (ContentAlpha.medium)) {
             Text(
-                text = "Active now",
+                text = if (onlineStatus) "Active now" else "offline",
                 style = MaterialTheme.typography.body2
             )
         }
