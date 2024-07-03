@@ -100,14 +100,19 @@ class Docs {
             computerChoice == "Rock" && userChoice == "Paper" -> "Computer won"
             computerChoice == "Paper" && userChoice == "Scissor" -> "Computer won"
             computerChoice == "Scissor" && userChoice == "Rock" -> "computer won"
-            else -> "user won"
+            else -> "Player "
         }
 
         if (winner == "Tie") {
             println("It's a tie")
         }else println("$winner won!")
 
-
+        // While loops
+        var numCounter = 0
+        while (numCounter <= 5){
+            println("currently at $numCounter")
+            numCounter ++
+        }
 
     }
 
