@@ -1,10 +1,11 @@
 // Functions
 
 fun main(){
-    makeCoffee()
+    // call the function here
+    makeCoffee(3)
 }
 
-fun makeCoffee(){
-    println("make coffee")
-    println("another coffee")
+// create functions to be reused
+fun makeCoffee(sugarCount: Int){
+    println("I want $sugarCount  tea spoons")
 }
