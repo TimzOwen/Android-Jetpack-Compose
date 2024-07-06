@@ -1,30 +1,18 @@
-import classes.Dog
+// LISTS & FOR LOOPS
+fun main(){
+    // immutable list of items
+    val shoppingList = listOf("RAM","SSD","Keyboard","Server")
 
-// use data classes to simplify files not needed or called else where.
-data class CoffeeDetails(
-    val sugarCount: Int,
-    val userName: String,
-    val size: String,
-    val creamAmount: Int
-)
+    // mutable list of items
+    val mutableShoppingList = mutableListOf("RAM","SSD","Keyboard","Server")
+    mutableShoppingList.add("HDD") // adding items to list
+    mutableShoppingList.remove("HDD") // remove by string
+    mutableShoppingList.removeAt(0) // delete at specific index
+    mutableShoppingList.add(0,"Monitor") // add as first element
+    mutableShoppingList[0] = "curved monitor" // update existing element
+    mutableShoppingList.set(1,"SSD-256") // use set method to update elements
+    println(mutableShoppingList.contains("SSD-256")) // check if it contains an element
 
-fun main() {
-
-    val coffeeList = CoffeeDetails(2,"Timz","XL",4)
-    makeCoffee(coffeeList)
-}
-
-fun askCoffeeDetails(){
-    println("whose coffee is it for? ...")
-    val userName = readln()
-    println("How many pieces of sugar?....")
-    val sugarCount = readln().toInt()
-}
-
-fun makeCoffee(coffeeDetails: CoffeeDetails){
-    when(coffeeDetails.sugarCount){
-        0 -> println("Coffee with no sugar for ${coffeeDetails.userName} add cream: ${coffeeDetails.creamAmount} size ${coffeeDetails.size}")
-        1 -> println("Coffee with ${coffeeDetails.sugarCount} spoon for ${coffeeDetails.userName} add cream: ${coffeeDetails.creamAmount} size ${coffeeDetails.size}")
-        else -> println("Coffee with ${coffeeDetails.sugarCount} spoons for ${coffeeDetails.userName} add cream: ${coffeeDetails.creamAmount} size ${coffeeDetails.size}")
-    }
+    println(mutableShoppingList[0]) // print only at specific index
+    println(mutableShoppingList) // print all elements of a list
 }
