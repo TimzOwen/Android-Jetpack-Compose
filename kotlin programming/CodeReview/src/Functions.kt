@@ -2,9 +2,12 @@
 
 fun main(){
     // call the function here
-    makeCoffee(1, "Owen")
-    makeCoffee(0, "Abdul")
-    makeCoffee(3,"Timz")
+    println("Whose the coffee for? ")
+    val userName = readln()
+    println("How many tea spoons? ")
+    val spoonCounter = readln().toInt()
+
+    makeCoffee(spoonCounter, userName )
 
 
 }

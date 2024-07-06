@@ -1,24 +1,13 @@
-fun main() {
+fun main(){
+    println("Enter num 1: ")
+    val num1 = readln().toInt()
+    println("Enter num2: ")
+    val num2 = readln().toInt()
 
-    println("Choose between ROCK, PAPER or SCISSOR")
-    var computerInput = ""
-    val userInput = readln()
-    val compChoice = (1..3).random()
+    println("The sum of $num1 + $num2 = " + addNumbers(num1,num2))
 
-    when(compChoice){
-        1 -> computerInput = "ROCK"
-        2 -> computerInput = "PAPER"
-        3 -> computerInput = "SCISSOR"
-    }
+}
 
-    val winner = when{
-        computerInput == "ROCK" && userInput.toString() == "PAPER" -> "Computer won!"
-        computerInput == userInput -> "Its a tie"
-        computerInput == "SCISSOR"  && userInput== "ROCK" -> "Computer won!"
-        computerInput == "PAPER" && userInput == "SCISSOR" ->  "Computer won!"
-        else -> { " User won!" }
-    }
-
-    println(computerInput)
-
+fun addNumbers(num1: Int, num2: Int): Int{
+    return num1 + num2
 }
