@@ -383,4 +383,31 @@
 //        println(mutableShoppingList[0]) // print only at specific index
 //        println(mutableShoppingList) // print all elements of a list
 //    }
+//
+//    // FOR LOOP --> used for iterations
+//    fun main() {
+//        var shoppingList = mutableListOf("RAM","SSD","VGA","RFID","UAT","PROD") // list of items
+//
+//        // iterate through each item and print
+//        for (items in shoppingList) {
+//            println(items)
+//        }
+//
+//        // break out of the loop base on the conditions
+//        for (items in shoppingList) {
+//            println(items)
+//            if (items == "UAT") {
+//                shoppingList.removeLast() // delete last item in the list
+//                break
+//            }
+//        }
+//        // iterate through each item and print [ use until to print indexes ]
+//        for (index in 0 until  shoppingList.size) {
+//            println("item ${shoppingList[index]} is at index $index")
+//        }
+//
+//        println(shoppingList)
+//    }
+//
+//
 //}
