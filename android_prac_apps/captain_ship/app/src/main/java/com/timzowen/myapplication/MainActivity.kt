@@ -11,8 +11,10 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
@@ -35,21 +37,21 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun CaptainTreasure() {
-    val treasureFound = remember { mutableStateOf(0) }
-    val sailingDirection = remember { mutableStateOf("North") }
+    var treasureFound by remember { mutableStateOf(0) }
+    var sailingDirection by remember { mutableStateOf("North") }
     val stormOrTreasure = remember { mutableStateOf("") }
 
     Column(modifier = Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center) {
-        Text(text = "Treasure Found: ${treasureFound.value}")
+        Text(text = "Treasure Found: ${treasureFound}")
 
-        Text(text = "Sailing direction: ${sailingDirection.value}")
+        Text(text = "Sailing direction: ${sailingDirection}")
 
         Button(onClick = {
-            sailingDirection.value = "East"
+            sailingDirection = "East"
             if (Random.nextBoolean()) {
-                treasureFound.value += 1
+                treasureFound += 1
                 stormOrTreasure.value = "You found a treasure!"
             }else stormOrTreasure.value = "You found a storm!"
         }) {
@@ -57,9 +59,9 @@ fun CaptainTreasure() {
         }
 
         Button(onClick = {
-            sailingDirection.value = "South"
+            sailingDirection = "South"
             if (Random.nextBoolean()) {
-                treasureFound.value += 1
+                treasureFound += 1
                 stormOrTreasure.value = "You found a treasure!"
             }else stormOrTreasure.value = "You found a storm!"
         }) {
@@ -68,9 +70,9 @@ fun CaptainTreasure() {
         }
 
         Button(onClick = {
-            sailingDirection.value = "West"
+            sailingDirection = "West"
             if (Random.nextBoolean()) {
-                treasureFound.value += 1
+                treasureFound += 1
                 stormOrTreasure.value = "You found a treasure!"
             }else stormOrTreasure.value = "You found a storm!"
         }) {
@@ -78,9 +80,9 @@ fun CaptainTreasure() {
         }
 
         Button(onClick = {
-            sailingDirection.value = "North"
+            sailingDirection = "North"
             if (Random.nextBoolean()) {
-                treasureFound.value += 1
+                treasureFound += 1
                 stormOrTreasure.value = "You found a treasure!"
             } else stormOrTreasure.value = "You found a storm!"
         }) {
