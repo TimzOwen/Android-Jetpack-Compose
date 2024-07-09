@@ -1,6 +1,7 @@
 package com.timzowen.shopping_list
 
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -11,8 +12,10 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.Edit
@@ -38,7 +41,6 @@ data class ShoppingItems(
     var quantity: Int,
     var isEditing: Boolean = false
 )
-
 
 @Composable
 fun ShoppingListApp() {
@@ -117,6 +119,44 @@ fun ShoppingListApp() {
                 }
             }
         )
+    }
+}
+
+@Composable
+fun ShoppingItemEditor(item: ShoppingItems, onEditComplete: (String, Int) -> Unit){
+    var editedName by remember { mutableStateOf(item.name) }
+    var editedQuantity by remember { mutableStateOf(item.quantity.toString()) }
+    var isEditing by remember { mutableStateOf(item.isEditing) }
+
+    Row (modifier = Modifier
+        .padding(8.dp)
+        .fillMaxWidth()
+        .background(Color.White),
+        horizontalArrangement = Arrangement.SpaceEvenly,){
+        Column {
+            BasicTextField(
+                value = editedName,
+                onValueChange = { editedName = it },
+                modifier = Modifier
+                    .padding(8.dp)
+                    .wrapContentSize(),
+                singleLine = true
+            )
+            BasicTextField(
+                value = editedQuantity,
+                onValueChange = { editedQuantity = it },
+                modifier = Modifier
+                    .padding(8.dp)
+                    .wrapContentSize(),
+                singleLine = true
+            )
+        }
+        Button(onClick ={
+            isEditing = false
+            onEditComplete(editedName, editedQuantity.toIntOrNull() ?: 1)
+        } ){
+            Text(text = "save")
+        }
     }
 }
 
