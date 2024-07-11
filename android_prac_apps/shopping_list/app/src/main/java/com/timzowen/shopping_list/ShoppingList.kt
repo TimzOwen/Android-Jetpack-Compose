@@ -4,7 +4,6 @@ import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -65,7 +64,6 @@ fun ShoppingListApp() {
                 .padding(16.dp)
         ) {
             items(shoppingItemsList.size) {
-                ShoppingListItem(item = shoppingItemsList[it],{},{})
             }
         }
     }
@@ -122,6 +120,7 @@ fun ShoppingListApp() {
     }
 }
 
+
 @Composable
 fun ShoppingItemEditor(item: ShoppingItems, onEditComplete: (String, Int) -> Unit){
     var editedName by remember { mutableStateOf(item.name) }
@@ -159,6 +158,7 @@ fun ShoppingItemEditor(item: ShoppingItems, onEditComplete: (String, Int) -> Uni
         }
     }
 }
+
 
 @Composable
 fun ShoppingListItem(item: ShoppingItems, onEditClick: () -> Unit, onDeleteClick: () -> Unit){
