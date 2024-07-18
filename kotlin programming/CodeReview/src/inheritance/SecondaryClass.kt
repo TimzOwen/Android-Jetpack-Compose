@@ -1,6 +1,6 @@
 package inheritance
 
-class SecondaryClass : BaseClass() {
+open class SecondaryClass : BaseClass() {
 
     override fun teamLead() {
         super.teamLead()

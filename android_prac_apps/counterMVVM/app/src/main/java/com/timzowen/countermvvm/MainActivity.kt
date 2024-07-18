@@ -70,7 +70,6 @@ fun TheCounterScreen(viewModel: CounterViewModel) {
             }
         }
     }
-
 }
 
 
