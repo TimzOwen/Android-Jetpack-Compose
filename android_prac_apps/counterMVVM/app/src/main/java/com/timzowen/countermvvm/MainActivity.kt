@@ -31,25 +31,20 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
+            val viewModel: CounterViewModel = viewModel()
             Surface(modifier = Modifier.fillMaxSize(),
                 color = MaterialTheme.colorScheme.background) {
-                TheCounterScreen()
+                TheCounterScreen(viewModel)
             }
         }
     }
 }
 
 @Composable
-fun TheCounterScreen() {
+fun TheCounterScreen(viewModel: CounterViewModel) {
     val counter = remember { mutableStateOf(0) }
 
-    fun increment(){
-        counter.value ++
-    }
-    
-    fun decrement() {
-        counter.value --
-    }
+
 
     Column(modifier = Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -63,11 +58,11 @@ fun TheCounterScreen() {
         Spacer(modifier = Modifier.height(16.dp))
 
         Row() {
-            Button(onClick = { increment() }) {
+            Button(onClick = { viewModel.increment() }) {
                 Text(text = " Increment ")
             }
             Spacer(modifier = Modifier.padding(16.dp))
-            Button(onClick = { decrement() }) {
+            Button(onClick = { viewModel.decrement() }) {
                 Text(text = " Decrement ")
             }
         }
@@ -79,5 +74,5 @@ fun TheCounterScreen() {
 @Preview(showBackground = true)
 @Composable
 fun TheCounterScreenPreview() {
-    TheCounterScreen()
+    TheCounterScreen(viewModel = CounterViewModel() )
 }
