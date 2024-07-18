@@ -24,13 +24,16 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.compose.ui.unit.dp
+
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
+
             val viewModel: CounterViewModel = viewModel()
             Surface(modifier = Modifier.fillMaxSize(),
                 color = MaterialTheme.colorScheme.background) {
@@ -42,7 +45,7 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun TheCounterScreen(viewModel: CounterViewModel) {
-    val counter = remember { mutableStateOf(0) }
+    //val counter = remember { mutableStateOf(0) }
 
 
 
@@ -50,7 +53,7 @@ fun TheCounterScreen(viewModel: CounterViewModel) {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center) {
 
-        Text(text = "Counter: ${counter.value}",
+        Text(text = "Counter: ${viewModel.count.value}",
             fontSize = MaterialTheme.typography.headlineLarge.fontSize,
             fontWeight = FontWeight.Bold,
             modifier = Modifier.padding(16.dp))
