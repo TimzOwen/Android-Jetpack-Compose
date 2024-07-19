@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.timzowen.recipeapp"
+    namespace = "com.timzowen.recipe_one_recap"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.timzowen.recipeapp"
+        applicationId = "com.timzowen.recipe_one_recap"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
@@ -50,6 +50,7 @@ android {
 }
 
 dependencies {
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
@@ -58,7 +59,6 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
-    implementation (libs.androidx.lifecycle.viewmodel.compose)
     implementation(libs.androidx.lifecycle.viewmodel.ktx) // compose View Model for MVVM
     implementation (libs.retrofit) // retrofit for loading data from internet
     implementation(libs.coil.compose) // Coil for loading images
