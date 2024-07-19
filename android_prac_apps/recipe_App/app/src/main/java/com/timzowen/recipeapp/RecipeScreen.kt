@@ -40,7 +40,7 @@ fun RecipeScreen(modifier: Modifier = Modifier){
                 Text(text = "Error occurred!!! ")
             }
             else -> {
-                //TODO
+                CategoryScreen(categories = viewState.list)
             }
         }
     }
@@ -70,7 +70,7 @@ fun CategoryItems(category: Category){
 
         Text(
             text = category.strCategory,
-            color = Color.Blue,
+            color = Color.Black,
             style = TextStyle(fontWeight = FontWeight.Bold),
             modifier = Modifier.padding(top = 4.dp))
     }
