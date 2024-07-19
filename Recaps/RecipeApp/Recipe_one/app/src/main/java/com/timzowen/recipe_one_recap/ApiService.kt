@@ -12,7 +12,5 @@ private val retrofit = Retrofit.Builder().baseUrl("www.themealdb.com/api/json/v1
 
 interface ApiService{
     @GET("categories.php")
-    suspend fun getCategories(){
-
-    }
+    suspend fun getCategories(): CategoriesList
 }
