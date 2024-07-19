@@ -10,7 +10,7 @@ private val retrofit = Retrofit.Builder().baseUrl("www.themealdb.com/api/json/v1
     .build()
 
 // create the service repose from retrofit in the api class
-val responserService = retrofit.create(ApiService::class.java)
+val recipeService = retrofit.create(ApiService::class.java)
 
 // build the get service End point
 interface ApiService {
