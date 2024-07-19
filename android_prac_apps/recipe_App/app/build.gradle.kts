@@ -60,6 +60,7 @@ dependencies {
     implementation(libs.androidx.material3)
     implementation(libs.androidx.lifecycle.viewmodel.ktx) // compose View Model for MVVM
     implementation (libs.retrofit) // retrofit for loading data from internet
+    implementation(libs.coil.compose) // Coil for loading images
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
