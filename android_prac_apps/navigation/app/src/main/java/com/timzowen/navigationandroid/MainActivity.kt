@@ -23,6 +23,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.timzowen.navigationandroid.ui.theme.NavigationAndroidTheme
 
 class MainActivity : ComponentActivity() {
@@ -33,4 +36,17 @@ class MainActivity : ComponentActivity() {
             FirstScreen()
         }
     }
+}
+
+@Composable
+fun MyMainApp(){
+    // Step 1 --> set up nav controller
+    val navController = rememberNavController()
+
+    //Step 2 --> declare naHost
+    NavHost(navController= navController, startDestination = "firstscreen") {
+        composable("firstscreen"){}
+        composable("secondscree"){}
+    }
+
 }

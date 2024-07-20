@@ -16,13 +16,13 @@ import androidx.compose.ui.unit.sp
 
 
 @Composable
-fun SecondScreen() {
+fun SecondScreen(navigateToScreenOne: () -> Unit) {
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally) {
         Text(text = "Second Screen", fontSize = 24.sp, fontWeight = FontWeight.Bold)
-        Button(modifier = Modifier.padding(top = 16.dp), onClick = { /*TODO*/ }) {
+        Button(modifier = Modifier.padding(top = 16.dp), onClick = { navigateToScreenOne() }) {
             Text(text = "First Screen")
         }
     }
@@ -31,5 +31,5 @@ fun SecondScreen() {
 @Composable
 @Preview(showBackground = true)
 fun SecondScreenPreview() {
-    SecondScreen()
+    SecondScreen({})
 }
