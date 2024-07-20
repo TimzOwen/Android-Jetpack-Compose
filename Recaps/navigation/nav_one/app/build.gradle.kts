@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.timzowen.navigationandroid"
+    namespace = "com.timzowen.navigation_r1"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.timzowen.navigationandroid"
+        applicationId = "com.timzowen.navigation_r1"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
@@ -51,13 +51,13 @@ android {
 
 dependencies {
 
-    implementation (libs.androidx.navigation.compose)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.ui)
     implementation(libs.androidx.ui.graphics)
+    implementation (libs.androidx.navigation.compose)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
     testImplementation(libs.junit)
