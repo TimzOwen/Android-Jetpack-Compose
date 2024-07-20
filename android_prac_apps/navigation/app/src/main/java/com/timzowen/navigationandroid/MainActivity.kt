@@ -45,8 +45,7 @@ fun MyMainApp(){
 
     //Step 2 --> declare naHost
     NavHost(navController= navController, startDestination = "firstscreen") {
-        composable("firstscreen"){
-            FirstScreen {
+        composable("firstscreen"){ FirstScreen {
                 navController.navigate("secondscreen")
             }
         }
