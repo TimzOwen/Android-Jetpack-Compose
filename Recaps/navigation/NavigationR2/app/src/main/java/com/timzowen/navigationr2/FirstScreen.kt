@@ -17,14 +17,14 @@ import androidx.compose.ui.unit.sp
 
 
 @Composable
-fun ScreenOne(){
+fun ScreenOne(navigateToScreenTwo: () -> Unit){
     Column(modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally) {
 
         Text(text = "Screen one", fontSize = 24.sp, fontWeight = FontWeight.Bold)
         Spacer(modifier = Modifier.padding(16.dp))
-        Button(onClick = { /*TODO*/ }) {
+        Button(onClick = { navigateToScreenTwo() }) {
             Text(text = "Go To Screen 2")
         }
     }
@@ -33,5 +33,5 @@ fun ScreenOne(){
 @Composable
 @Preview(showBackground = true)
     fun ScreenOnePreview(){
-    ScreenOne()
+    ScreenOne(){}
 }
