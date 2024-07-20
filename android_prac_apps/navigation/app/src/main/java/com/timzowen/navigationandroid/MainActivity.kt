@@ -33,7 +33,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            FirstScreen()
+            MyMainApp()
         }
     }
 }
@@ -45,8 +45,16 @@ fun MyMainApp(){
 
     //Step 2 --> declare naHost
     NavHost(navController= navController, startDestination = "firstscreen") {
-        composable("firstscreen"){}
-        composable("secondscree"){}
+        composable("firstscreen"){
+            FirstScreen {
+                navController.navigate("secondscreen")
+            }
+        }
+        composable("secondscreen"){
+            SecondScreen {
+                navController.navigate("firstscreen")
+            }
+        }
     }
 
 }

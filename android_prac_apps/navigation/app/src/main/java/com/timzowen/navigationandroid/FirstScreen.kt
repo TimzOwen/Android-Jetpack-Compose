@@ -31,7 +31,7 @@ fun FirstScreen(navigateToScreenTwo: () -> Unit) {
             .fillMaxSize()
     ) {
 
-        Text(text = "Screen One: ", fontSize = 24.sp, fontWeight = FontWeight.Bold)
+        Text(text = "Screen One 1: ", fontSize = 24.sp, fontWeight = FontWeight.Bold)
         Spacer(modifier = Modifier.height(16.dp))
         OutlinedTextField(value = name.value, onValueChange = { name.value = it })
         Button(modifier = Modifier.padding(top = 16.dp), onClick = {

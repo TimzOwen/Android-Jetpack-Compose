@@ -21,8 +21,9 @@ fun SecondScreen(navigateToScreenOne: () -> Unit) {
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally) {
-        Text(text = "Second Screen", fontSize = 24.sp, fontWeight = FontWeight.Bold)
-        Button(modifier = Modifier.padding(top = 16.dp), onClick = { navigateToScreenOne() }) {
+        Text(text = "Second Screen 2", fontSize = 24.sp, fontWeight = FontWeight.Bold)
+        Button(modifier = Modifier.padding(top = 16.dp),
+            onClick = { navigateToScreenOne() }) {
             Text(text = "First Screen")
         }
     }
