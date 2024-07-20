@@ -23,7 +23,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun MainScreenNavigation(){
    val navHostController = rememberNavController()
-    NavHost(navController = navHostController, startDestination = "scree_one"){
+    NavHost(navController = navHostController, startDestination = "screen_one"){
         composable("screen_one"){
             ScreenOne{ navHostController.navigate("screen_two")}
         }
