@@ -17,3 +17,9 @@ interface ApiService {
     @GET("categories.php")
     suspend fun getCategories(): CategoriesResponse
 }
+
+// prices per category..
+interface ApiServicePrice {
+    @GET("categories.php")
+    suspend fun getPrices(): CategoriesResponse
+}
