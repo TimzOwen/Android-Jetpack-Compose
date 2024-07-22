@@ -63,6 +63,7 @@ dependencies {
     implementation (libs.retrofit) // retrofit for loading data from internet
     implementation(libs.coil.compose) // Coil for loading images
     implementation (libs.converter.gson)  // json converter library
+    implementation (libs.androidx.navigation.compose)  // navigation
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

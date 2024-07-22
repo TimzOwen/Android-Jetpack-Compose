@@ -33,7 +33,6 @@ fun CategoryDetailScreen(category: Category){
         Text(text = category.strCategoryDescription,
             textAlign = TextAlign.Justify,
             modifier = Modifier.verticalScroll(rememberScrollState()))
-
     }
 }
 
