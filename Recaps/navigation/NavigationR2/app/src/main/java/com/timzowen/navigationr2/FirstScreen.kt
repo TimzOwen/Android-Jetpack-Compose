@@ -1,10 +1,9 @@
-package com.timzowen.navigationandroid
+package com.timzowen.navigationr2
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
@@ -18,23 +17,21 @@ import androidx.compose.ui.unit.sp
 
 
 @Composable
-fun SecondScreen(name: String, navigateToScreenOne: (String) -> Unit) {
-    Column(
-        modifier = Modifier.fillMaxSize(),
+fun ScreenOne(navigateToScreenTwo: () -> Unit){
+    Column(modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally) {
-        Text(text = "Second Screen 2", fontSize = 24.sp, fontWeight = FontWeight.Bold)
-        Spacer(modifier = Modifier.height(16.dp))
-        Text(text = "Welcome user: $name", fontSize = 18.sp)
-        Button(modifier = Modifier.padding(top = 16.dp),
-            onClick = { navigateToScreenOne(name) }) {
-            Text(text = "First Screen")
+
+        Text(text = "Screen one", fontSize = 24.sp, fontWeight = FontWeight.Bold)
+        Spacer(modifier = Modifier.padding(16.dp))
+        Button(onClick = { navigateToScreenTwo() }) {
+            Text(text = "Go To Screen 2")
         }
     }
 }
 
 @Composable
 @Preview(showBackground = true)
-fun SecondScreenPreview() {
-    SecondScreen("Timz"){}
+    fun ScreenOnePreview(){
+    ScreenOne(){}
 }
