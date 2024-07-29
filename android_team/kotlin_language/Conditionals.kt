@@ -75,5 +75,31 @@ fun main(){
           else -> println("Invalid traffic-light color")
       }
 
+     // convert if else to CONDITIONS..... {Remove redundant println}
+    val trafficLightColor = "Green"
+    
+    val message = 
+    if (trafficLightColor == "Red") "stop"
+    else if (trafficLightColor == "Yellow") "Slow" 
+    else if (trafficLightColor == "Green") "Go" 
+    else "Invalid input ... Error"
+    
+    println(message)
+
+
+    // use expression on When statements
+    val trafficLightColor = "Amber"
+
+    val message =when (trafficLightColor) {
+        "Red" -> "Stop"
+        "Yellow", "Amber" -> "Slow"
+        "Green" -> "Go"
+        else -> "Invalid traffic-light color"
+    }
+    
+    println(message)
+
+
+    
 
 }
