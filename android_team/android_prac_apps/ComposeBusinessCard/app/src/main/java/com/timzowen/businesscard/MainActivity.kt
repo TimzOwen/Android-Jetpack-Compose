@@ -57,7 +57,7 @@ fun BusinessCardApp() {
         horizontalAlignment = Alignment.CenterHorizontally,) {
 
         Column(
-            modifier = Modifier.wrapContentSize(),
+            modifier = Modifier.wrapContentSize().weight(4f),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally) {
             Image(
@@ -79,6 +79,7 @@ fun BusinessCardApp() {
 
         Box(
             modifier = Modifier
+                .weight(1f)
                 .fillMaxSize()) {
             Column (
                 modifier = Modifier
