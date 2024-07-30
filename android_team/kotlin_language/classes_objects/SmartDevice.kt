@@ -104,7 +104,90 @@ fun main(){
 }
 
 
+
+// Backing Field --> Holde memory for getter and setter
+var speakerVolume = 2
+get() = field
+set(value){
+    field = value
+}
+
+// example 2
+var speakerVolume = 5
+set(value){
+    if(value in 0..100){
+        field = value
+    }
+}
+
+
+
 //
+// classes parameterized CONSTRUCTOR Definition
+class SmartDevice constructor(val name: String, val category: String){ 
+    val name = "android TV"
+   
+    fun turnOn(){
+        println("Smart device is turned on....")
+    }
+    
+    fun turnOff(){
+        println("Smart device is turned off...")
+    }
+}
+ 
+fun main(){
+    
+    val smartTvDevice = SmartDevice(name="androidTv", category="entertainment") // named arguements
+    val smartWatchDevices = SmartDevice("smartWatch","time") // no named arguements
+    println("Device name: ${smartTvDevice.name}")
+    smartTvDevice.turnOn()
+    smartTvDevice.turnOff()    
+}
+
+
+//
+// PRIMARY & SECONDARY Constructors
+class SmartDevice(val name: String, val category: String){
+    var deviceStatus = "online"
+    
+    constructor(name: String, category: String, statusCode: Int) : this(name, category){ // secondary 
+    deviceStatus = when(statusCode){
+        1 -> "online"
+        0 -> "offline"
+        else -> "unknown"
+     }
+    }
+    
+    fun turnOn(){
+        println("smart device is on...")
+    }
+    
+    fun turnOff(){
+        println("smart device is off...")
+    }
+    
+}
+
+fun main(){
+    val device1 = SmartDevice("android","entertainmet",0)
+    println(device1.deviceStatus)
+    device1.turnOn()
+}
+
+
+//
+
+
+
+
+
+
+
+
+
+
+
 
 
 
