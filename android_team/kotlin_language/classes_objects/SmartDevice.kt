@@ -177,11 +177,97 @@ fun main(){
 
 
 //
+// RELATIONSHIP between CLASSES {INHERITANCE} (open - make it extendable)
+open class SmartDevice(val name: String, val category: String){
+    var deviceStatus = "online"
+    
+    constructor(name: String, category: String, statusCode: Int) : this(name, category){ // secondary 
+    deviceStatus = when(statusCode){
+        1 -> "online"
+        0 -> "offline"
+        else -> "unknown"
+     }
+    }
+    
+    fun turnOn(){
+        println("smart device is on...")
+    }
+    
+    fun turnOff(){
+        println("smart device is off...")
+    }
+    
+}
 
 
+//
+// RELATIONSHIP between CLASSES {INHERITANCE} (open - make it extendable)
+open class SmartDevice(val name: String, val category: String){
+    var deviceStatus = "online"
+    
+    constructor(name: String, category: String, statusCode: Int) : this(name, category){ // secondary 
+    deviceStatus = when(statusCode){
+        1 -> "online"
+        0 -> "offline"
+        else -> "unknown"
+     }
+    }
+    
+    fun turnOn(){
+        println("smart device is on...")
+    }
+    
+    fun turnOff(){
+        println("smart device is off...")
+    }
+    
+}
 
 
+//
+// Inherit behaviour of our super open super class
+class SmartTvDevice(deviceName: String, deviceCategory: String) : SmartDevice(name=deviceName, category=deviceCategory){
+    // add a property
+    var speakerVolume = 2
+    set(value){
+        if(value in 0..100){
+            field = value
+        }
+    }
+    
+    var channelNumber = 4
+    set(value){
+        if(value in 0..200){
+            field = value
+        }
+    }
+    
+    fun increaseSpeakerVolume(){
+        speakerVolume ++
+        println("Speaker volume inreased to $speakerVolume")
+    }
+    
+    fun nextChannel(){
+        channelNumber ++
+        println("Channel number changed to $channelNumber")
+    }
+    
+}
 
+fun main(){
+    val device1 = SmartDevice("android","entertainmet",0)
+    println(device1.deviceStatus)
+    device1.turnOn()
+    println()
+    
+    val smartTvDevice = SmartTvDevice("smartTv","Entertainmet")
+    smartTvDevice.increaseSpeakerVolume()
+    
+    
+}
+
+
+//
 
 
 
