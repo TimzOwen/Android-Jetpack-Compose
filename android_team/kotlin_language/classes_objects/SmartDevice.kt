@@ -55,6 +55,63 @@ class DeviceStatus(name: String, category: String){
 }
 
 
+
+// class METHODS
+class SmartDevice{
+    
+    // member function / method
+    fun turnOn(){
+        println("Smart device is turned on....")
+    }
+    
+    fun turnOff(){
+        println("Smart device is turned off...")
+    }
+}
+ 
+// create instance and call the member function in MAIN function
+fun main(){
+    
+    val smartTvDevice = SmartDevice()
+    smartTvDevice.turnOn()
+    smartTvDevice.turnOff()    
+}
+
+
+//
+// classe PROPERTIES
+class SmartDevice{
+    //property
+    val name = "android TV"
+    
+    // member function / method
+    fun turnOn(){
+        println("Smart device is turned on....")
+    }
+    
+    fun turnOff(){
+        println("Smart device is turned off...")
+    }
+}
+ 
+// create instance and call the member function in MAIN function
+fun main(){
+    
+    val smartTvDevice = SmartDevice()
+    println("Device name: ${smartTvDevice.name}")  // access property here
+    smartTvDevice.turnOn()
+    smartTvDevice.turnOff()    
+}
+
+
+//
+
+
+
+
+
+
+
 // CLASSES & OBJECTS LONG TEST
 import kotlin.properties.ReadWriteProperty
 import kotlin.reflect.KProperty
