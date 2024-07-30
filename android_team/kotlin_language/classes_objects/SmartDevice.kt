@@ -177,6 +177,575 @@ fun main(){
 
 
 //
+// RELATIONSHIP between CLASSES {INHERITANCE} (open - make it extendable)
+open class SmartDevice(val name: String, val category: String){
+    var deviceStatus = "online"
+    
+    constructor(name: String, category: String, statusCode: Int) : this(name, category){ // secondary 
+    deviceStatus = when(statusCode){
+        1 -> "online"
+        0 -> "offline"
+        else -> "unknown"
+     }
+    }
+    
+    fun turnOn(){
+        println("smart device is on...")
+    }
+    
+    fun turnOff(){
+        println("smart device is off...")
+    }
+    
+}
+
+
+//
+// RELATIONSHIP between CLASSES {INHERITANCE} (open - make it extendable)
+open class SmartDevice(val name: String, val category: String){
+    var deviceStatus = "online"
+    
+    constructor(name: String, category: String, statusCode: Int) : this(name, category){ // secondary 
+    deviceStatus = when(statusCode){
+        1 -> "online"
+        0 -> "offline"
+        else -> "unknown"
+     }
+    }
+    
+    fun turnOn(){
+        println("smart device is on...")
+    }
+    
+    fun turnOff(){
+        println("smart device is off...")
+    }
+    
+}
+
+
+//
+// Inherit behaviour of our super open super class
+class SmartTvDevice(deviceName: String, deviceCategory: String) : SmartDevice(name=deviceName, category=deviceCategory){
+    // add a property
+    var speakerVolume = 2
+    set(value){
+        if(value in 0..100){
+            field = value
+        }
+    }
+    
+    var channelNumber = 4
+    set(value){
+        if(value in 0..200){
+            field = value
+        }
+    }
+    
+    fun increaseSpeakerVolume(){
+        speakerVolume ++
+        println("Speaker volume inreased to $speakerVolume")
+    }
+    
+    fun nextChannel(){
+        channelNumber ++
+        println("Channel number changed to $channelNumber")
+    }
+    
+}
+
+fun main(){
+    val device1 = SmartDevice("android","entertainmet",0)
+    println(device1.deviceStatus)
+    device1.turnOn()
+    println()
+    
+    val smartTvDevice = SmartTvDevice("smartTv","Entertainmet")
+    smartTvDevice.increaseSpeakerVolume()
+    
+    
+}
+
+
+
+//
+// RELATIONSHIP between CLASSES {INHERITANCE} (open - make it extendable) || Relationship 
+open class SmartDevice(val name: String, val category: String){
+    var deviceStatus = "online"
+    
+    constructor(name: String, category: String, statusCode: Int) : this(name, category){ // secondary 
+    deviceStatus = when(statusCode){
+        1 -> "online"
+        0 -> "offline"
+        else -> "unknown"
+     }
+    }
+    
+    fun turnOn(){
+        println("smart device is on...")
+    }
+    
+    fun turnOff(){
+        println("smart device is off...")
+    }
+    
+}
+
+// Inherit behaviour of our super open super class
+class SmartTvDevice(deviceName: String, deviceCategory: String) : SmartDevice(name=deviceName, category=deviceCategory){
+    // add a property
+    var speakerVolume = 2
+    set(value){
+        if(value in 0..100){
+            field = value
+        }
+    }
+    
+    var channelNumber = 4
+    set(value){
+        if(value in 0..200){
+            field = value
+        }
+    }
+    
+    fun increaseSpeakerVolume(){
+        speakerVolume ++
+        println("Speaker volume inreased to $speakerVolume")
+    }
+    
+    fun nextChannel(){
+        channelNumber ++
+        println("Channel number changed to $channelNumber")
+    }
+    
+}
+
+// smartlight to inherit from SmartDevice
+class SmartLightDevice(deviceName: String, deviceCategory: String) : SmartDevice(name=deviceName, category=deviceCategory){
+    
+    var brightnessLevel = 5
+    set(value){
+        if(value in 0..100){
+            field=value
+        }
+    }
+    
+    fun increaseBrightness(){
+        brightnessLevel ++
+        println("brightness level increased to: $brightnessLevel")
+    }
+    
+}
+
+// class Relationship - composition
+class SmartHome(
+    val smartTvDevice : SmartTvDevice,
+    val smartLightDevice: SmartLightDevice){
+    
+    fun turnOnTv(){
+        smartTvDevice.turnOn()       
+    }
+    
+    fun turnOnLight(){
+        smartLightDevice.turnOn()
+    }
+    
+    fun turnOffTv(){
+        smartTvDevice.turnOff()
+    }
+    
+    fun turnOffLight(){
+        smartLightDevice.turnOff()
+    }
+    
+    fun increaseTvVolume(){
+        smartTvDevice.increaseSpeakerVolume()
+    }
+    
+    fun increaseBrightness(){
+        smartLightDevice.increaseBrightness()
+    }
+    
+    fun changeTvChannel(){
+        smartTvDevice.nextChannel()
+    }
+    
+    fun turnOffAllDevices(){
+        turnOffLight()
+        turnOffTv()
+    }
+    
+}
+
+fun main(){
+    val device1 = SmartDevice("android","entertainmet",0)
+    println(device1.deviceStatus)
+    device1.turnOn()
+    println()
+    
+    val smartTvDevice = SmartTvDevice("smartTv","Entertainmet")
+    smartTvDevice.increaseSpeakerVolume()
+    println()
+    
+    val smartLight = SmartLightDevice("smartlight", "lighting")
+    smartLight.increaseBrightness()
+    println()
+    
+  
+}
+
+
+
+
+//
+//
+// RELATIONSHIP between CLASSES {OVERRIDE} --> open to allow override
+open class SmartDevice(val name: String, val category: String){
+    var deviceStatus = "online"
+    
+    constructor(name: String, category: String, statusCode: Int) : this(name, category){ // secondary 
+    deviceStatus = when(statusCode){
+        1 -> "online"
+        0 -> "offline"
+        else -> "unknown"
+     }
+    }
+    
+    open fun turnOn(){
+        println("smart device is on...")
+    }
+    
+    open fun turnOff(){
+        println("smart device is off...")
+    }
+    
+}
+
+// Inherit behaviour of our super open super class
+class SmartTvDevice(deviceName: String, deviceCategory: String) : SmartDevice(name=deviceName, category=deviceCategory){
+    // add a property
+    var speakerVolume = 2
+    set(value){
+        if(value in 0..100){
+            field = value
+        }
+    }
+    
+    var channelNumber = 4
+    set(value){
+        if(value in 0..200){
+            field = value
+        }
+    }
+    
+    fun increaseSpeakerVolume(){
+        speakerVolume ++
+        println("Speaker volume inreased to $speakerVolume")
+    }
+    
+    fun nextChannel(){
+        channelNumber ++
+        println("Channel number changed to $channelNumber")
+    }
+    
+    override fun turnOn() {
+        deviceStatus = "on"
+        println(
+            "$name is turned on. Speaker volume is set to $speakerVolume and channel number is " +
+                "set to $channelNumber." )
+    }
+    
+    override fun turnOff() {
+        deviceStatus = "off"
+        println("$name turned off")
+    }
+    
+}
+
+// smartlight to inherit from SmartDevice
+class SmartLightDevice(deviceName: String, deviceCategory: String) : SmartDevice(name=deviceName, category=deviceCategory){
+    
+    var brightnessLevel = 5
+    set(value){
+        if(value in 0..100){
+            field=value
+        }
+    }
+    
+    fun increaseBrightness(){
+        brightnessLevel ++
+        println("brightness level increased to: $brightnessLevel")
+    }
+    
+    override fun turnOn(){
+        deviceStatus = "on"
+        brightnessLevel = 2
+        println("$name turned on. The brightness level is $brightnessLevel.")        
+    }
+    
+     override fun turnOff() {
+        deviceStatus = "off"
+        brightnessLevel = 0
+        println("Smart Light turned off")
+    }
+}
+
+// class Relationship - composition
+class SmartHome(
+    val smartTvDevice : SmartTvDevice,
+    val smartLightDevice: SmartLightDevice){
+    
+    fun turnOnTv(){
+        smartTvDevice.turnOn()       
+    }
+    
+    fun turnOnLight(){
+        smartLightDevice.turnOn()
+    }
+    
+    fun turnOffTv(){
+        smartTvDevice.turnOff()
+    }
+    
+    fun turnOffLight(){
+        smartLightDevice.turnOff()
+    }
+    
+    fun increaseTvVolume(){
+        smartTvDevice.increaseSpeakerVolume()
+    }
+    
+    fun increaseBrightness(){
+        smartLightDevice.increaseBrightness()
+    }
+    
+    fun changeTvChannel(){
+        smartTvDevice.nextChannel()
+    }
+    
+    fun turnOffAllDevices(){
+        turnOffLight()
+        turnOffTv()
+    }
+    
+}
+
+fun main(){
+    val device1 = SmartDevice("android","entertainmet",0)
+    println(device1.deviceStatus)
+    device1.turnOn()
+    println()
+    
+    val smartTvDevice = SmartTvDevice("smartTv","Entertainmet")
+    smartTvDevice.increaseSpeakerVolume()
+    println()
+    
+    val smartLight = SmartLightDevice("smartlight", "lighting")
+    smartLight.increaseBrightness()
+    println()
+    
+    var smartDevice: SmartDevice = SmartTvDevice("Android TV", "Entertainment")
+    smartDevice.turnOn()
+    println()
+    
+    smartDevice = SmartLightDevice("Google Light", "Utility")
+    smartDevice.turnOn()
+}
+
+
+
+//
+//
+// RELATIONSHIP between CLASSES {super} Resue super class
+open class SmartDevice(val name: String, val category: String){
+    var deviceStatus = "online"
+    open val deviceType = "unknown"    //override superclass property
+    
+    constructor(name: String, category: String, statusCode: Int) : this(name, category){ // secondary 
+    deviceStatus = when(statusCode){
+        1 -> "online"
+        0 -> "offline"
+        else -> "unknown"
+     }
+    }
+    
+    open fun turnOn(){
+        deviceStatus = "on"
+    }
+    
+    open fun turnOff(){
+        deviceStatus = "off"
+    }
+    
+}
+
+// Inherit behaviour of our super open super class
+class SmartTvDevice(deviceName: String, deviceCategory: String) : SmartDevice(name=deviceName, category=deviceCategory){
+    
+    override val deviceType = "Smart TV"  // overrride the value
+    
+    var speakerVolume = 2
+    set(value){
+        if(value in 0..100){
+            field = value
+        }
+    }
+    
+    var channelNumber = 4
+    set(value){
+        if(value in 0..200){
+            field = value
+        }
+    }
+    
+    fun increaseSpeakerVolume(){
+        speakerVolume ++
+        println("Speaker volume inreased to $speakerVolume")
+    }
+    
+    fun nextChannel(){
+        channelNumber ++
+        println("Channel number changed to $channelNumber")
+    }
+    
+    override fun turnOn() {
+        super.turnOn()
+        println(
+            "$name is turned on. Speaker volume is set to $speakerVolume and channel number is " +
+                "set to $channelNumber." )
+    }
+    
+    override fun turnOff() {
+        super.turnOff()
+        println("$name turned off")
+    }
+    
+}
+
+// smartlight to inherit from SmartDevice
+class SmartLightDevice(deviceName: String, deviceCategory: String) : SmartDevice(name=deviceName, category=deviceCategory){
+    
+    override val deviceType = "Smart Light"
+    
+    var brightnessLevel = 5
+    set(value){
+        if(value in 0..100){
+            field=value
+        }
+    }
+    
+    fun increaseBrightness(){
+        brightnessLevel ++
+        println("brightness level increased to: $brightnessLevel")
+    }
+    
+    override fun turnOn(){
+        super.turnOn()
+        brightnessLevel = 2
+        println("$name turned on. The brightness level is $brightnessLevel.")        
+    }
+    
+     override fun turnOff() {
+        super.turnOff()
+        brightnessLevel = 0
+        println("Smart Light turned off")
+    }
+}
+
+// class Relationship - composition
+class SmartHome(
+    val smartTvDevice : SmartTvDevice,
+    val smartLightDevice: SmartLightDevice){
+    
+    fun turnOnTv(){
+        smartTvDevice.turnOn()       
+    }
+    
+    fun turnOnLight(){
+        smartLightDevice.turnOn()
+    }
+    
+    fun turnOffTv(){
+        smartTvDevice.turnOff()
+    }
+    
+    fun turnOffLight(){
+        smartLightDevice.turnOff()
+    }
+    
+    fun increaseTvVolume(){
+        smartTvDevice.increaseSpeakerVolume()
+    }
+    
+    fun increaseBrightness(){
+        smartLightDevice.increaseBrightness()
+    }
+    
+    fun changeTvChannel(){
+        smartTvDevice.nextChannel()
+    }
+    
+    fun turnOffAllDevices(){
+        turnOffLight()
+        turnOffTv()
+    }
+    
+}
+
+fun main(){
+    val device1 = SmartDevice("android","entertainmet",0)
+    println(device1.deviceStatus)
+    device1.turnOn()
+    println()
+    
+    val smartTvDevice = SmartTvDevice("smartTv","Entertainmet")
+    smartTvDevice.increaseSpeakerVolume()
+    println()
+    
+    val smartLight = SmartLightDevice("smartlight", "lighting")
+    smartLight.increaseBrightness()
+    println()
+    
+    var smartDevice: SmartDevice = SmartTvDevice("Android TV", "Entertainment")
+    smartDevice.turnOn()
+    println()
+    
+    smartDevice = SmartLightDevice("Google Light", "Utility")
+    smartDevice.turnOn()
+    
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
