@@ -721,25 +721,261 @@ fun main(){
 
 //
 //
+// Classes & Objects LAMBDAs  {expression} as variables
+fun main(){
+    
+    val trickFunction = ::trick // use full colon to store the fn as vairable
+    
+}
+
+fun trick(){
+    println("No treats")
+}
+
+
+
+//
+//
+// Classes & Objects  {expression} --> Convert to lambda function
+fun main(){    
+    val trickFunction = trick // 
+    trick()
+    trickFunction()
+    
+}
+
+// use lambda expression
+val trick = {
+    println("No treats")
+}
+
+
+
+
+//
+//
+// Functions as data type {RETURN TYPES}
+fun main(){    
+    
+    trick()
+    treat()
+    
+}
+
+// use lambda expression
+val trick = {
+    println("No tricks!")
+}
+
+// fn with parameters and return type
+val treat: () -> Unit = {
+    println("No treats!")
+}
+
+
+
+
+//
+//
+// Functions as data type & Return type of function
+fun main(){
+    val trickFunction = trickOrTreat(true)
+    val treatFunction = trickOrTreat(false)
+    trickFunction()
+    treatFunction()
+    
+}
+
+fun trickOrTreat(isTrick: Boolean): () -> Unit {
+    if(isTrick){
+        return trick
+    }else{
+        return treat
+    }   
+}
+
+
+// use lambda expression
+val trick = {
+    println("No tricks!")
+}
+
+// fn with parameters and return type
+val treat: () -> Unit = {
+    println("No treats!")
+}
+
+
+
+
+//
+//
+// pass a function to anther function as args to fn {FUNCTION AS PARAMETES}
+fun main(){
+    
+    val coins: (Int) -> String = { quantity -> 
+    "$quantity quaters"
+    }
+    
+    val cupcake: (Int) -> String = {
+        "have a cupcake"
+        
+    }
+    
+    val trickFunction = trickOrTreat(true, cupcake)
+    val treatFunction = trickOrTreat(false, coins)
+    trickFunction()
+    treatFunction()
+    
+}
+
+fun trickOrTreat(isTrick: Boolean, extraTreat:(Int) -> String): () -> Unit {
+    if(isTrick){
+        return trick
+    }else{
+        println(extraTreat(5))
+        return treat
+    }   
+}
+
+
+// use lambda expression
+val trick = {
+    println("No tricks!")
+}
+
+// fn with parameters and return type
+val treat: () -> Unit = {
+    println("No treats!")
+}
 
 
 
 
 
+//
+//
+// Nullable functions ?
+fun main(){
+    
+    val coins: (Int) -> String = { quantity -> 
+    "$quantity quaters"
+    }
+    
+    val cupcake: (Int) -> String = {
+        "have a cupcake"
+        
+    }
+    
+    val trickFunction = trickOrTreat(true, null)
+    val treatFunction = trickOrTreat(false, coins)
+    trickFunction()
+    treatFunction()
+    
+}
+
+fun trickOrTreat(isTrick: Boolean, extraTreat:((Int) -> String)?): () -> Unit {
+    if(isTrick){
+        return trick
+    }else {
+        if(extraTreat != null){
+            println(extraTreat(5))
+        }        
+        return treat
+    }   
+}
+
+
+// use lambda expression
+val trick = {
+    println("No tricks!")
+}
+
+// fn with parameters and return type
+val treat: () -> Unit = {
+    println("No treats!")
+}
 
 
 
+//
+//
+// Write lambda expressions with shorthand syntax {it} 
+fun main(){
+    
+    val coins: (Int) -> String = { 
+    "$it quaters"
+    }
+    
+    val cupcake: (Int) -> String = {
+        "have a cupcake"
+        
+    }
+    
+    val trickFunction = trickOrTreat(true, null)
+    val treatFunction = trickOrTreat(false, coins)
+    trickFunction()
+    treatFunction()
+    
+}
+
+fun trickOrTreat(isTrick: Boolean, extraTreat:((Int) -> String)?): () -> Unit {
+    if(isTrick){
+        return trick
+    }else {
+        if(extraTreat != null){
+            println(extraTreat(5))
+        }        
+        return treat
+    }   
+}
+
+
+// use lambda expression
+val trick = {
+    println("No tricks!")
+}
+
+// fn with parameters and return type
+val treat: () -> Unit = {
+    println("No treats!")
+}
 
 
 
+//
+//
+// Write lambda expressions with shorthand syntax {it} 
+fun main(){
+
+    val trickFunction = trickOrTreat(false, {"$it quaters"})
+    val treatFunction = trickOrTreat(true, null)
+    trickFunction()
+    treatFunction()
+    
+}
+
+fun trickOrTreat(isTrick: Boolean, extraTreat:((Int) -> String)?): () -> Unit {
+    if(isTrick){
+        return trick
+    }else {
+        if(extraTreat != null){
+            println(extraTreat(5))
+        }        
+        return treat
+    }   
+}
 
 
+// use lambda expression
+val trick = {
+    println("No tricks!")
+}
 
-
-
-
-
-
+// fn with parameters and return type
+val treat: () -> Unit = {
+    println("No treats!")
+}
 
 
 
