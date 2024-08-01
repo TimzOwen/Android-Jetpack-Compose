@@ -721,8 +721,38 @@ fun main(){
 
 //
 //
+// Classes & Objects LAMBDAs  {expression} as variables
+fun main(){
+    
+    val trickFunction = ::trick // use full colon to store the fn as vairable
+    
+}
+
+fun trick(){
+    println("No treats")
+}
 
 
+
+//
+//
+// Classes & Objects  {expression} --> Convert to lambda function
+fun main(){    
+    val trickFunction = trick // 
+    trick()
+    trickFunction()
+    
+}
+
+// use lambda expression
+val trick = {
+    println("No treats")
+}
+
+
+
+//
+//
 
 
 
