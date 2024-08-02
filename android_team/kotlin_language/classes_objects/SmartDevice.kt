@@ -948,7 +948,9 @@ val treat: () -> Unit = {
 // Write lambda expressions with shorthand syntax {it} 
 fun main(){
 
-    val trickFunction = trickOrTreat(false, {"$it quaters"})
+    val trickFunction = trickOrTreat(false, {"$it quaters"}) 
+    // Trailing syntax - to be more readable
+    val trickFunction = trickOrTreat(false) {"$it quaters"}
     val treatFunction = trickOrTreat(true, null)
     trickFunction()
     treatFunction()
@@ -979,181 +981,65 @@ val treat: () -> Unit = {
 
 
 
+//
+//
+// Repeat Functions {High order functions!} 
+fun main(){
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// CLASSES & OBJECTS LONG TEST
-import kotlin.properties.ReadWriteProperty
-import kotlin.reflect.KProperty
-
-open class SmartDevice(val name: String, val category: String) {
-
-    var deviceStatus = "online"
-        protected set
-
-    open val deviceType = "unknown"
-
-    open fun turnOn() {
-        deviceStatus = "on"
+    val trickFunction = trickOrTreat(false) {"$it quaters"}
+    val treatFunction = trickOrTreat(true, null)
+    repeat(5){
+        treatFunction()
     }
-
-    open fun turnOff() {
-        deviceStatus = "off"
-    }
+    trickFunction()
+   
+    
 }
 
-class SmartTvDevice(deviceName: String, deviceCategory: String) :
-    SmartDevice(name = deviceName, category = deviceCategory) {
-
-    override val deviceType = "Smart TV"
-
-    private var speakerVolume by RangeRegulator(initialValue = 2, minValue = 0, maxValue = 100)
-
-    private var channelNumber by RangeRegulator(initialValue = 1, minValue = 0, maxValue = 200)
-
-    fun increaseSpeakerVolume() {
-        speakerVolume++
-        println("Speaker volume increased to $speakerVolume.")
-    }
-
-    fun nextChannel() {
-        channelNumber++
-        println("Channel number increased to $channelNumber.")
-    }
-
-    override fun turnOn() {
-        super.turnOn()
-        println(
-            "$name is turned on. Speaker volume is set to $speakerVolume and channel number is " +
-                "set to $channelNumber."
-        )
-    }
-
-    override fun turnOff() {
-        super.turnOff()
-        println("$name turned off")
-    }
+fun trickOrTreat(isTrick: Boolean, extraTreat:((Int) -> String)?): () -> Unit {
+    if(isTrick){
+        return trick
+    }else {
+        if(extraTreat != null){
+            println(extraTreat(5))
+        }        
+        return treat
+    }   
 }
 
-class SmartLightDevice(deviceName: String, deviceCategory: String) :
-    SmartDevice(name = deviceName, category = deviceCategory) {
 
-    override val deviceType = "Smart Light"
-
-    private var brightnessLevel by RangeRegulator(initialValue = 0, minValue = 0, maxValue = 100)
-
-    fun increaseBrightness() {
-        brightnessLevel++
-        println("Brightness increased to $brightnessLevel.")
-    }
-
-    override fun turnOn() {
-        super.turnOn()
-        brightnessLevel = 2
-        println("$name turned on. The brightness level is $brightnessLevel.")
-    }
-
-    override fun turnOff() {
-        super.turnOff()
-        brightnessLevel = 0
-        println("Smart Light turned off")
-    }
+// use lambda expression
+val trick = {
+    println("No tricks!")
 }
 
-class SmartHome(
-    val smartTvDevice: SmartTvDevice,
-    val smartLightDevice: SmartLightDevice
-) {
-
-    var deviceTurnOnCount = 0
-        private set
-
-    fun turnOnTv() {
-        deviceTurnOnCount++
-        smartTvDevice.turnOn()
-    }
-
-    fun turnOffTv() {
-        deviceTurnOnCount--
-        smartTvDevice.turnOff()
-    }
-
-    fun increaseTvVolume() {
-        smartTvDevice.increaseSpeakerVolume()
-    }
-
-    fun changeTvChannelToNext() {
-        smartTvDevice.nextChannel()
-    }
-
-    fun turnOnLight() {
-        deviceTurnOnCount++
-        smartLightDevice.turnOn()
-    }
-
-    fun turnOffLight() {
-        deviceTurnOnCount--
-        smartLightDevice.turnOff()
-    }
-
-    fun increaseLightBrightness() {
-        smartLightDevice.increaseBrightness()
-    }
-
-    fun turnOffAllDevices() {
-        turnOffTv()
-        turnOffLight()
-    }
+// fn with parameters and return type
+val treat: () -> Unit = {
+    println("No treats!")
 }
 
-class RangeRegulator(
-    initialValue: Int,
-    private val minValue: Int,
-    private val maxValue: Int
-) : ReadWriteProperty<Any?, Int> {
 
-    var fieldData = initialValue
 
-    override fun getValue(thisRef: Any?, property: KProperty<*>): Int {
-        return fieldData
-    }
 
-    override fun setValue(thisRef: Any?, property: KProperty<*>, value: Int) {
-        if (value in minValue..maxValue) {
-            fieldData = value
-        }
-    }
-}
+//
+//
+// Classes and Objects {Practice Quiz}
 
+// MOBILE NOTIFICATION
 fun main() {
-    var smartDevice: SmartDevice = SmartTvDevice("Android TV", "Entertainment")
-    smartDevice.turnOn()
+    val morningNotification = 51
+    val eveningNotification = 135
+    
+    printNotificationSummary(morningNotification)
+    printNotificationSummary(eveningNotification)
+}
 
-    smartDevice = SmartLightDevice("Google Light", "Utility")
-    smartDevice.turnOn()
+fun printNotificationSummary(numberOfMessages: Int) {
+    if(numberOfMessages < 100){
+        println("You have $numberOfMessages notifications.")
+    }else if(numberOfMessages > 100){
+        println("Your phone is blowing up! You have 99+ notifications.")
+    }
 }
 
 
