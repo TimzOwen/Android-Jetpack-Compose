@@ -49,11 +49,7 @@ fun ComposeArticle(articleTitle: String, articleDescription: String,
                     articleContents: String) {
     val articleImageResource = painterResource(id = R.drawable.bg_compose_background)
     Column(modifier = Modifier.fillMaxSize()) {
-        Image(
-            painter = articleImageResource,
-            contentDescription = null,
-            modifier = Modifier.fillMaxWidth()
-        )
+     Image
         Text(
             text = articleTitle,
             fontSize = 24.sp,
