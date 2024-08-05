@@ -89,6 +89,40 @@ fun LemonadeApp() {
                             squeezeCount = (2..4).random()
                         })
                 }
+                2 -> {
+                    LemonTextAndImage(
+                        textLabelResourceId = R.string.tap_lemon,
+                        drawableResourceId = R.drawable.lemon_squeeze,
+                        contentDescResourceId = R.string.lemon_tree,
+                        onImageClick = {
+                            squeezeCount--
+                            if (squeezeCount == 0) {
+                                currentStep = 3
+                            }
+                        }
+                    )
+                }
+                3 -> {
+                    LemonTextAndImage(
+                        textLabelResourceId = R.string.tap_to_drink,
+                        drawableResourceId = R.drawable.lemon_drink,
+                        contentDescResourceId = R.string.lemon,
+                        onImageClick = {
+                            currentStep = 4
+                        }
+                    )
+                }
+                4 -> {
+                    LemonTextAndImage(
+                        textLabelResourceId = R.string.empty_glass,
+                        drawableResourceId = R.drawable.lemon_restart,
+                        contentDescResourceId = R.string.empty_glass,
+                        onImageClick = {
+                            currentStep = 1
+                        }
+                    )
+                }
+
             }
         }
     }
