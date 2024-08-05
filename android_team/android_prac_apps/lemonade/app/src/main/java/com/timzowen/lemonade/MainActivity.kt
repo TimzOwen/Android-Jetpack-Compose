@@ -91,9 +91,9 @@ fun LemonadeApp() {
                 }
                 2 -> {
                     LemonTextAndImage(
-                        textLabelResourceId = R.string.tap_lemon,
+                        textLabelResourceId = R.string.squeeze_tap_lemon,
                         drawableResourceId = R.drawable.lemon_squeeze,
-                        contentDescResourceId = R.string.lemon_tree,
+                        contentDescResourceId = R.string.squeeze_tap_lemon,
                         onImageClick = {
                             squeezeCount--
                             if (squeezeCount == 0) {
