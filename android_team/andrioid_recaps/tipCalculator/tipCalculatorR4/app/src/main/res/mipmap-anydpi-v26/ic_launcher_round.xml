@@ -14,11 +14,9 @@
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
   -->
-<resources>
-    <string name="app_name">Tip Time</string>
-    <string name="calculate_tip">Calculate Tip</string>
-    <string name="bill_amount">Bill Amount</string>
-    <string name="tip_amount">Tip Amount: %s</string>
-    <string name="how_was_the_service">Tip Percentage</string>
-    <string name="round_up_tip">Round up tip?</string>
-</resources>
+
+<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
+    <background android:drawable="@drawable/ic_launcher_background" />
+    <foreground android:drawable="@drawable/ic_launcher_foreground" />
+    <monochrome android:drawable="@drawable/ic_launcher_foreground" />
+</adaptive-icon>
