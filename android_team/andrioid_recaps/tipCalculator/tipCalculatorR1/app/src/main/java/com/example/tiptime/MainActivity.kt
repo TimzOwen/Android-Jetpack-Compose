@@ -19,6 +19,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -66,8 +67,11 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun TipTimeLayout() {
     var amountTip by remember { mutableStateOf("") }
+    var tipAmount by remember { mutableStateOf("") }
     val amount = amountTip.toDoubleOrNull() ?: 0.0
-    val tip = calculateTip(amount)
+    val tipPercent = tipAmount.toDoubleOrNull() ?: 0.0
+
+    val tip = calculateTip(amount,tipPercent)
     Column(
         modifier = Modifier
             .statusBarsPadding()
@@ -84,9 +88,19 @@ fun TipTimeLayout() {
         )
         EditNumberField(
             value = amountTip,
+            label = R.string.bill_amount,
             onValueChange = {amountTip = it},
-            modifier = Modifier.padding(bottom = 32.dp).fillMaxWidth()
+            modifier = Modifier
+                .padding(bottom = 32.dp)
+                .fillMaxWidth()
         )
+        EditNumberField(
+            value = tipAmount,
+            onValueChange ={tipAmount = it},
+            label = R.string.how_was_the_service,
+            modifier = Modifier
+                .padding(bottom = 32.dp)
+                .fillMaxWidth())
         Text(
             text = stringResource(R.string.tip_amount, tip),
             style = MaterialTheme.typography.displaySmall
@@ -97,13 +111,14 @@ fun TipTimeLayout() {
 
 @Composable
 fun EditNumberField(
+    @StringRes label: Int,
     value: String,
     onValueChange: (String) -> Unit,
     modifier: Modifier = Modifier){
     TextField(
         value = value,
         onValueChange = onValueChange,
-        label = { Text(text = stringResource(id = R.string.bill_amount))},
+        label = { Text(text = stringResource(label))},
         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
         singleLine = true,
         modifier = modifier)
