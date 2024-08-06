@@ -42,6 +42,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -90,6 +91,10 @@ fun TipTimeLayout() {
             value = amountTip,
             label = R.string.bill_amount,
             onValueChange = {amountTip = it},
+            keyboardOptions = KeyboardOptions.Default.copy(
+                keyboardType = KeyboardType.Number,
+                imeAction = ImeAction.Next
+            ),
             modifier = Modifier
                 .padding(bottom = 32.dp)
                 .fillMaxWidth()
@@ -97,6 +102,10 @@ fun TipTimeLayout() {
         EditNumberField(
             value = tipAmount,
             onValueChange ={tipAmount = it},
+            keyboardOptions = KeyboardOptions.Default.copy(
+                keyboardType = KeyboardType.Number,
+                imeAction = ImeAction.Done
+            ),
             label = R.string.how_was_the_service,
             modifier = Modifier
                 .padding(bottom = 32.dp)
@@ -113,13 +122,14 @@ fun TipTimeLayout() {
 fun EditNumberField(
     @StringRes label: Int,
     value: String,
+    keyboardOptions: KeyboardOptions,
     onValueChange: (String) -> Unit,
     modifier: Modifier = Modifier){
     TextField(
         value = value,
         onValueChange = onValueChange,
         label = { Text(text = stringResource(label))},
-        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+        keyboardOptions = keyboardOptions,
         singleLine = true,
         modifier = modifier)
 }
