@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">artSpace</string>
+    <string name="lemonade_to_drink">" Lemonade to drink"</string>
+    <string name="time_to_restart">Time to restart</string>
+    <string name="lets_restart_the_lemon_tree">Lets restart the lemon tree</string>
+    <string name="squeeze_to_drink_the_lemon">Squeeze to drink the lemon</string>
+    <string name="lets_squeeze_lemon">Lets squeeze lemon</string>
+    <string name="produces_lemon_fruits">produces lemon fruits</string>
+    <string name="this_is_lemon_tree">This is lemon tree</string>
+</resources>
