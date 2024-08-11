@@ -78,3 +78,20 @@ fun main(){
     println("Mars" in solarSystem)   // check presence of an element
     
 }
+
+
+
+
+//
+//
+//
+// Collections in Kotlin {sets}
+
+fun main() {
+    val solarSystem = mutableSetOf("Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune")
+    solarSystem.add("Pluto")  // add element to set
+    println(solarSystem.contains("Pluto"))  // check if item is present in the set
+    solarSystem.remove("Pluto")  // remove element from set
+    println(solarSystem.size)   // check size of the set
+    
+}
