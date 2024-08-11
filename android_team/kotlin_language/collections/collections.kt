@@ -95,3 +95,32 @@ fun main() {
     println(solarSystem.size)   // check size of the set
     
 }
+
+
+
+//
+//
+//
+// Collections in Kotlin {maps --> Key - value pair}
+fun main() {
+    val solarSystem = mutableMapOf(
+        "Mercury" to 0,
+        "Venus" to 0,
+        "Earth" to 1,
+        "Mars" to 2,
+        "Jupiter" to 79,
+        "Saturn" to 82,
+        "Uranus" to 27,
+        "Neptune" to 14)
+        
+    solarSystem["pluto"] = 9    // add element to set
+    println(solarSystem["Pluto"]) // check index of element
+    solarSystem.remove("Pluto")  // remove element
+    println(solarSystem.get("Theia"))  // use get to access element
+    
+    solarSystem["Jupiter"] = 78	    // update element index
+	println(solarSystem["Jupiter"])  
+
+    println(solarSystem.size)  // check no. of elements
+    
+}
