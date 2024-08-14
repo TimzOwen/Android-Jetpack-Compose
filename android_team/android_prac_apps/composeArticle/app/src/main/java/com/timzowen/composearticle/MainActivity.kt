@@ -4,6 +4,9 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.annotation.DrawableRes
+import androidx.annotation.StringRes
+import androidx.collection.emptyLongSet
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -66,6 +69,43 @@ fun ComposeArticle(articleTitle: String, articleDescription: String,
             modifier = Modifier.padding(16.dp)
         )
     }
+}
+
+data class MenuItem(
+    @DrawableRes val icon: Int,
+    @StringRes val label: Int,
+    val isComingSoon: Boolean
+)
+
+
+@Composable
+fun ContactCenter(userName: String, userPhone: Int, userAmount: Double, isRegistered: Boolean){
+    val selectOption = 4
+
+    var counter = when(selectOption){
+        1 -> {
+            MenuItem(
+                R.drawable.bg_compose_background,
+                R.string.article_title,
+                true
+                )
+        }
+        2 -> {
+            MenuItem(
+                R.drawable.ic_launcher_foreground,
+                R.string.app_name,
+                false
+            )
+        }
+        else -> {
+            MenuItem(
+                R.drawable.ic_launcher_foreground,
+                R.string.article_title,
+                false
+            )
+        }
+    }
+
 }
 
 
