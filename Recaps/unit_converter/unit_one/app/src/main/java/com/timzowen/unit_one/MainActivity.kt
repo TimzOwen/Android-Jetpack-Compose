@@ -146,10 +146,9 @@ fun UnitConverter(){
                     })
                 }
             }
-
         }
         Spacer(modifier = Modifier.padding(16.dp))
-        Text(text = "Results : $outputValue $outputUnit", style = MaterialTheme.typography.headlineSmall)
+        Text(text = "Results: $outputValue $outputUnit", style = MaterialTheme.typography.headlineSmall)
     }
 }
 

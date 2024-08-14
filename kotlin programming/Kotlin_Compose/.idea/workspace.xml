@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="c5dc3ac1-66e8-45d4-a222-5478277b377a" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/codeRunner.kt" beforeDir="false" afterPath="$PROJECT_DIR$/codeRunner.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../udemy_ android14/hello_android/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../udemy_ android14/hello_android/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../udemy_ android14/hello_android/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../udemy_ android14/hello_android/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../udemy_ android14/hello_android/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../udemy_ android14/hello_android/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../udemy_ android14/hello_android/app/src/main/java/com/timzowen/myapplication/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../../udemy_ android14/hello_android/app/src/main/java/com/timzowen/myapplication/MainActivity.kt" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Kotlin File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="2ibscT7mRl19Az3nppJrvsVr7KV" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Kotlin.CodeRunnerKt.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/tkipkosgei/AndroidStudioProjects/Android_Jetpack_Compose/kotlin programming/Kotlin_Compose&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RunManager">
+    <configuration name="CodeRunnerKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="CodeRunnerKt" />
+      <module name="Kotlin_Compose" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Kotlin.CodeRunnerKt" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c5dc3ac1-66e8-45d4-a222-5478277b377a" name="Changes" comment="" />
+      <created>1719770690933</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1719770690933</updated>
+      <workItem from="1719770691821" duration="299000" />
+      <workItem from="1720102375281" duration="16000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
