@@ -103,8 +103,8 @@ fun DogItem(dog: Dog, modifier: Modifier = Modifier) {
                DogInformation(dog.name, dog.age)
                Spacer(modifier = Modifier.weight(1f))
                DogItemButton(
-                   expanded = !expanded,
-                   onClick = { /*TODO*/ })
+                   expanded = expanded,
+                   onClick = { expanded = !expanded })
            }
            if (expanded){
                DogHobby(
