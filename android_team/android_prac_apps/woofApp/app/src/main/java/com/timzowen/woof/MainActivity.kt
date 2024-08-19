@@ -18,6 +18,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ExpandLess
 import androidx.compose.material.icons.filled.ExpandMore
 import androidx.compose.material3.Card
 import androidx.compose.material3.CenterAlignedTopAppBar
@@ -83,19 +84,48 @@ fun WoofApp() {
 fun DogItem(dog: Dog, modifier: Modifier = Modifier) {
     var expanded by remember { mutableStateOf(false) }
    Card(modifier = modifier){
-       Row(
-           modifier = modifier
-               .fillMaxWidth()
-               .padding(dimensionResource(R.dimen.padding_small))
-       ) {
-           DogIcon(dog.imageResourceId)
-           DogInformation(dog.name, dog.age)
-           Spacer(modifier = Modifier.weight(1f))
-           DogItemButton(
-               expanded = expanded,
-               onClick = { /*TODO*/ })
+       Column {
+           Row(
+               modifier = modifier
+                   .fillMaxWidth()
+                   .padding(dimensionResource(R.dimen.padding_small))
+           ) {
+               DogIcon(dog.imageResourceId)
+               DogInformation(dog.name, dog.age)
+               Spacer(modifier = Modifier.weight(1f))
+               DogItemButton(
+                   expanded = !expanded,
+                   onClick = { /*TODO*/ })
+           }
+           if (expanded){
+               DogHobby(
+                   dog.hobbies ,
+                   modifier = Modifier.padding(
+                       start = dimensionResource(id = R.dimen.padding_medium),
+                       top = dimensionResource(id = R.dimen.padding_small),
+                       end = dimensionResource(id = R.dimen.padding_medium) ,
+                       bottom = dimensionResource(id = R.dimen.padding_medium)
+                   )
+               )
+           }
        }
    }
+}
+
+@Composable
+fun DogHobby(
+    @StringRes dogHobby: Int,
+    modifier: Modifier = Modifier){
+    Column(modifier = modifier) {
+        Text(
+            text = stringResource(id = R.string.about),
+            style = MaterialTheme.typography.labelSmall
+        )
+        Text(
+            text = stringResource(dogHobby),
+            style = MaterialTheme.typography.bodyLarge
+        )
+    }
 }
 
 
@@ -119,19 +149,16 @@ fun DogIcon(
 fun DogItemButton(
     expanded: Boolean,
     onClick: () -> Unit,
-    modifier: Modifier = Modifier
-){
+    modifier: Modifier = Modifier){
     IconButton(
         onClick = onClick,
         modifier = modifier
     ) {
         Icon(
-            imageVector = Icons.Filled.ExpandMore,
+            imageVector = if (expanded) Icons.Filled.ExpandLess else Icons.Filled.ExpandMore,
             contentDescription = stringResource(id = R.string.expand_button_content_description),
             tint = MaterialTheme.colorScheme.secondary)
     }
-
-
 }
 
 @Composable
