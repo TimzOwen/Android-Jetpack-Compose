@@ -13,11 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package com.timzowen.woof.ui.theme
 
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Shapes
+import androidx.compose.ui.unit.dp
 
-plugins {
-    id("com.android.application") version "8.0.2" apply false
-    id("com.android.library") version "8.0.2" apply false
-    id("org.jetbrains.kotlin.android") version "1.8.21" apply false
-}
+val Shapes = Shapes(
+    small = RoundedCornerShape(50.dp),
+)
