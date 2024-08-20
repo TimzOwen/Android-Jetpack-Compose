@@ -1,3 +1,42 @@
 <resources>
     <string name="app_name">RecipeApp</string>
+
+    <string name="recipe_name_1">Spaghetti Carbonara</string>
+    <string name="recipe_name_2">Chicken Curry</string>
+    <string name="recipe_name_3">Vegetable Stir-Fry</string>
+    <string name="recipe_name_4">Beef Stroganoff</string>
+    <string name="recipe_name_5">Margherita Pizza</string>
+    <string name="recipe_name_6">Caesar Salad</string>
+    <string name="recipe_name_7">Pancakes</string>
+    <string name="recipe_name_8">Grilled Cheese Sandwich</string>
+    <string name="recipe_name_9">Tomato Soup</string>
+    <string name="recipe_name_10">Chili Con Carne</string>
+
+
+    <!-- Recipe Captions -->
+    <string name="recipe_caption_1">A classic Italian pasta dish.</string>
+    <string name="recipe_caption_2">A flavorful and spicy dish.</string>
+    <string name="recipe_caption_3">A quick and healthy meal.</string>
+    <string name="recipe_caption_4">Tender beef in a creamy sauce.</string>
+    <string name="recipe_caption_5">Fresh and simple pizza with basil.</string>
+    <string name="recipe_caption_6">A crisp and creamy salad.</string>
+    <string name="recipe_caption_7">Fluffy and light breakfast treat.</string>
+    <string name="recipe_caption_8">Cheesy and crispy comfort food.</string>
+    <string name="recipe_caption_9">Hearty soup with a rich tomato flavor.</string>
+    <string name="recipe_caption_10">Spicy and meaty stew.</string>
+
+
+    <!-- Recipe Cooking Orders -->
+    <string name="recipe_order_1">1. Boil pasta 2. Cook pancetta 3. Mix with eggs and cheese</string>
+    <string name="recipe_order_2">1. Sauté onions 2. Add spices 3. Simmer chicken in sauce</string>
+    <string name="recipe_order_3">1. Prep vegetables 2. Stir-fry in hot pan 3. Add sauce and serve</string>
+    <string name="recipe_order_4">1. Brown beef 2. Add mushrooms and onions 3. Stir in sour cream and serve</string>
+    <string name="recipe_order_5">1. Prepare dough 2. Add tomato sauce and cheese 3. Bake with fresh basil</string>
+    <string name="recipe_order_6">1. Prepare dressing 2. Toss lettuce with dressing 3. Add croutons and parmesan</string>
+    <string name="recipe_order_7">1. Mix batter 2. Cook on a griddle 3. Serve with syrup and fruit</string>
+    <string name="recipe_order_8">1. Butter bread 2. Add cheese 3. Grill until golden brown</string>
+    <string name="recipe_order_9">1. Sauté onions and garlic 2. Add tomatoes and broth 3. Blend and season to taste</string>
+    <string name="recipe_order_10">1. Cook beef 2. Add beans and tomatoes 3. Simmer with spices</string>
+
+
 </resources>
