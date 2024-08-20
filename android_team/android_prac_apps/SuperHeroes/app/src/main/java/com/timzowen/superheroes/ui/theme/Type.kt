@@ -8,35 +8,40 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import com.timzowen.superheroes.R
 
-val CabinBold = FontFamily(
-    Font(R.font.cabin_condensed_bold, FontWeight.Bold)
+val Cabin = FontFamily(
+    Font(R.font.cabin_bold, FontWeight.Bold),
+    Font(R.font.cabin_regular, FontWeight.Normal)
 )
 
-val CabinRegular = FontFamily(
-    Font(R.font.cabin_semi_condensed_regular)
-)
 
 // Set of Material typography styles to start with
 val Typography = Typography(
     bodyLarge = TextStyle(
-        fontFamily = FontFamily.Default,
+        fontFamily = Cabin,
         fontWeight = FontWeight.Normal,
         fontSize = 16.sp,
         lineHeight = 24.sp,
         letterSpacing = 0.5.sp
     ),
 
-    displayMedium = TextStyle(
-        fontFamily = CabinBold,
-        fontSize = 20.sp,
-        fontWeight = FontWeight.Bold
+    displayLarge = TextStyle(
+        fontFamily = Cabin,
+        fontWeight = FontWeight.Normal,
+        fontSize = 30.sp
     ),
 
-    labelSmall = TextStyle(
-        fontFamily = CabinRegular,
-        fontSize = 14.sp,
-        fontWeight = FontWeight.Normal
+    displayMedium = TextStyle(
+        fontFamily = Cabin,
+        fontWeight = FontWeight.Bold,
+        fontSize = 20.sp
+    ),
+
+    displaySmall = TextStyle(
+        fontFamily = Cabin,
+        fontWeight = FontWeight.Bold,
+        fontSize = 20.sp
     )
+
 
     /* Other default text styles to override
     titleLarge = TextStyle(
