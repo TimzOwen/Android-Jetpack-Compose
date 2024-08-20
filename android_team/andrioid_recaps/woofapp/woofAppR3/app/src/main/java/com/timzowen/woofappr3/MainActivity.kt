@@ -16,6 +16,8 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ExpandMore
@@ -35,6 +37,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.timzowen.woofappr3.Data.Dog
+import com.timzowen.woofappr3.Data.listOfDogs
 import com.timzowen.woofappr3.ui.theme.WoofAppR3Theme
 
 class MainActivity : ComponentActivity() {
@@ -43,14 +47,25 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             WoofAppR3Theme {
-                WoofAppCard()
+                WoofApp()
             }
         }
     }
 }
 
 @Composable
-fun WoofAppCard(modifier: Modifier = Modifier) {
+fun WoofApp(){
+    LazyColumn {
+        items(listOfDogs){
+            WoofAppCard(
+                dog = it,
+                modifier = Modifier.padding(8.dp))
+        }
+    }
+}
+
+@Composable
+fun WoofAppCard(dog: Dog, modifier: Modifier = Modifier) {
     Surface(
         modifier = Modifier
             .background(Color.Gray)
@@ -59,7 +74,7 @@ fun WoofAppCard(modifier: Modifier = Modifier) {
             Column {
                 Row {
                     Image(
-                        painter = painterResource(id = R.drawable.bella),
+                        painter = painterResource(dog.dogImageResourceId),
                         modifier = Modifier
                             .padding(8.dp)
                             .size(70.dp)
@@ -74,10 +89,10 @@ fun WoofAppCard(modifier: Modifier = Modifier) {
                         modifier = modifier.padding(8.dp)
                     ) {
                         Text(
-                            text = stringResource(id = R.string.dog_name_1)
+                            text = stringResource(dog.dogName)
                         )
                         Text(
-                            text = "5"
+                            text = "${dog.dogAge}"
                         )
                     }
                     Spacer(modifier = Modifier.weight(1f))
@@ -95,7 +110,7 @@ fun WoofAppCard(modifier: Modifier = Modifier) {
                     Text(
                         text = stringResource(id = R.string.about) )
                     Text(
-                        text = stringResource(id = R.string.dog_description_1) )
+                        text = stringResource(id = dog.dogHobby) )
                 }
             }
         }
@@ -106,6 +121,13 @@ fun WoofAppCard(modifier: Modifier = Modifier) {
 @Composable
 fun GreetingPreview() {
     WoofAppR3Theme {
-        WoofAppCard()
+        WoofAppCard(
+            Dog(
+                dogImageResourceId = R.drawable.koda,
+                dogName =  R.string.dog_name_1,
+                dogAge = 5,
+                dogHobby = R.string.dog_description_1
+                )
+        )
     }
 }
