@@ -70,7 +70,7 @@ fun WoofAppCard(dog: Dog, modifier: Modifier = Modifier) {
         modifier = Modifier
             .background(Color.Gray)
     ) {
-        Card {
+        Card (modifier=modifier){
             Column {
                 Row {
                     Image(
