@@ -1,5 +1,6 @@
 package com.timzowen.superheroes
 
+import android.content.res.Configuration
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -17,6 +18,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.timzowen.superheroes.model.HeroesRepository
+import com.timzowen.superheroes.model.SuperHeroes
 import com.timzowen.superheroes.ui.theme.SuperHeroesTheme
 
 class MainActivity : ComponentActivity() {
@@ -59,6 +61,7 @@ fun TopAppBar(modifier: Modifier = Modifier){
         modifier = modifier
     )
 }
+
 
 
 @Preview(showBackground = true)
