@@ -27,16 +27,16 @@
 
 
     <!-- Recipe Cooking Orders -->
-    <string name="recipe_order_1">1. Boil pasta 2. Cook pancetta 3. Mix with eggs and cheese</string>
-    <string name="recipe_order_2">1. Sauté onions 2. Add spices 3. Simmer chicken in sauce</string>
-    <string name="recipe_order_3">1. Prep vegetables 2. Stir-fry in hot pan 3. Add sauce and serve</string>
-    <string name="recipe_order_4">1. Brown beef 2. Add mushrooms and onions 3. Stir in sour cream and serve</string>
-    <string name="recipe_order_5">1. Prepare dough 2. Add tomato sauce and cheese 3. Bake with fresh basil</string>
-    <string name="recipe_order_6">1. Prepare dressing 2. Toss lettuce with dressing 3. Add croutons and parmesan</string>
-    <string name="recipe_order_7">1. Mix batter 2. Cook on a griddle 3. Serve with syrup and fruit</string>
-    <string name="recipe_order_8">1. Butter bread 2. Add cheese 3. Grill until golden brown</string>
-    <string name="recipe_order_9">1. Sauté onions and garlic 2. Add tomatoes and broth 3. Blend and season to taste</string>
-    <string name="recipe_order_10">1. Cook beef 2. Add beans and tomatoes 3. Simmer with spices</string>
+    <string name="recipe_order_1">1. Boil pasta 2. Cook pancetta 3. Mix with eggs and cheese 1. Boil pasta 2. Cook pancetta 3. Mix with eggs and cheese Fried rice has long been a staple of Aussie takeaway dinners. And, while we might all have our favourite restaurant that</string>
+    <string name="recipe_order_2">1. Sauté onions 2. Add spices 3. Simmer chicken in sauce 1. Sauté onions 2. Add spices 3. Simmer chicken in sauce Fried rice has long been a staple of Aussie takeaway dinners. And, while we might all have our favourite restaurant that</string>
+    <string name="recipe_order_3">1. Prep vegetables 2. Stir-fry in hot pan 3. Add sauce and serve 1. Prep vegetables 2. Stir-fry in hot pan 3. Add sauce and serve Fried rice has long been a staple of Aussie takeaway dinners. And, while we might all have our favourite restaurant that</string>
+    <string name="recipe_order_4">1. Brown beef 2. Add mushrooms and onions 3. Stir in sour cream and serve 1. Brown beef 2. Add mushrooms and onions 3. Stir in sour cream and serve Fried rice has long been a staple of Aussie takeaway dinners. And, while we might all have our favourite restaurant that</string>
+    <string name="recipe_order_5">1. Prepare dough 2. Add tomato sauce and cheese 3. Bake with fresh basil 1. Prepare dough 2. Add tomato sauce and cheese 3. Bake with fresh basil Fried rice has long been a staple of Aussie takeaway dinners. And, while we might all have our favourite restaurant that</string>
+    <string name="recipe_order_6">1. Prepare dressing 2. Toss lettuce with dressing 3. Add croutons and parmesan 1. Prepare dressing 2. Toss lettuce with dressing 3. Add croutons and parmesan Fried rice has long been a staple of Aussie takeaway dinners. And, while we might all have our favourite restaurant that</string>
+    <string name="recipe_order_7">1. Mix batter 2. Cook on a griddle 3. Serve with syrup and fruit 1. Mix batter 2. Cook on a griddle 3. Serve with syrup and fruit Fried rice has long been a staple of Aussie takeaway dinners. And, while we might all have our favourite restaurant that</string>
+    <string name="recipe_order_8">1. Butter bread 2. Add cheese 3. Grill until golden brown 1. Butter bread 2. Add cheese 3. Grill until golden brown Fried rice has long been a staple of Aussie takeaway dinners. And, while we might all have our favourite restaurant that</string>
+    <string name="recipe_order_9">1. Sauté onions and garlic 2. Add tomatoes and broth 3. Blend and season to taste 1. Sauté onions and garlic 2. Add tomatoes and broth 3. Blend and season to taste Fried rice has long been a staple of Aussie takeaway dinners. And, while we might all have our favourite restaurant that</string>
+    <string name="recipe_order_10">1. Cook beef 2. Add beans and tomatoes 3. Simmer with spices 1. Cook beef 2. Add beans and tomatoes 3. Simmer with spices Fried rice has long been a staple of Aussie takeaway dinners. And, while we might all have our favourite restaurant that</string>
 
 
 </resources>
