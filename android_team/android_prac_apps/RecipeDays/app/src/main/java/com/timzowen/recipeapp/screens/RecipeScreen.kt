@@ -1,6 +1,8 @@
 package com.timzowen.recipeapp.screens
 
+import android.widget.ImageButton
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -15,6 +17,10 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -43,6 +49,8 @@ fun RecipeList(paddingValues: PaddingValues) {
 
 @Composable
 fun RecipeCard(recipe: Recipe, modifier: Modifier = Modifier) {
+
+    var isClicked by remember{ mutableStateOf(false) }
     Card(
         modifier = modifier
             .padding(8.dp, top = 16.dp)
@@ -66,17 +74,19 @@ fun RecipeCard(recipe: Recipe, modifier: Modifier = Modifier) {
                 style = MaterialTheme.typography.bodySmall,
                 modifier = Modifier.padding(start = 8.dp)
             )
+
             Image(
                 painter = painterResource(id = recipe.recipeImageResourceId),
                 contentScale = ContentScale.Crop,
                 modifier = Modifier
                     .height(170.dp)
                     .fillMaxWidth()
+                    .clickable { isClicked = !isClicked }
                     .padding(8.dp),
                 contentDescription = null
             )
 
-
+            if (isClicked)
             Text(
                 text = stringResource(id = recipe.recipeCookingOrder),
                 style = MaterialTheme.typography.labelSmall,
