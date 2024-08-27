@@ -44,13 +44,14 @@ import java.time.format.DateTimeFormatter
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun NoteScreen(
+    modifier: Modifier = Modifier,
     notes: List<Note>,
     onAddNote: (Note) -> Unit,
     onRemoveNote: (Note) -> Unit
 ) {
     var title by remember { mutableStateOf("") }
     var description by remember { mutableStateOf("") }
-        Column {
+        Column(modifier=modifier) {
             TopAppBar(
                 title = {
                     Text(text = stringResource(id = R.string.app_name))
@@ -64,8 +65,8 @@ fun NoteScreen(
                 colors = TopAppBarDefaults.topAppBarColors(containerColor = Color(0xFFDADFE3))
             )
             Column(
+                modifier.fillMaxWidth(),
                 horizontalAlignment = Alignment.CenterHorizontally,
-                modifier = Modifier.fillMaxWidth()
             ) {
                 NoteInputText(
                     modifier = Modifier.padding(top = 9.dp, bottom = 9.dp),
@@ -100,7 +101,7 @@ fun NoteScreen(
                 )
             }
             HorizontalDivider(modifier = Modifier.padding(10.dp))
-            LazyColumn {
+            LazyColumn(modifier=modifier) {
                 items(notes){ note -> 
                     NoteRow(
                         note = note,
@@ -110,42 +111,44 @@ fun NoteScreen(
         }
     }
 
+
 @Composable
 fun NoteRow(
     modifier: Modifier = Modifier,
     note: Note,
     onNoteClicked: (Note) -> Unit
-){
+) {
     Surface(
-        modifier
+        modifier = modifier
             .padding(4.dp)
-            .clip(RoundedCornerShape(topEnd = 30.dp, bottomStart = 30.dp))
-            .fillMaxWidth(),
-        tonalElevation = 6.dp,
-        color = Color(0xFFDFE6EB)) {
-    }
-    Column(
-        modifier
+            .clip(RoundedCornerShape(topEnd = 33.dp, bottomStart = 33.dp))
             .fillMaxWidth()
-            .padding(vertical = 6.dp, horizontal = 14.dp)
-            .clickable { },
-        horizontalAlignment = Alignment.Start 
+            .clickable { onNoteClicked(note) },
+        tonalElevation = 6.dp,
+        color = Color(0xFFDFE6EB)
     ) {
-        Text(
-            text = note.title,
-            style = MaterialTheme.typography.titleMedium
-        )
-        Text(
-            text = note.description,
-            style = MaterialTheme.typography.bodySmall
-        )
-        Text(
-            text = note.entryDate.format(DateTimeFormatter.ofPattern("EEE, d MMM")),
-            style = MaterialTheme.typography.bodySmall
-        )
+        Column(
+            modifier
+                .padding(vertical = 6.dp, horizontal = 14.dp)
+                .fillMaxWidth(),
+            horizontalAlignment = Alignment.Start
+        ) {
+            Text(
+                text = note.title,
+                style = MaterialTheme.typography.titleMedium
+            )
+            Text(
+                text = note.description,
+                style = MaterialTheme.typography.bodySmall
+            )
+            Text(
+                text = note.entryDate.format(DateTimeFormatter.ofPattern("EEE, d MMM")),
+                style = MaterialTheme.typography.bodySmall
+            )
+        }
     }
-
 }
+
 
 
 
