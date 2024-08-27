@@ -18,7 +18,11 @@ class MainActivity : ComponentActivity() {
         setContent {
             JetNotesAppTheme {
                 Surface(color = MaterialTheme.colorScheme.background) {
-                    NoteScreen()
+                    NoteScreen(
+                        notes = emptyList(),
+                        onAddNote = {},
+                        onRemoveNote = { }
+                    )
                 }
             }
         }
@@ -31,6 +35,10 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun GreetingPreview() {
     JetNotesAppTheme {
-        NoteScreen()
+        NoteScreen(
+            notes = emptyList(),
+            onAddNote = {},
+            onRemoveNote = { }
+        )
     }
 }
