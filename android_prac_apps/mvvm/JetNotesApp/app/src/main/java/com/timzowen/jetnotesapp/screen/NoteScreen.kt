@@ -1,5 +1,7 @@
 package com.timzowen.jetnotesapp.screen
 
+import android.health.connect.datatypes.units.Length
+import android.widget.Toast
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -30,6 +32,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -51,67 +54,70 @@ fun NoteScreen(
 ) {
     var title by remember { mutableStateOf("") }
     var description by remember { mutableStateOf("") }
-        Column(modifier=modifier) {
-            TopAppBar(
-                title = {
-                    Text(text = stringResource(id = R.string.app_name))
-                },
-                actions = {
-                    Icon(
-                        imageVector = Icons.Rounded.Notifications,
-                        contentDescription = "Icon"
-                    )
-                },
-                colors = TopAppBarDefaults.topAppBarColors(containerColor = Color(0xFFDADFE3))
-            )
-            Column(
-                modifier.fillMaxWidth(),
-                horizontalAlignment = Alignment.CenterHorizontally,
-            ) {
-                NoteInputText(
-                    modifier = Modifier.padding(top = 9.dp, bottom = 9.dp),
-                    text = title,
-                    label = "Title",
-                    onTextChange = {
-                        if (it.all { char ->
-                                char.isLetter() || char.isWhitespace()
-                            })
-                            title = it
-                    }
+    val context = LocalContext.current
+
+    Column(modifier = modifier) {
+        TopAppBar(
+            title = {
+                Text(text = stringResource(id = R.string.app_name))
+            },
+            actions = {
+                Icon(
+                    imageVector = Icons.Rounded.Notifications,
+                    contentDescription = "Icon"
                 )
-                NoteInputText(
-                    modifier = Modifier.padding(top = 9.dp, bottom = 9.dp),
-                    text = description,
-                    label = "Add a note",
-                    onTextChange = {
-                        if (it.all { char ->
-                                char.isLetter() || char.isWhitespace()
-                            }) 
-                            description = it
-                    }
-                )
-                NoteButton(
-                    text = "Save",
-                    onClick = {
-                        if(title.isNotEmpty() && description.isNotEmpty()){
-                            title = ""
-                            description = ""
-                        }
-                    }
-                )
-            }
-            HorizontalDivider(modifier = Modifier.padding(10.dp))
-            LazyColumn(modifier=modifier) {
-                items(notes){ note -> 
-                    NoteRow(
-                        note = note,
-                        onNoteClicked = {})
+            },
+            colors = TopAppBarDefaults.topAppBarColors(containerColor = Color(0xFFDADFE3))
+        )
+        Column(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalAlignment = Alignment.CenterHorizontally,
+        ) {
+            NoteInputText(
+                modifier = Modifier.padding(top = 9.dp, bottom = 9.dp),
+                text = title,
+                label = "Title",
+                onTextChange = {
+                    if (it.all { char -> char.isLetter() || char.isWhitespace() }) title = it
                 }
+            )
+            NoteInputText(
+                modifier = Modifier.padding(top = 9.dp, bottom = 9.dp),
+                text = description,
+                label = "Add a note",
+                onTextChange = {
+                    if (it.all { char -> char.isLetter() || char.isWhitespace() }) description = it
+                }
+            )
+            NoteButton(
+                text = "Save",
+                onClick = {
+                    if (title.isNotEmpty() && description.isNotEmpty()) {
+                        val newNote = Note(
+                            title = title,
+                            description = description
+                        )
+                        onAddNote(newNote)
+                        title = ""
+                        description = ""
+                        Toast.makeText(context, "Note Added", Toast.LENGTH_SHORT).show()
+                    }
+                }
+            )
+        }
+        HorizontalDivider(modifier = Modifier.padding(10.dp))
+        LazyColumn(modifier = modifier) {
+            items(notes) { note ->
+                NoteRow(
+                    note = note,
+                    onNoteClicked = {
+                        onRemoveNote(note)
+                    }
+                )
             }
         }
     }
-
-
+}
 @Composable
 fun NoteRow(
     modifier: Modifier = Modifier,
@@ -123,7 +129,7 @@ fun NoteRow(
             .padding(4.dp)
             .clip(RoundedCornerShape(topEnd = 33.dp, bottomStart = 33.dp))
             .fillMaxWidth()
-            .clickable { onNoteClicked(note) },
+            .clickable { onNoteClicked(note) }, // Ensures the note can be clicked to trigger the removal
         tonalElevation = 6.dp,
         color = Color(0xFFDFE6EB)
     ) {
@@ -148,7 +154,6 @@ fun NoteRow(
         }
     }
 }
-
 
 
 
