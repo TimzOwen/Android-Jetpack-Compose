@@ -20,14 +20,31 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.viewModels
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
+import com.example.unscramble.ui.DiceRollViewModel
 import com.example.unscramble.ui.GameScreen
 import com.example.unscramble.ui.theme.UnscrambleTheme
+import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+
+        val viewModel: DiceRollViewModel by viewModels()
+
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED){
+                viewModel.uiState.collect{
+                    // ui state update
+                }
+            }
+        }
+
         enableEdgeToEdge()
         super.onCreate(savedInstanceState)
         setContent {
