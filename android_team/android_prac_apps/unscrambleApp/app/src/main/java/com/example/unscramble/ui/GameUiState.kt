@@ -33,26 +33,28 @@ data class GameUiState(
     val isGameOver: Boolean = false
 )
 
-data class DiceUiState(
-    val firstDiceValue: Int? = null,
-    val secondDiceValue: Int? = null,
-    val numOfRolls: Int = 0
-)
+// Test class for view model --> Remove them
 
-class DiceRollViewModel: ViewModel(){
-
-    // expose screen to ui state
-    private val _uiState = MutableStateFlow(DiceUiState())
-    val uiState: StateFlow<DiceUiState> = _uiState.asStateFlow()
-
-    //business login
-    fun rollDice(){
-        _uiState.update { currentState ->
-            currentState.copy(
-                firstDiceValue = Random.nextInt(from = 1, until = 7),
-                secondDiceValue = Random.nextInt(from = 1, until = 7),
-                numOfRolls = currentState.numOfRolls + 1
-            )
-        }
-    }
-}
+//data class DiceUiState(
+//    val firstDiceValue: Int? = null,
+//    val secondDiceValue: Int? = null,
+//    val numOfRolls: Int = 0
+//)
+//
+//class DiceRollViewModel: ViewModel(){
+//
+//    // expose screen to ui state
+//    private val _uiState = MutableStateFlow(DiceUiState())
+//    val uiState: StateFlow<DiceUiState> = _uiState.asStateFlow()
+//
+//    //business login
+//    fun rollDice(){
+//        _uiState.update { currentState ->
+//            currentState.copy(
+//                firstDiceValue = Random.nextInt(from = 1, until = 7),
+//                secondDiceValue = Random.nextInt(from = 1, until = 7),
+//                numOfRolls = currentState.numOfRolls + 1
+//            )
+//        }
+//    }
+//}

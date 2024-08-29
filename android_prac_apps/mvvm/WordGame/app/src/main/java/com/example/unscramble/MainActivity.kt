@@ -28,16 +28,6 @@ import com.example.unscramble.ui.theme.UnscrambleTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
-        /** This was a test fr viewModel --delete
-        val viewModel: DiceRollViewModel by viewModels()
-
-        lifecycleScope.launch {
-            repeatOnLifecycle(Lifecycle.State.STARTED){
-                viewModel.uiState.collect{
-                    // ui state update
-                }
-            }
-        }**/
         enableEdgeToEdge()
         super.onCreate(savedInstanceState)
         setContent {
