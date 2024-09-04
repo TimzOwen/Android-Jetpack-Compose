@@ -31,6 +31,8 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -55,7 +57,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             BizCardTheme {
                 Surface(color = MaterialTheme.colorScheme.background) {
-                    BizCard()
+                    CreateBizCard()
                 }
             }
         }
@@ -63,42 +65,70 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun BizCard() {
-    val agents: List<Agents> = AgentsList().loadAgents()
-    Surface(
-        modifier = Modifier
-            .fillMaxHeight()
-            .fillMaxWidth()
-    ) {
-        Card(
-            modifier = Modifier
-                .fillMaxHeight()
-                .width(200.dp)
-                .padding(start = 8.dp, end = 8.dp),
-            shape = RoundedCornerShape(corner = CornerSize(15.dp))
-        ) {
-            Column(
-                modifier = Modifier.height(300.dp),
+fun CreateBizCard(){
+    val btnClickedState = remember { mutableStateOf(true) }
+
+    Surface(modifier = Modifier
+        .fillMaxHeight()
+        .fillMaxWidth()) {
+        Card(modifier = Modifier
+            .height(390.dp)
+            .width(200.dp)
+            .padding(12.dp),
+            shape = RoundedCornerShape(corner = CornerSize(15.dp)),
+            elevation = 4.dp) {
+            Column(modifier = Modifier
+                .height(300.dp),
                 verticalArrangement = Arrangement.Top,
-                horizontalAlignment = Alignment.CenterHorizontally
-            ) {
-                ImageProfile()
-                Divider(
-                    thickness = 1.5.dp,
-                    color = Color.Gray
-                )
+                horizontalAlignment = Alignment.CenterHorizontally) {
 
-                CardInfo()
+                CreateImageProfile()
 
-                Button(onClick = { /*TODO*/ }) {
-                    Text(text = "Request support")
+                Divider()
+
+                CreateInfo()
+
+                Button(
+                    onClick = {
+                        btnClickedState.value = false
+                    }
+                ) {
+                    Text(text = "Portfolio", style = MaterialTheme.typography.bodySmall)
                 }
-
-                AgentsProfile(agents)
+                if (btnClickedState.value){
+                    Content()
+                }else{
+                    Box{}
+                }
             }
+
         }
+
+    }
+
+}
+
+@Composable
+fun CreateInfo() {
+    Column {
+        Text(text = "John doe")
+        Text(text = "Level 1 Support Engineer" )
+        Text(text = "Digital channels")
     }
 }
+
+@Composable
+fun CreateImageProfile() {
+    Image(
+        modifier = Modifier
+            .height(80.dp)
+            .width(80.dp)
+            .clip(CircleShape),
+        painter = painterResource(id = R.drawable.profile_image) ,
+        contentDescription = "Profile image"
+    )
+}
+
 
 @Composable
 fun Content(){
@@ -127,102 +157,11 @@ fun Portfolio(data: List<String>) {
     }
 }
 
-@Composable
-fun AgentsProfile(agents: List<Agents>){
-    LazyColumn {
-        items(agents){ agent ->
-            AgentsProfile(agent)
-        }
-    }
-}
-
-@Composable
-fun AgentsProfile(agents: Agents){
-    Card(
-        modifier = Modifier
-            .padding(6.dp)
-            .fillMaxWidth(),
-        elevation = 6.dp) {
-        Row(
-            modifier = Modifier
-                .height(100.dp)
-                .padding(16.dp),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.Start) {
-            Image(
-                painter = painterResource(id = R.drawable.profile_image),
-                contentDescription = "agent image",
-                modifier = Modifier
-                    .size(60.dp)
-                    .clip(CircleShape)
-                    .border(2.dp, color = Color.Black, CircleShape)
-            )
-            Column(modifier = Modifier
-                .padding(start = 8.dp),
-                verticalArrangement = Arrangement.Center,
-                horizontalAlignment = Alignment.Start){
-                Text(
-                    text = agents.userName,
-                    style = MaterialTheme.typography.labelLarge,
-                    fontSize = 16.sp
-                )
-                Text(
-                    text = agents.roleSupport,
-                    style = MaterialTheme.typography.bodySmall,
-                    fontStyle = FontStyle.Italic
-                )
-            }
-        }
-    }
-}
-
-@Composable
-fun CardInfo(){
-    Column(modifier= Modifier.padding(5.dp)) {
-        Text(
-            text = "Timz Owen",
-            style = MaterialTheme.typography.titleLarge
-        )
-        Text(
-            text = "L1 Support Engineer",
-            color = Color.Gray,
-            fontSize = 15.sp
-        )
-        Text(
-            text = "Digital Channels",
-            fontFamily = FontFamily.Monospace,
-            fontSize = 12.sp,
-            color = Color.Gray
-        )
-    }
-}
-
-@Composable
-private fun ImageProfile(modifier: Modifier = Modifier) {
-    Surface(
-        modifier = Modifier
-            .size(150.dp)
-            .padding(5.dp),
-        shape = CircleShape,
-        tonalElevation = 4.dp,
-        color = MaterialTheme.colorScheme.surface.copy(alpha = 0.5f),
-        border = BorderStroke(0.5.dp, color = Color.LightGray)) {
-
-        Image(
-            painter = painterResource(id = R.drawable.profile_image),
-            contentDescription = "profile image",
-            modifier = Modifier
-                .clip(CircleShape)
-                .size(135.dp),
-            contentScale = ContentScale.Crop
-        )
-    }
-}
 
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
     BizCardTheme {
-        Content()
+        CreateBizCard()
     }
 }
