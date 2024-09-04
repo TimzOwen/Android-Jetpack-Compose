@@ -38,6 +38,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -78,7 +79,8 @@ fun CreateBizCard(){
             shape = RoundedCornerShape(corner = CornerSize(15.dp)),
             elevation = 4.dp) {
             Column(modifier = Modifier
-                .height(300.dp),
+                .height(300.dp)
+                .padding(top = 4.dp),
                 verticalArrangement = Arrangement.Top,
                 horizontalAlignment = Alignment.CenterHorizontally) {
 
@@ -90,7 +92,7 @@ fun CreateBizCard(){
 
                 Button(
                     onClick = {
-                        btnClickedState.value = false
+                        btnClickedState.value = !btnClickedState.value
                     }
                 ) {
                     Text(text = "Portfolio", style = MaterialTheme.typography.bodySmall)
@@ -118,15 +120,22 @@ fun CreateInfo() {
 }
 
 @Composable
-fun CreateImageProfile() {
-    Image(
-        modifier = Modifier
-            .height(80.dp)
-            .width(80.dp)
-            .clip(CircleShape),
-        painter = painterResource(id = R.drawable.profile_image) ,
-        contentDescription = "Profile image"
-    )
+fun CreateImageProfile(modifier: Modifier=Modifier) {
+    Surface (modifier = modifier
+        .size(150.dp)
+        .padding(5.dp),
+        shape = CircleShape,
+        border = BorderStroke(0.5.dp, color = Color.LightGray),
+        tonalElevation = 4.dp,
+        color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.5f)
+    ){
+        Image(
+            modifier = modifier.size(135.dp),
+            painter = painterResource(id = R.drawable.profile_image) ,
+            contentScale = ContentScale.Crop,
+            contentDescription = "Profile image"
+        )
+    }
 }
 
 
@@ -143,7 +152,9 @@ fun Content(){
             shape = RoundedCornerShape(corner = CornerSize(6.dp)),
             border = BorderStroke(2.dp, color = Color.LightGray)
         ) {
-            Portfolio(data= listOf("Project1", "Project2","Project3"))
+            Portfolio(data= listOf("Project1", "Project2","Project3",
+                "Project1", "Project2","Project3",
+                "Project1", "Project2","Project3"))
         }
     }
 }
@@ -152,7 +163,22 @@ fun Content(){
 fun Portfolio(data: List<String>) {
     LazyColumn {
         items(data){ item ->
-            Text(text = item)
+            Card(
+                modifier = Modifier
+                    .padding(13.dp)
+                    .fillMaxWidth(),
+                shape = RectangleShape) {
+                Row(
+                    modifier = Modifier
+                        .padding(8.dp)
+                        .background(color = MaterialTheme.colorScheme.surface)
+                        .padding(16.dp)) {
+                    CreateImageProfile(
+                        modifier = Modifier.size(100.dp)
+                    )
+                }
+
+            }
         }
     }
 }
