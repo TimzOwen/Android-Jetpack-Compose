@@ -72,10 +72,9 @@ fun BizCard() {
     ) {
         Card(
             modifier = Modifier
-                .height(300.dp)
+                .fillMaxHeight()
                 .width(200.dp)
-                .padding(16.dp),
-            elevation = 4.dp,
+                .padding(start = 8.dp, end = 8.dp),
             shape = RoundedCornerShape(corner = CornerSize(15.dp))
         ) {
             Column(
@@ -97,6 +96,33 @@ fun BizCard() {
 
                 AgentsProfile(agents)
             }
+        }
+    }
+}
+
+@Composable
+fun Content(){
+    Box (modifier = Modifier
+        .fillMaxHeight()
+        .fillMaxWidth()
+        .padding(5.dp)){
+        Surface(modifier = Modifier
+            .fillMaxHeight()
+            .fillMaxWidth()
+            .padding(3.dp),
+            shape = RoundedCornerShape(corner = CornerSize(6.dp)),
+            border = BorderStroke(2.dp, color = Color.LightGray)
+        ) {
+            Portfolio(data= listOf("Project1", "Project2","Project3"))
+        }
+    }
+}
+
+@Composable
+fun Portfolio(data: List<String>) {
+    LazyColumn {
+        items(data){ item ->
+            Text(text = item)
         }
     }
 }
@@ -129,7 +155,7 @@ fun AgentsProfile(agents: Agents){
                 modifier = Modifier
                     .size(60.dp)
                     .clip(CircleShape)
-                    .border(2.dp, color = Color.Gray, CircleShape)
+                    .border(2.dp, color = Color.Black, CircleShape)
             )
             Column(modifier = Modifier
                 .padding(start = 8.dp),
@@ -197,6 +223,6 @@ private fun ImageProfile(modifier: Modifier = Modifier) {
 @Composable
 fun GreetingPreview() {
     BizCardTheme {
-        BizCard()
+        Content()
     }
 }
