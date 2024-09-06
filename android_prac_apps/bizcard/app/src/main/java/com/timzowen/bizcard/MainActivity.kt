@@ -46,6 +46,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -176,6 +177,18 @@ fun Portfolio(data: List<String>) {
                     CreateImageProfile(
                         modifier = Modifier.size(100.dp)
                     )
+                    Column(modifier = Modifier
+                        .padding(7.dp)
+                        .align(alignment = Alignment.CenterVertically)) {
+                        Text(
+                            text = item,
+                            fontWeight = FontWeight.Bold
+                        )
+                        Text(
+                            text = "Project description"
+                        )
+                    }
+
                 }
 
             }
