@@ -185,7 +185,8 @@ fun Portfolio(data: List<String>) {
                             fontWeight = FontWeight.Bold
                         )
                         Text(
-                            text = "Project description"
+                            text = "Project description",
+                            style = MaterialTheme.typography.bodyMedium
                         )
                     }
 
