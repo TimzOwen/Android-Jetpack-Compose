@@ -19,7 +19,7 @@ class GameViewModel: ViewModel(){
     var userGuess by mutableStateOf("")
         private set
 
-    // Step ----> 002
+    // Step ----> 002 (expose state to screen)
     private val _uiState = MutableStateFlow(GameUiState())
     val uiState: StateFlow<GameUiState> = _uiState.asStateFlow() // backing property
 
