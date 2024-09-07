@@ -96,10 +96,8 @@ fun MainContent(){
                 enabled = true ,
                 isSingleLine = true,
                 onAction = KeyboardActions {
-                    
                 }
             )
-            Text("split")
         }
     }
 }
@@ -108,6 +106,6 @@ fun MainContent(){
 @Composable
 fun BillCardPreview() {
     JetTipTheme {
-        JetTipApp{}
+        MainContent()
     }
 }
