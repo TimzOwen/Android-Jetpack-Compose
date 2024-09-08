@@ -21,6 +21,11 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -45,7 +50,6 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun MyApp() {
-    var totalAmount = 20
     Surface(
         modifier = Modifier
             .fillMaxWidth()
@@ -62,7 +66,7 @@ fun MyApp() {
                     color = Color.White,
                     fontWeight = FontWeight.Bold
                 ),
-                text = "$$totalAmount"
+                text = "$200"
             )
             Spacer(modifier = Modifier.height(130.dp))
 
@@ -74,19 +78,20 @@ fun MyApp() {
 
 @Composable
 fun CircleTap() {
-
+    var totalAmount by remember { mutableIntStateOf(50) }
     Card(
         modifier = Modifier
             .size(135.dp)
             .padding(3.dp)
             .clickable {
+                totalAmount += totalAmount
                 Log.d("Tap", "Circled Clicked !")
             },
         shape = CircleShape
     ) {
         Box(modifier = Modifier.fillMaxSize(),
             contentAlignment = Alignment.Center) {
-            Text(text = "Tap")
+            Text(text = "Tap $totalAmount")
         }
     }
 }
