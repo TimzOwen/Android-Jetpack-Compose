@@ -7,4 +7,6 @@ fun main() {
         println("item ${shoppingList[index]} is at index $index")
     }
 
+
+
 }
