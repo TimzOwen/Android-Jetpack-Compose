@@ -137,6 +137,15 @@ if(time<20){
 }
 
 
+
+
+
+//Default arguements
+
+
+
+
+
 // Arrays 
 
 
@@ -203,6 +212,24 @@ fun greetings(name: String, age : Int) : String {
 }
 
 
+// For loop and arithemtics (With parameters)
+fun main(){
+    
+    Calculate(1,50,3)
+    
+}
+
+fun Calculate(first: Int, second: Int, dividerNumber: Int){
+    
+    for(i in first..second){
+        if (i%dividerNumber == 0){
+            println("$i is divisible with $dividerNumber")
+        }
+    }
+    
+}
+
+
 // Named Arguements
 fun main(){
     println(greetings(name="Timz", age = 22))
@@ -264,6 +291,9 @@ fun main() {
 fun displayAlertMessage(os : String, mail : String) : String{
     return "New os sign in $os on email Account $mail"
 }
+
+
+
 
 // variables in functions
 fun main() {
@@ -349,6 +379,128 @@ fun cityState(name : String,lowT : Int, highT : Int, rain : Int){
     println("Chance of rain: $rain%")
     println()
 }
+
+
+
+// Lambda expression
+fun main(){          
+    println(CalculateSalary(3,5000))    
+}
+fun CalculateSalary(days: Int, basic: Int): Int = days * basic
+
+
+
+//
+// Simplified lambda
+fun main(){              
+    val add: (Int, Int) -> Int = {a, b - > a + b}
+    println(add(5,4))    
+}
+
+
+//
+//
+// Simplified lambda
+fun main(){          
+    println(calculateCatAge(5))
+    
+    val calcAge: (Int) -> Int = {age -> age * 7}
+    println(calcAge(4))
+}
+fun calculateCatAge(age: Int): Int = age * 7 // Transform to lambda
+
+
+// 
+//
+// Simplified lambda using it parameter (for only one parameter)
+fun main(){                  
+    val calcAge: (Int) -> Int = { it * 7}
+    println(calcAge(4))
+}
+
+
+//
+//
+// Simplified lambda returning nothing (Void) --> transform to lambda
+fun main(){                      
+    println(showName("Timz"))
+}
+
+fun showName(name: String){
+    println(name)
+}
+
+
+//
+//
+// Simplified lambda returning nothing (Void)
+fun main(){                          
+    val showName: (String) -> Unit = {name -> print(name)}
+    showName("Owen")
+}
+
+
+
+//
+//
+// Simplified lambda returning nothing (Void) --> it 
+fun main(){                          
+    val showName: (String) -> Unit = {
+        print(it)
+    }
+    showName("Owen")
+}
+
+
+//
+//
+// Simplified lambda returning nothing (Void) --> it 
+fun main(){                          
+    val showName: (String) -> Unit = {
+        print("Hello my name is $it")
+    }
+    showName("Owen")
+}
+
+
+
+//
+//
+//
+//Trailing lambda
+fun main(){  
+    enhancedMessage("He is "){add(4,2)}  // you can pass outside if last parameter if function
+}
+
+val add: (Int, Int) -> Int = {a,b -> a + b} // Lambda for adding
+
+fun enhancedMessage(message: String, funAsParameter: () -> Int){
+    println("$message ${funAsParameter()}")
+}
+
+//
+//
+//
+//Trailing lambda (function with parameter)
+fun main(){  
+    enhancedMessage("He is "){
+        println(it)
+        add(4,2)
+    }  // you can pass outside if last parameter if function
+}
+
+val add: (Int, Int) -> Int = {a,b -> a + b} // Lambda for adding
+
+fun enhancedMessage(message: String, funAsParameter: (String) -> Int){
+    println("$message ${funAsParameter("Hello")}")
+}
+
+
+
+
+
+
+
 
 
 // classes and objects 
