@@ -23,6 +23,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
@@ -37,6 +38,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             JetTipApp {
                 JetTipApp {
+
                 }
             }
         }
@@ -47,7 +49,7 @@ class MainActivity : ComponentActivity() {
 fun JetTipApp(content: @Composable  () -> Unit) {
     JetTipTheme {
         Surface(color = MaterialTheme.colorScheme.onBackground) {
-            TopHeader()
+            MainContent()
         }
     }
 }
@@ -87,9 +89,9 @@ fun TopHeader(totalPrice: Double = 100.0){
 @Composable
 fun MainContent(){
     val totalBillState = remember { mutableStateOf("0") }
-    val validState = remember(totalBillState.value) {
-        totalBillState.value.trim().isNotBlank()
-    }
+    val validState = remember(totalBillState.value) { totalBillState.value.trim().isNotEmpty() }
+    val keyboardController = LocalSoftwareKeyboardController.current
+
     Surface(modifier = Modifier
         .fillMaxWidth()
         .padding(2.dp),
@@ -103,6 +105,9 @@ fun MainContent(){
                 enabled = true ,
                 isSingleLine = true,
                 onAction = KeyboardActions {
+                    if(!validState) return@KeyboardActions
+                    //TODO --> onValueChange
+                    keyboardController?.hide()
                 }
             )
         }
