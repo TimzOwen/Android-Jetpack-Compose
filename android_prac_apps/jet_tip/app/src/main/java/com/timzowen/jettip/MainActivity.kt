@@ -1,6 +1,7 @@
 package com.timzowen.jettip
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -58,7 +59,6 @@ fun JetTipApp(content: @Composable  () -> Unit) {
 @Composable
 fun TopHeader(totalPrice: Double = 100.0){
     val totalAmount = "%.2f".format(totalPrice)
-
         Surface(
             modifier = Modifier
                 .fillMaxWidth()
@@ -88,13 +88,22 @@ fun TopHeader(totalPrice: Double = 100.0){
 @Preview
 @Composable
 fun MainContent(){
+    BillForm(){ billAmount ->
+        Log.d("TAG","Main content $billAmount")
+    }
+}
+
+@Composable
+fun BillForm(modifier: Modifier = Modifier,
+             onValChange: (String) -> Unit = {}
+) {
     val totalBillState = remember { mutableStateOf("0") }
     val validState = remember(totalBillState.value) { totalBillState.value.trim().isNotEmpty() }
     val keyboardController = LocalSoftwareKeyboardController.current
 
     Surface(modifier = Modifier
         .fillMaxWidth()
-        .padding(2.dp),
+        .padding(16.dp, top = 16.dp),
         border = BorderStroke(width = 1.dp, color = Color.LightGray),
         shape = RoundedCornerShape(corner = CornerSize(8.dp))
     ) {
@@ -106,12 +115,13 @@ fun MainContent(){
                 isSingleLine = true,
                 onAction = KeyboardActions {
                     if(!validState) return@KeyboardActions
-                    //TODO --> onValueChange
+                    onValChange(totalBillState.value.trim())
                     keyboardController?.hide()
                 }
             )
         }
     }
+
 }
 
 @Preview(showBackground = true)
