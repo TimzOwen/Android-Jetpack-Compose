@@ -37,7 +37,8 @@ fun main() {
 fun main() { 
     
     val solarSystem = listOf("Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune")
-    
+
+    println(solarSystem)  // GET the items of the list
     println(solarSystem.size)  // Get total number of items 
     println(solarSystem[2])    // Access elements in a list
     println(solarSystem.get(1))  // access elements in a list
@@ -51,7 +52,7 @@ fun main() {
 
     // iterate with for each
     solarSystem.forEach{
-        println(it)
+        println("planet Name: $it")
     }
 
 } 
