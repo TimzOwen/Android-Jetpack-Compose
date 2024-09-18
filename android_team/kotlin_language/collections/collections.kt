@@ -42,7 +42,7 @@ fun main() {
     println(solarSystem.size)  // Get total number of items 
     println(solarSystem[2])    // Access elements in a list
     println(solarSystem.get(1))  // access elements in a list
-    println(solarSystem.indexOf("Earth"))
+    println(solarSystem.indexOf("Earth"))  // get the index of the element
     println(solarSystem.indexOf("pluto"))  // access out of range give s-1
            
     // iterate thru a list
@@ -71,6 +71,7 @@ fun main(){
      
     solarSystem.add("newPlanet")   // add item
     solarSystem.add(3, "Satan")    // add at specific index
+    solarSystem.add(Venus)  // you add mutiple similar items 
     
     solarSystem[1] = "PlanetOne"    // update existing element in list
     println(solarSystem)
@@ -93,8 +94,16 @@ fun main(){
 // Collections in Kotlin {sets}
 
 fun main() {
+
+    // immutable set of elements
+    val solarSystem = setOf("Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune")
+    solarSystem.add() // Doesnt allow you to add any item as its immutable
+    println(solarSystem)
+
+    //mutable set collection
     val solarSystem = mutableSetOf("Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune")
     solarSystem.add("Pluto")  // add element to set
+    solarSystem.add("pluto")   // adding existing element doesn't throw error but ignores 
     println(solarSystem.contains("Pluto"))  // check if item is present in the set
     solarSystem.remove("Pluto")  // remove element from set
     println(solarSystem.size)   // check size of the set
@@ -108,6 +117,10 @@ fun main() {
 //
 // Collections in Kotlin {maps --> Key - value pair}
 fun main() {
+    val solarSystemImmutable = mapOf(
+        "Mercury" to 0,
+        "Venus" to 1)  // Immmutable map of elements
+
     val solarSystem = mutableMapOf(
         "Mercury" to 0,
         "Venus" to 0,
@@ -120,13 +133,16 @@ fun main() {
         
     solarSystem["pluto"] = 9    // add element to set
     println(solarSystem["Pluto"]) // check index of element
+    println(solarSystem.keys )// Get all the keys only
+    println(solarSystem.values) // Get values only
     solarSystem.remove("Pluto")  // remove element
     println(solarSystem.get("Theia"))  // use get to access element
-    
     solarSystem["Jupiter"] = 78	    // update element index
 	println(solarSystem["Jupiter"])  
-
+    if ("pluto" in solarSystem) println("Yes") // check if element is available
+    if (6 in solarSystem.values) println("Yes") // check value availability in map
     println(solarSystem.size)  // check no. of elements
+
     
 }
 
