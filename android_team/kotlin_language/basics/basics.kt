@@ -113,3 +113,17 @@ fun returnFunction(age: Int = 18, salary: Double=120000.50): String {
     
     return "$userName $fName aged $age years old earning $salary"
 }
+
+
+
+//
+//
+//
+/// Funtions args
+fun main(){
+
+}
+
+fun ReturnTypes(){
+    
+}
