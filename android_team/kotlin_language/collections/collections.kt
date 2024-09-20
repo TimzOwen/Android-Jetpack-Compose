@@ -82,9 +82,47 @@ fun main(){
     
     println(solarSystem.contains("Uranus"))  // check if it contains elements
     println("Mars" in solarSystem)   // check presence of an element
-    
+        
 }
 
+//
+//
+//
+// Empty collections
+val empty = emptyList<String>()  // create an empty collection of String objects
+val empty = emptySet<Int>()  // create an empty collection of String objects
+val empty = emptyMap<String,String>()  // create an empty collection of String objects
+
+
+//
+//
+//
+// Collection filters
+val listOfNames = listOf("James","Shem","Timz","Mike","Owen","Jude")
+
+println(listOfNames[1])
+if ("Shem" in listOfNames) println("Yes") // if check
+println("Timz" in listOfNames) // Boolean
+
+// create a new list based on items present
+val newList = listOfNames.filter{
+    it == "Timz"
+}
+// create a new list based on items present
+val newList = listOfNames.filter{
+    it.length > 4 // return new list with items more than 4 characters
+}
+val newList = listOfNames.filter{
+    it.endsWith("e") // character ending 
+}
+val newList = listOfNames.filter{
+    it.startsWith("M",ignoreCase=true) // character starting with 
+}
+val newList = listOfNames.filter{
+    it.startsWith("M", ignoreCase = true) &&  // Nest more commands
+            it.endsWith("e",ignoreCase = true)
+} 
+println(newList)
 
 
 
