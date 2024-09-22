@@ -103,7 +103,7 @@ val listOfNames = listOf("James","Shem","Timz","Mike","Owen","Jude")
 println(listOfNames[1])
 if ("Shem" in listOfNames) println("Yes") // if check
 println("Timz" in listOfNames) // Boolean
-
+f
 // create a new list based on items present
 val newList = listOfNames.filter{
     it == "Timz"
