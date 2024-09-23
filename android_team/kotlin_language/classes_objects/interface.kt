@@ -75,3 +75,15 @@ fun main() {
 }
 
 fun String.userName(user: String): String = this.plus(user)
+
+
+
+//
+//
+//
+// extended function to remove first and last char
+fun main() {
+    println("OWEN".removeFirstLastChar())
+}
+
+fun String.removeFirstLastChar(): String = this.substring(1,this.length -1)
