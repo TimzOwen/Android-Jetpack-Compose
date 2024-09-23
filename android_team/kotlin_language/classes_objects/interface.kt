@@ -50,3 +50,40 @@ class NewJoiner(private val userName: String): ClickEvent{
 interface ClickEvent{
     fun onClickEvent(message: String) // implementation is at class level
 }
+
+
+
+//
+//
+//
+// Extension function
+fun main() {
+    println("Hello Timz ".userName("Owen"))
+}
+
+fun String.userName(user: String): String {
+    return this.plus(user)
+}
+
+
+//
+//
+//
+// shorter return statement
+fun main() {
+    println("Hello Timz ".userName("Owen"))
+}
+
+fun String.userName(user: String): String = this.plus(user)
+
+
+
+//
+//
+//
+// extended function to remove first and last char
+fun main() {
+    println("OWEN".removeFirstLastChar())
+}
+
+fun String.removeFirstLastChar(): String = this.substring(1,this.length -1)
