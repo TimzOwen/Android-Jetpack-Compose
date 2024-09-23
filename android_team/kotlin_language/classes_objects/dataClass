@@ -1,0 +1,17 @@
+//
+//
+//
+// hold data
+fun main() {
+    val person = Person(firstName = "Timz", lastName = "Owe",35)
+    println(person)
+
+}
+
+data class Person(val firstName: String, val lastName: String, val age: Int)
+
+
+//
+//
+//
+// 
