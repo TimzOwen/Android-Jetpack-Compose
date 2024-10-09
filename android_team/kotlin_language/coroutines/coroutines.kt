@@ -256,3 +256,109 @@ suspend fun getTemperature(): String {
     throw AssertionError("Temperature is invalid")
     return "30\u00b0C"
 }
+
+
+//
+//
+//
+// JOB Cancellation
+fun main() {
+    runBlocking {
+        println("Weather forecast")
+        println(getWeatherReport())
+        println("Have a good day!")
+    }
+}
+
+suspend fun getWeatherReport() = coroutineScope {
+    val forecast = async { getForecast() }
+    val temperature = async { getTemperature()}       
+    delay(500)
+    temperature.cancel()
+    "${forecast.await()}"
+}
+
+suspend fun getForecast(): String {
+    delay(1000)
+    return "Sunny"
+}
+
+suspend fun getTemperature(): String {
+    delay(500)
+    throw AssertionError("Temperature is invalid")
+    return "30\u00b0C"
+}
+
+
+//
+//
+//
+// Coroutines Concept
+import kotlinx.coroutines.*
+
+fun main() {
+    val job = launch{} // launch a coroutine
+    job.cancel() // cancel a job
+}
+
+
+//
+//
+//
+// Using Launch 
+import kotlinx.coroutines.*
+
+fun main() {
+   runBlocking{
+       launch{
+           delay(100)
+           println("10 results found")
+       }
+       println("Loading......")
+   }
+}
+
+
+//
+//
+//
+// Default dispatcher
+import kotlinx.coroutines.*
+
+fun main() {
+   runBlocking{
+       launch{
+           withContext(Dispatchers.Default){                       
+           delay(100)
+           println("10 results found")
+           }
+       }
+       println("Loading......")
+   }
+}
+
+
+//
+//
+//
+// check which threads are running
+import kotlinx.coroutines.*
+
+fun main() {
+    runBlocking {
+        println("${Thread.currentThread().name} - runBlocking function")
+                launch {
+            println("${Thread.currentThread().name} - launch function")
+            withContext(Dispatchers.Default) {
+                println("${Thread.currentThread().name} - withContext function")
+                delay(1000)
+                println("10 results found.")
+            }
+            println("${Thread.currentThread().name} - end of launch function")
+        }
+        println("Loading...")
+    }
+}
+
+
+
