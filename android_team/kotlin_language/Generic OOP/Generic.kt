@@ -258,3 +258,31 @@ class Finder(private val list: List<String>) {
         }
     }
 }
+
+
+//
+//
+//
+// Generic T
+fun main() {
+    val listOfItems = listOf("Timz","Owen","zuri","ninja")
+    val listOfNumbers = listOf(2,4,6,8,10)
+    val finder = Finder(list = listOfNumbers)
+    finder.findItem(element = 10){ println("Found $it") }
+}
+
+class Finder<T>(private val list: List<T>) {
+    fun findItem(element: T, foundItem: (element: T?) -> Unit) {
+        val itemFound = list.filter {
+            it == element
+        }
+        if (itemFound.isEmpty()) foundItem(null) else {
+            foundItem(itemFound.first())
+        }
+    }
+}
+
+//
+//
+//
+//
