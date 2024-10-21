@@ -285,4 +285,85 @@ class Finder<T>(private val list: List<T>) {
 //
 //
 //
+// Enums - named list of constants
+fun main() {
+    val input = Result.SUCCESS
+    getResult(result = input)
+}
+
+fun getResult(result: Result){
+    return when(result){
+        Result.SUCCESS -> println("success !")
+        Result.ERROR -> println("Error")
+        Result.FAILURE -> println("failed")
+    }
+}
+
+enum class Result{
+    SUCCESS,
+    ERROR,
+    FAILURE
+}
+
+
+
 //
+//
+//
+//
+// Enums - named list of constants
+fun main() {
+    Repository.startFetch()
+    getResult(result = Repository.getCurrentState())
+    Repository.finishedFetch()
+    getResult(result = Repository.getCurrentState())
+}
+
+object Repository{
+    private var loadState: Result = Result.IDLE
+    private var dataFetched : String? = null
+
+    fun startFetch(){
+        loadState = Result.LOADING
+        dataFetched = "data"
+    }
+
+    fun finishedFetch(){
+        loadState = Result.SUCCESS
+        dataFetched = null
+    }
+
+    fun getCurrentState() : Result{
+        return loadState
+    }
+}
+
+fun getResult(result: Result){
+    return when(result){
+        Result.SUCCESS -> println("success !")
+        Result.ERROR -> println("Error")
+        Result.FAILURE -> println("failed")
+        Result.LOADING -> println("loading")
+        Result.IDLE -> println("idle")
+    }
+}
+
+enum class Result{
+    SUCCESS,
+    ERROR,
+    FAILURE,
+    LOADING,
+    IDLE
+}
+
+
+
+
+
+
+
+//
+//
+//
+//
+
