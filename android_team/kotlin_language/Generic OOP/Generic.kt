@@ -227,12 +227,15 @@ fun main() {
 //
 //
 // 
-class Finder(private val list: List<String> ){
-    fun findItem(element: String, foundItem: (element: String? ) -> Unit){
-        it==element
+class Finder(private val list: List<String>){
+    fun findItem(element: String, foundItem(element:String?) -> Unit){
+        val itemFoundList = list.filter{
+            it==element
+        }
+        if(itemFoundList.isNullOrEmpty()) foundItem(null) else
+        	foundItem(itemFoundList.first())
     }
 }
-
 
 
 
