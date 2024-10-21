@@ -238,4 +238,23 @@ class Finder(private val list: List<String>){
 }
 
 
+//
+//
+//
+//
+fun main() {
+    val listOfItems = listOf("Timz","Owen","zuri","ninja")
+    val finder = Finder(list = listOfItems)
+    finder.findItem(element = "Timz"){ println("Found $it") }
+}
 
+class Finder(private val list: List<String>) {
+    fun findItem(element: String, foundItem: (element: String?) -> Unit) {
+        val itemFound = list.filter {
+            it == element
+        }
+        if (itemFound.isNotEmpty()) {
+            foundItem(itemFound.first())
+        }
+    }
+}
