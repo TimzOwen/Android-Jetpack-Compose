@@ -238,4 +238,132 @@ class Finder(private val list: List<String>){
 }
 
 
+//
+//
+//
+//
+fun main() {
+    val listOfItems = listOf("Timz","Owen","zuri","ninja")
+    val finder = Finder(list = listOfItems)
+    finder.findItem(element = "Timz"){ println("Found $it") }
+}
+
+class Finder(private val list: List<String>) {
+    fun findItem(element: String, foundItem: (element: String?) -> Unit) {
+        val itemFound = list.filter {
+            it == element
+        }
+        if (itemFound.isNotEmpty()) {
+            foundItem(itemFound.first())
+        }
+    }
+}
+
+
+//
+//
+//
+// Generic T
+fun main() {
+    val listOfItems = listOf("Timz","Owen","zuri","ninja")
+    val listOfNumbers = listOf(2,4,6,8,10)
+    val finder = Finder(list = listOfNumbers)
+    finder.findItem(element = 10){ println("Found $it") }
+}
+
+class Finder<T>(private val list: List<T>) {
+    fun findItem(element: T, foundItem: (element: T?) -> Unit) {
+        val itemFound = list.filter {
+            it == element
+        }
+        if (itemFound.isEmpty()) foundItem(null) else {
+            foundItem(itemFound.first())
+        }
+    }
+}
+
+//
+//
+//
+// Enums - named list of constants
+fun main() {
+    val input = Result.SUCCESS
+    getResult(result = input)
+}
+
+fun getResult(result: Result){
+    return when(result){
+        Result.SUCCESS -> println("success !")
+        Result.ERROR -> println("Error")
+        Result.FAILURE -> println("failed")
+    }
+}
+
+enum class Result{
+    SUCCESS,
+    ERROR,
+    FAILURE
+}
+
+
+
+//
+//
+//
+//
+// Enums - named list of constants
+fun main() {
+    Repository.startFetch()
+    getResult(result = Repository.getCurrentState())
+    Repository.finishedFetch()
+    getResult(result = Repository.getCurrentState())
+}
+
+object Repository{
+    private var loadState: Result = Result.IDLE
+    private var dataFetched : String? = null
+
+    fun startFetch(){
+        loadState = Result.LOADING
+        dataFetched = "data"
+    }
+
+    fun finishedFetch(){
+        loadState = Result.SUCCESS
+        dataFetched = null
+    }
+
+    fun getCurrentState() : Result{
+        return loadState
+    }
+}
+
+fun getResult(result: Result){
+    return when(result){
+        Result.SUCCESS -> println("success !")
+        Result.ERROR -> println("Error")
+        Result.FAILURE -> println("failed")
+        Result.LOADING -> println("loading")
+        Result.IDLE -> println("idle")
+    }
+}
+
+enum class Result{
+    SUCCESS,
+    ERROR,
+    FAILURE,
+    LOADING,
+    IDLE
+}
+
+
+
+
+
+
+
+//
+//
+//
+//
 
