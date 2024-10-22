@@ -365,5 +365,64 @@ enum class Result{
 //
 //
 //
-//
+// 
+// Abstract classes & Enums
+fun main() {
+    Repository.startFetch()
+    getResult(result = Repository.getCurrentState())
+    Repository.finishedFetch()
+    getResult(result = Repository.getCurrentState())
+    Repository.errorFetch()
+    getResult(result = Repository.getCurrentState())
+}
+
+object Repository{
+    private var loadState: Result = NotLoading
+    private var dataFetched : String? = null
+
+    fun startFetch(){
+        loadState = Loading
+        dataFetched = "data"
+    }
+
+    fun finishedFetch(){
+        loadState = Success(dataFetched= dataFetched)
+        dataFetched = null
+    }
+
+    fun errorFetch(){
+        loadState = Error(exception = Exception("Exception error"))
+        dataFetched = null
+    }
+
+    fun getCurrentState() : Result{
+        return loadState
+    }
+}
+
+fun getResult(result: Result){
+    return when(result){
+        is Success -> {
+            println(result.dataFetched?: "Ensure to start the ....")
+        }
+        is Error -> {
+            println(result.exception.toString())
+        }
+        is Loading -> {
+            println("Loading....")
+        }
+        is NotLoading -> {
+            println("Idle....")
+        }
+        else -> {println("N/A")}
+    }
+}
+
+abstract class Result
+
+data class Success(val dataFetched: String?) : Result()
+data class Error(val exception: Exception) : Result()
+object NotLoading: Result()
+object Loading: Result()
+
 
