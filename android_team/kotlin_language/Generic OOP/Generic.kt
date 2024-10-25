@@ -357,16 +357,11 @@ enum class Result{
 }
 
 
-
-
-
-
-
 //
 //
 //
 // 
-// Abstract classes & Enums
+//  Enums - Sealed classes
 fun main() {
     Repository.startFetch()
     getResult(result = Repository.getCurrentState())
