@@ -41,57 +41,18 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             Intro101Theme {
-                MyApp()
+                ScoreScreenState()
             }
         }
     }
 }
 
-@Composable
-fun MyApp() {
-    Surface(
-        modifier = Modifier
-            .fillMaxSize(),
-        color = Color(0xFF546E7A)) {
-        Column(
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center) {
-            Text(
-                text = "Price: $100",
-                style = TextStyle(color = Color.White,fontSize = 30.sp, FontWeight.ExtraBold))
-            Spacer(Modifier.height(200.dp))
-            CreateCircle()
-        }
-    }
-}
 
-@Composable
-fun CreateCircle() {
-    var counter by remember { mutableStateOf(10) }
-    Card(
-        modifier = Modifier
-            .padding(3.dp)
-            .size(150.dp)
-            .clickable {
-                counter += 1
-                Log.d("Counter", "$counter")
-            },
-        elevation = CardDefaults.cardElevation(5.dp),
-        shape = CircleShape
-    ) {
-        Box(
-            modifier = Modifier.fillMaxSize(),
-            contentAlignment = Alignment.Center
-        ) {
-            Text(text = "Tap", modifier = Modifier)
-        }
-    }
-}
 
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
     Intro101Theme {
-        MyApp()
+        ScoreScreenState()
     }
 }
