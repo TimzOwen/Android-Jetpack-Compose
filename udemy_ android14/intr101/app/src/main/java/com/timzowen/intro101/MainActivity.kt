@@ -33,15 +33,17 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.ViewModelProvider
 import com.timzowen.intro101.ui.theme.Intro101Theme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+        val viewModel = ViewModelProvider(this)[StateScoreViewModel::class.java]
         setContent {
             Intro101Theme {
-                ScoreScreenState()
+                ScoreScreenState(viewModel)
             }
         }
     }
@@ -49,10 +51,10 @@ class MainActivity : ComponentActivity() {
 
 
 
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    Intro101Theme {
-        ScoreScreenState()
-    }
-}
+//@Preview(showBackground = true)
+//@Composable
+//fun GreetingPreview() {
+//    Intro101Theme {
+//        ScoreScreenState()
+//    }
+//}
