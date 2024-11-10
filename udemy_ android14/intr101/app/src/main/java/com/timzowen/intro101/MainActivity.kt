@@ -11,10 +11,10 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        val viewModel = ViewModelProvider(this)[StateScoreViewModel::class.java]
+        val viewModel = ViewModelProvider(this)[ScoreStateViewModel::class.java]
         setContent {
             Intro101Theme {
-                TeamScore(viewModel)
+                ScoreKeeper(viewModel)
             }
         }
     }
