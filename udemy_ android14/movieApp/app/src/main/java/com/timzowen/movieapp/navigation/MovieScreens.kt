@@ -1,4 +1,4 @@
-package com.timzowen.movieapp.screens
+package com.timzowen.movieapp.navigation
 
 enum class MovieScreens {
     HomeScreen,

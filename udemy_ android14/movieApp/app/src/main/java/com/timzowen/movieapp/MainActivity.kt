@@ -38,6 +38,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.timzowen.movieapp.navigation.MovieNavigation
 import com.timzowen.movieapp.ui.theme.MovieAppTheme
 
 class MainActivity : ComponentActivity() {
@@ -46,7 +47,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             MyApp {
-                MainContent()
+                MovieNavigation()
             }
         }
     }
@@ -56,47 +57,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun MyApp(content: @Composable () -> Unit) {
     MovieAppTheme {
-        Scaffold(
-            topBar = {
-                TopAppBar(
-                    modifier = Modifier.shadow(elevation = 5.dp),
-                    colors = topAppBarColors(
-                        containerColor = Color.Magenta,
-                        titleContentColor = MaterialTheme.colorScheme.primary
-                    ),
-                    title = { Text(text = "Movies") })
-            }
-        ) { innerPadding ->
-            Box(modifier = Modifier.padding(innerPadding)) {
-                content()
-            }
-        }
-    }
-}
-
-@Composable
-fun MainContent(
-    moviesList: List<String> = listOf(
-        "One Master",
-        "Team AG",
-        "Team Blue",
-        "SWAT",
-        "500",
-        "One Master",
-        "Team AG",
-        "Team Blue",
-        "SWAT",
-        "500"
-    )
-) {
-    Column(modifier = Modifier.padding(16.dp)) {
-        LazyColumn {
-            items(items = moviesList) {
-                MovieCard(movie = it){ movie ->
-                    Log.d("TAG","Movie clicked $movie")
-                }
-            }
-        }
+        content()
     }
 }
 
@@ -134,6 +95,6 @@ fun MovieCard(movie: String,onMovieClicked: (String) -> Unit = {}) {
 @Composable
 fun GreetingPreview() {
     MyApp {
-        MainContent()
+        MovieNavigation()
     }
 }
