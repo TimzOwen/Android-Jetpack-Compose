@@ -19,10 +19,11 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.timzowen.movieapp.MovieCard
+import com.timzowen.movieapp.navigation.MovieScreens
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomeScreen(navController: NavController){
+fun HomeScreen(navController: NavController) {
     Scaffold(
         topBar = {
             TopAppBar(
@@ -35,11 +36,10 @@ fun HomeScreen(navController: NavController){
         }
     ) { innerPadding ->
         Box(modifier = Modifier.padding(innerPadding)) {
-            MainContent(navController=navController)
+            MainContent(navController = navController)
         }
     }
 }
-
 
 
 @Composable
@@ -61,8 +61,9 @@ fun MainContent(
     Column(modifier = Modifier.padding(16.dp)) {
         LazyColumn {
             items(items = moviesList) {
-                MovieCard(movie = it){ movie ->
-                    Log.d("TAG","Movie clicked $movie")
+                MovieCard(movie = it) { movie ->
+                    navController.navigate(route = MovieScreens.DetailsScreen.name)
+//                    Log.d("TAG", "Movie clicked $movie")
                 }
             }
         }
