@@ -62,8 +62,7 @@ fun MainContent(
         LazyColumn {
             items(items = moviesList) {
                 MovieCard(movie = it) { movie ->
-                    navController.navigate(route = MovieScreens.DetailsScreen.name)
-//                    Log.d("TAG", "Movie clicked $movie")
+                    navController.navigate(route = MovieScreens.DetailsScreen.name +"/$movie")
                 }
             }
         }
