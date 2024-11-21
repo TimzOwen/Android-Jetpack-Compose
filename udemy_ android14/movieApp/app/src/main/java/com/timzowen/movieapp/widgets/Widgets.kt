@@ -27,11 +27,14 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import coil.compose.AsyncImage
 import coil.compose.rememberAsyncImagePainter
 import coil.compose.rememberImagePainter
 import coil.request.ImageRequest
+import coil.transform.Transformation
 import com.timzowen.movieapp.model.Movie
 import com.timzowen.movieapp.model.getMovies
 
@@ -61,13 +64,23 @@ fun MovieCard(movie: Movie = getMovies()[1], onMovieClicked: (String) -> Unit = 
                 shape = RectangleShape,
                 tonalElevation = 4.dp
             ) {
-                Image(
-                    painter = rememberAsyncImagePainter(
-                        model = movie.poster
-                    ),
-                    contentDescription = "Movie image",
+//                Image(
+//                    painter = rememberAsyncImagePainter(
+//                        model = movie.poster,
+//                        contentScale = ContentScale.Crop
+//                    ),
+//                    contentDescription = "Movie image",
+//                    contentScale = ContentScale.Crop,
+//                    modifier = Modifier.clip(RectangleShape)
+//                )
+                AsyncImage(
+                    model = ImageRequest.Builder(LocalContext.current)
+                        .data(movie.poster)
+                        .crossfade(true)
+                        .build(),
                     contentScale = ContentScale.Crop,
-                    modifier = Modifier.clip(RectangleShape)
+                    contentDescription = "movie",
+//                    modifier = Modifier.clip(CircleShape)
                 )
             }
             Column(modifier = Modifier.padding(4.dp)) {
