@@ -53,7 +53,8 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun MovieApp(
     moviesList: List<String> = listOf(
-        "The Compound", "The Mountain", "Big 5", "The 42", "500"
+        "The Compound", "The Mountain", "Big 5", "The 42", "500","The Compound",
+        "The Mountain", "Big 5", "The 42", "500"
     )
 ) {
     Scaffold(modifier = Modifier.fillMaxSize(),

@@ -18,8 +18,10 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.timzowen.movieapp.MovieCard
+import com.timzowen.movieapp.model.Movie
+import com.timzowen.movieapp.model.getMovies
 import com.timzowen.movieapp.navigation.MovieScreens
+import com.timzowen.movieapp.widgets.MovieCard
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -29,7 +31,7 @@ fun HomeScreen(navController: NavController) {
             TopAppBar(
                 modifier = Modifier.shadow(elevation = 5.dp),
                 colors = topAppBarColors(
-                    containerColor = Color.Magenta,
+                    containerColor = MaterialTheme.colorScheme.onPrimaryContainer,
                     titleContentColor = MaterialTheme.colorScheme.primary
                 ),
                 title = { Text(text = "Movies") })
@@ -45,18 +47,7 @@ fun HomeScreen(navController: NavController) {
 @Composable
 fun MainContent(
     navController: NavController,
-    moviesList: List<String> = listOf(
-        "One Master",
-        "Team AG",
-        "Team Blue",
-        "SWAT",
-        "500",
-        "One Master",
-        "Team AG",
-        "Team Blue",
-        "SWAT",
-        "500"
-    )
+    moviesList: List<Movie> = getMovies()
 ) {
     Column(modifier = Modifier.padding(16.dp)) {
         LazyColumn {
