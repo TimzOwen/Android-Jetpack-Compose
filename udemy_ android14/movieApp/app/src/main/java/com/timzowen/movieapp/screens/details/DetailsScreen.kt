@@ -27,11 +27,16 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-
+import com.timzowen.movieapp.model.getMovies
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun DetailsScreen(navController: NavController, movieData: String?) {
+fun DetailsScreen(navController: NavController, movieId: String?) {
+
+    val newMovieList = getMovies().filter { movie ->
+        movie.id == movieId
+    }
+
     Scaffold(
         topBar = {
             TopAppBar(
@@ -63,13 +68,8 @@ fun DetailsScreen(navController: NavController, movieData: String?) {
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Text(
-                    text = "Details screen: ${movieData.toString()}",
-                    style = MaterialTheme.typography.labelLarge
-                )
-                Spacer(modifier = Modifier.height(32.dp))
-                Button(onClick = { navController.popBackStack() }) {
-                    Text(text = "Home")
-                }
+                    text = "Details screen: ${newMovieList[0].title}",
+                    style = MaterialTheme.typography.labelLarge)
             }
         }
     }

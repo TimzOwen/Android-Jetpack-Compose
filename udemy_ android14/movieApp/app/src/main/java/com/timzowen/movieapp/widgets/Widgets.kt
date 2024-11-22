@@ -144,3 +144,8 @@ fun MovieCard(movie: Movie = getMovies()[1], onMovieClicked: (String) -> Unit = 
         }
     }
 }
+
+//@Composable
+//fun MovieDetailsCard(){
+//
+//}
