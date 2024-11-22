@@ -1,5 +1,8 @@
 package com.timzowen.movieapp.navigation
 
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+
 enum class MovieScreens {
     HomeScreen,
     DetailsScreen;
@@ -13,4 +16,9 @@ enum class MovieScreens {
                 else -> throw IllegalArgumentException("Route $route not found")
             }
     }
+}
+
+@Composable
+fun UserDetails(user: String){
+    Text(text = user)
 }
