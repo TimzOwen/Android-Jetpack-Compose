@@ -31,7 +31,7 @@ fun HomeScreen(navController: NavController) {
             TopAppBar(
                 modifier = Modifier.shadow(elevation = 5.dp),
                 colors = topAppBarColors(
-                    containerColor = MaterialTheme.colorScheme.onPrimaryContainer,
+                    containerColor = MaterialTheme.colorScheme.surfaceContainer,
                     titleContentColor = MaterialTheme.colorScheme.primary
                 ),
                 title = { Text(text = "Movies") })

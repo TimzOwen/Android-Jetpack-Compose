@@ -155,6 +155,5 @@ fun getMovies(): List<Movie>{
             images = listOf("https://example.com/shawshank1.jpg", "https://example.com/shawshank2.jpg"),
             rating = "9.3"
         )
-
     )
 }
