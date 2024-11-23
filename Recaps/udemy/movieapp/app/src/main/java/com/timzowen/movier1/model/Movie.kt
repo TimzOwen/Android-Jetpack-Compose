@@ -158,10 +158,7 @@ fun getMovies(): List<Movie> {
             actors = "Tim Robbins, Morgan Freeman, Bob Gunton",
             plot = "Two imprisoned men bond over a number of years, finding solace and redemption through acts of decency.",
             poster = "https://m.media-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg",
-            images = listOf(
-                "https://example.com/shawshank1.jpg",
-                "https://example.com/shawshank2.jpg"
-            ),
+            images = listOf("https://example.com/shawshank1.jpg", "https://example.com/shawshank2.jpg"),
             rating = "9.3"
         )
     )
