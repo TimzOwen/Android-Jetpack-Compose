@@ -30,6 +30,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.timzowen.myapplication.screens.MyApp
 import com.timzowen.myapplication.ui.theme.MyApplicationTheme
 
 class MainActivity : ComponentActivity() {
@@ -43,56 +44,6 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
-
-@Composable
-fun MyApp() {
-    val totalAmount = remember { mutableIntStateOf(0) }
-    Surface(
-        modifier = Modifier
-            .fillMaxWidth()
-            .fillMaxHeight(),
-        color = Color(0xFF546E7A)
-    ) {
-        Column(
-            verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            Text(
-                style = TextStyle(
-                    fontSize = 35.sp,
-                    color = Color.White,
-                    fontWeight = FontWeight.Bold
-                ),
-                text = "$${totalAmount.intValue}"
-            )
-            Spacer(modifier = Modifier.height(130.dp))
-
-            CircleTap(moneyCounter = totalAmount.intValue){
-                totalAmount.intValue = it
-            }
-        }
-    }
-}
-
-
-@Composable
-fun CircleTap(moneyCounter: Int, increaseCount: (Int) -> Unit ) {
-    Card(
-        modifier = Modifier
-            .size(135.dp)
-            .padding(3.dp)
-            .clickable {
-                increaseCount(moneyCounter + 5)
-            },
-        shape = CircleShape
-    ) {
-        Box(modifier = Modifier.fillMaxSize(),
-            contentAlignment = Alignment.Center) {
-            Text(text = "Tap")
-        }
-    }
-}
-
 
 @Preview(showBackground = true)
 @Composable

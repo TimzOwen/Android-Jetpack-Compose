@@ -1,4 +1,9 @@
 package com.timzowen.myapplication.screens
 
-class RestaurantRooms {
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+
+@Composable
+fun RestaurantRooms(){
+    Text(text = "Rooms")
 }
