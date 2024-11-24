@@ -1,4 +1,11 @@
 package com.timzowen.myapplication.navigation
 
-class RestaurantNavigation {
+import androidx.compose.runtime.Composable
+import androidx.navigation.compose.rememberNavController
+
+
+@Composable
+fun RestaurantNavigation(){
+    val navController = rememberNavController()
+
 }
