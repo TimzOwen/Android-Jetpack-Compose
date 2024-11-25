@@ -6,7 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
-import com.timzowen.myapplication.screens.MyApp
+import com.timzowen.myapplication.navigation.RestaurantNavigation
 import com.timzowen.myapplication.ui.theme.MyApplicationTheme
 
 class MainActivity : ComponentActivity() {
@@ -14,17 +14,24 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            MyApplicationTheme {
-                MyApp()
+            MyApp {
+                RestaurantNavigation()
             }
         }
+    }
+}
+
+@Composable
+fun MyApp(content: @Composable () -> Unit){
+    MyApplicationTheme {
+        content()
     }
 }
 
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
-    MyApplicationTheme {
-        MyApp()
+    MyApp {
+        RestaurantNavigation()
     }
 }
