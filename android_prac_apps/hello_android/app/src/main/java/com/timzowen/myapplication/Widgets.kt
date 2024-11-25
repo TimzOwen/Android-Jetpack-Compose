@@ -34,7 +34,7 @@ import com.timzowen.myapplication.model.getMenuItems
 
 
 @Composable
-fun MealCard(meal: Meal = getMenuItems()[0], onClickedMenu: (String) -> Unit) {
+fun MealCard(meal: Meal = getMenuItems()[0], onClickedMenu: (String) -> Unit = {}) {
     var isExpanded by remember { mutableStateOf(false) }
     Card(
         modifier = Modifier
@@ -58,7 +58,7 @@ fun MealCard(meal: Meal = getMenuItems()[0], onClickedMenu: (String) -> Unit) {
             ) {
                 AsyncImage(
                     model = ImageRequest.Builder(LocalContext.current)
-                        .data(meal.menuImage)
+                        .data(meal.menuImage[0])
                         .build(),
                     contentDescription = "Meal image",
                     contentScale = ContentScale.Crop
