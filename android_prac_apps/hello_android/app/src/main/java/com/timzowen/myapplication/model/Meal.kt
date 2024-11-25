@@ -1,7 +1,7 @@
 package com.timzowen.myapplication.model
 
 data class Meal(
-    val menuId: String,
+    val mealId: String,
     val mealTitle: String,
     val mealCost: String,
     val mealIngredients: List<String>,
@@ -12,7 +12,7 @@ data class Meal(
 fun getMenuItems(): List<Meal> {
     return listOf(
         Meal(
-            menuId = "M001",
+            mealId = "M001",
             mealTitle = "Classic Burger",
             mealCost = "12.99",
             mealIngredients = listOf(
@@ -26,7 +26,7 @@ fun getMenuItems(): List<Meal> {
             menuName = "Burgers"
         ),
         Meal(
-            menuId = "M002",
+            mealId = "M002",
             mealTitle = "Margherita Pizza",
             mealCost = "8.99",
             mealIngredients = listOf("Tomato Sauce", "Mozzarella", "Basil", "Olive Oil"),
@@ -34,7 +34,7 @@ fun getMenuItems(): List<Meal> {
             menuName = "Pizzas"
         ),
         Meal(
-            menuId = "M003",
+            mealId = "M003",
             mealTitle = "Caesar Salad",
             mealCost = "9.49",
             mealIngredients = listOf("Romaine Lettuce", "Parmesan", "Croutons", "Caesar Dressing"),
@@ -42,7 +42,7 @@ fun getMenuItems(): List<Meal> {
             menuName = "Salads"
         ),
         Meal(
-            menuId = "M004",
+            mealId = "M004",
             mealTitle = "Grilled Salmon",
             mealCost = "15.99",
             mealIngredients = listOf("Salmon Fillet", "Lemon", "Garlic", "Olive Oil", "Herbs"),
@@ -50,7 +50,7 @@ fun getMenuItems(): List<Meal> {
             menuName = "Seafood"
         ),
         Meal(
-            menuId = "M005",
+            mealId = "M005",
             mealTitle = "Vegetable Stir-Fry",
             mealCost = "10.49",
             mealIngredients = listOf("Broccoli", "Carrots", "Bell Peppers", "Soy Sauce", "Tofu"),
@@ -58,7 +58,7 @@ fun getMenuItems(): List<Meal> {
             menuName = "Vegan"
         ),
         Meal(
-            menuId = "M006",
+            mealId = "M006",
             mealTitle = "Spaghetti Carbonara",
             mealCost = "11.99",
             mealIngredients = listOf("Spaghetti", "Eggs", "Pancetta", "Parmesan", "Black Pepper"),
@@ -66,7 +66,7 @@ fun getMenuItems(): List<Meal> {
             menuName = "Pasta"
         ),
         Meal(
-            menuId = "M007",
+            mealId = "M007",
             mealTitle = "Chicken Curry",
             mealCost = "13.99",
             mealIngredients = listOf("Chicken", "Coconut Milk", "Curry Spices", "Tomatoes", "Rice"),
@@ -74,7 +74,7 @@ fun getMenuItems(): List<Meal> {
             menuName = "Curries"
         ),
         Meal(
-            menuId = "M008",
+            mealId = "M008",
             mealTitle = "Tacos Al Pastor",
             mealCost = "9.99",
             mealIngredients = listOf("Pork", "Pineapple", "Cilantro", "Onions", "Tortilla"),
@@ -82,7 +82,7 @@ fun getMenuItems(): List<Meal> {
             menuName = "Mexican"
         ),
         Meal(
-            menuId = "M009",
+            mealId = "M009",
             mealTitle = "Sushi Platter",
             mealCost = "18.99",
             mealIngredients = listOf("Sushi Rice", "Nori", "Salmon", "Tuna", "Avocado"),
@@ -90,7 +90,7 @@ fun getMenuItems(): List<Meal> {
             menuName = "Japanese"
         ),
         Meal(
-            menuId = "M010",
+            mealId = "M010",
             mealTitle = "Pancakes with Maple Syrup",
             mealCost = "7.49",
             mealIngredients = listOf("Flour", "Eggs", "Milk", "Maple Syrup", "Butter"),
