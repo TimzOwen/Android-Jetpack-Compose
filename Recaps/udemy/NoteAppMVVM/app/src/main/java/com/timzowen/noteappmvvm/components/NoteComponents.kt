@@ -21,7 +21,7 @@ fun NoteInputText(
     modifier: Modifier = Modifier,
     label: String,
     text: String,
-    maxLine: Int = 1,
+    maxLine: Int = Int.MAX_VALUE,
     onTextChange: (String) -> Unit,
     onImeAction: () -> Unit = {}
 ) {

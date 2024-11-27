@@ -7,44 +7,64 @@ class NoteDataSource{
     fun loadNotes() : List<Note>{
         return listOf(
             Note(
-                title = "Grocery List",
-                description = "Buy milk, eggs, bread, and butter."
+                title = "Weekly Sales Report",
+                description = "Compile M-PESA agent performance data and airtime sales trends."
             ),
             Note(
-                title = "Work Tasks",
-                description = "Complete project report and attend team meeting."
+                title = "Customer Feedback",
+                description = "Analyze the top 10 recurring complaints from call center data."
             ),
             Note(
-                title = "Meeting Notes",
-                description = "Discussion on quarterly goals and new strategies."
+                title = "Network Maintenance",
+                description = "Schedule an outage notice for fiber upgrades in Westlands."
             ),
             Note(
-                title = "Book to Read",
-                description = "Start reading 'Atomic Habits' by James Clear."
+                title = "New Data Plans",
+                description = "Draft a marketing campaign for the 5GB bundle offer."
             ),
             Note(
-                title = "Weekend Plans",
-                description = "Go hiking and try the new Italian restaurant."
+                title = "Agent Training",
+                description = "Prepare training materials for new M-PESA agents on fraud prevention."
             ),
             Note(
-                title = "Ideas for Blog",
-                description = "Write about Kotlin tips and tricks for beginners."
+                title = "System Downtime Report",
+                description = "Investigate the server issue that affected M-PESA transactions on Saturday."
             ),
             Note(
-                title = "Personal Goals",
-                description = "Meditate daily and exercise three times a week."
+                title = "Performance Engineering Workshop",
+                description = "Host a session for university students on optimizing service reliability."
             ),
             Note(
-                title = "Shopping List",
-                description = "Order a new laptop and wireless headphones."
+                title = "Device Financing Program",
+                description = "Review the terms for the smartphone layaway plan rollout."
             ),
             Note(
-                title = "Call Reminder",
-                description = "Call Sarah to discuss upcoming vacation plans."
+                title = "Fiber Installation Requests",
+                description = "Prioritize pending installations in Nairobi South area."
             ),
             Note(
-                title = "Learning Topics",
-                description = "Explore Compose Navigation and State management."
+                title = "Promotional SMS Campaign",
+                description = "Draft messages for the 'Free 100MB Daily' data promotion."
+            ),
+            Note(
+                title = "Billing System Audit",
+                description = "Verify accuracy of postpaid plan invoices for corporate clients."
+            ),
+            Note(
+                title = "Network Expansion",
+                description = "Identify new areas for 4G rollout based on user demand data."
+            ),
+            Note(
+                title = "CSR Event",
+                description = "Organize the Safaricom Marathon logistics and communications."
+            ),
+            Note(
+                title = "Fraud Alert System",
+                description = "Implement SMS notifications for suspicious account activities."
+            ),
+            Note(
+                title = "New App Features",
+                description = "Brainstorm enhancements for the MySafaricom app, such as bill reminders."
             )
         )
     }

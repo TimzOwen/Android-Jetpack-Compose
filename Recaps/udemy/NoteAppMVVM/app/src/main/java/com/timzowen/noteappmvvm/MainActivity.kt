@@ -11,8 +11,12 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateListOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.timzowen.noteappmvvm.data.NoteDataSource
+import com.timzowen.noteappmvvm.model.Note
 import com.timzowen.noteappmvvm.screen.NoteScreen
 import com.timzowen.noteappmvvm.ui.theme.NoteAppMVVMTheme
 
@@ -21,16 +25,28 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            NoteAppMVVMTheme {
-                Surface(color = MaterialTheme.colorScheme.background) {
-                    NoteScreen(notes = emptyList(), onAddNote = {}, onRemoveNote = {})
-
-                }
-            }
+            NoteApp()
         }
     }
 }
 
+@Composable
+fun NoteApp() {
+    NoteAppMVVMTheme {
+        Surface(color = MaterialTheme.colorScheme.background) {
+            val notes = remember { mutableStateListOf<Note>() }
+            NoteScreen(
+                notes = notes,
+                onAddNote = {
+                    notes.add(it)
+                },
+                onRemoveNote = {
+                    notes.remove(it)
+                }
+            )
+        }
+    }
+}
 
 
 @Preview(showBackground = true)
