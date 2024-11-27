@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">NoteAppMVVM</string>
     <string name="notification">notification</string>
+    <string name="crm_user_data">CRM Data</string>
 </resources>
