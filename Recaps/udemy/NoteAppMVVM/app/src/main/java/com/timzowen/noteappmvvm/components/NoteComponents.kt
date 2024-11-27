@@ -1,7 +1,9 @@
 package com.timzowen.noteappmvvm.components
 
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
@@ -27,7 +29,7 @@ fun NoteInputText(
     TextField(
         value = text,
         onValueChange = onTextChange,
-        colors = TextFieldDefaults.textFieldColors(Color.Transparent),
+        colors = TextFieldDefaults.textFieldColors(containerColor = Color.Transparent),
         maxLines = maxLine,
         label = { Text(text = label) },
         keyboardOptions = KeyboardOptions().copy(
@@ -41,8 +43,25 @@ fun NoteInputText(
     )
 }
 
+@Composable
+fun NoteButton(
+    modifier: Modifier = Modifier,
+    text: String,
+    onClick: () -> Unit,
+    enabled: Boolean = true
+) {
+    Button(
+        shape = CircleShape,
+        onClick = onClick,
+        modifier = modifier,
+        enabled = enabled
+    ) {
+        Text(text = text)
+    }
+}
+
 @Preview(showBackground = true)
 @Composable
-fun NoteTextInputPreview(){
-    NoteInputText(label = "User Details", text = "Background Notes", onTextChange ={} )
+fun NoteTextInputPreview() {
+    NoteInputText(label = "User Details", text = "Background Notes", onTextChange = {})
 }
