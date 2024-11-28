@@ -96,7 +96,7 @@ fun MovieCard(movie: Movie = getMovies()[1], onMovieClicked: (String) -> Unit = 
                     contentScale = ContentScale.Crop,
                     contentDescription = "movie",
 //                    modifier = Modifier.clip(CircleShape)
-                )
+                )                            
             }
             Column(modifier = Modifier.padding(4.dp)) {
                 Text(text = movie.title, style = MaterialTheme.typography.titleLarge)
@@ -145,7 +145,3 @@ fun MovieCard(movie: Movie = getMovies()[1], onMovieClicked: (String) -> Unit = 
     }
 }
 
-//@Composable
-//fun MovieDetailsCard(){
-//
-//}
