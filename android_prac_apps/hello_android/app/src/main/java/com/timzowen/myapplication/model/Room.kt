@@ -12,7 +12,7 @@ fun getRooms(): List<Room> {
         Room(
             roomNumber = "101",
             roomCost = "120.00",
-            roomImage = "https://example.com/images/room_101.jpg",
+            roomImage = "https://via.placeholder.com/150",
             roomService = true
         ),
         Room(

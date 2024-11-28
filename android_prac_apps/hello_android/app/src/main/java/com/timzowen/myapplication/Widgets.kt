@@ -1,5 +1,6 @@
 package com.timzowen.myapplication
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -26,11 +27,14 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.timzowen.myapplication.model.Meal
+import com.timzowen.myapplication.model.Room
 import com.timzowen.myapplication.model.getMenuItems
+import com.timzowen.myapplication.model.getRooms
 
 
 @Composable
@@ -78,10 +82,35 @@ fun MealCard(meal: Meal = getMenuItems()[0], onClickedMenu: (String) -> Unit = {
                 if (isExpanded) {
                     MealIngredients(meal)
                 }
-
             }
         }
     }
+}
+
+@Composable
+fun RoomsCard(room: Room = getRooms()[0]){
+    Card(modifier = Modifier.fillMaxWidth()) {
+        Row() {
+            AsyncImage(
+                model = ImageRequest.Builder(LocalContext.current)
+                    .data(room.roomImage)
+                    .build(),
+                contentDescription ="Room Image",
+                contentScale = ContentScale.Crop)
+            Column {
+                Text(text = "Room 3")
+                Text(text = "$2500 a night")
+                Text(text = "2 bedrooms")
+            }
+        }
+    }
+}
+
+
+@Preview(showBackground = true)
+@Composable
+fun RoomsCardPreview(){
+    RoomsCard()
 }
 
 @Composable

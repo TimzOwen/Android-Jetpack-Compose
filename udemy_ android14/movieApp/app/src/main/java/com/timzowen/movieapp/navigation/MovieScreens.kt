@@ -18,7 +18,3 @@ enum class MovieScreens {
     }
 }
 
-@Composable
-fun UserDetails(user: String){
-    Text(text = user)
-}

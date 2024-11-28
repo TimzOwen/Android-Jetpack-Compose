@@ -39,7 +39,6 @@ fun NoteApp(noteViewModel: NoteViewModel = viewModel()) {
     val notesList = noteViewModel.getAllNotes()
     NoteAppMVVMTheme {
         Surface(color = MaterialTheme.colorScheme.background) {
-            val notes = remember { mutableStateListOf<Note>() }
             NoteScreen(
                 notes = notesList,
                 onAddNote = { noteViewModel.addNote(it) },
