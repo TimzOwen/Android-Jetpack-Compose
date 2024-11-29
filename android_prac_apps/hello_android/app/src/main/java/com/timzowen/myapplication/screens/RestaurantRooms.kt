@@ -69,5 +69,5 @@ fun RestaurantRoomsScreen(navController: NavController) {
 @Preview(showBackground = true)
 @Composable
 fun RestaurantScreensPreview() {
-    RestaurantRoomsScreen()
+//    RestaurantRoomsScreen()
 }
