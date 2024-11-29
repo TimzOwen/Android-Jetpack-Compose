@@ -22,8 +22,8 @@ fun RestaurantNavigation(){
         composable(route = RestaurantScreens.RoomsScreen.name){
             RestaurantRoomsScreen(navController = navController)
         }
-        composable(route=RestaurantScreens.MenuScreen.name+"/{menuId}", arguments =
-        listOf(navArgument("menuId"){type=NavType.StringType})
+        composable(route=RestaurantScreens.MenuScreen.name+"/{menuId}",
+            arguments = listOf(navArgument("menuId"){type=NavType.StringType})
         ){backStackEntry ->
             RestaurantMenuScreen(navController = navController, backStackEntry.arguments?.getString("menuId"))
         }
