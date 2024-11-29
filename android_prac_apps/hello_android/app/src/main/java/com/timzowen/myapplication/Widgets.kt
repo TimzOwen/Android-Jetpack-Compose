@@ -2,6 +2,7 @@ package com.timzowen.myapplication
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -15,6 +16,7 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -89,18 +91,29 @@ fun MealCard(meal: Meal = getMenuItems()[0], onClickedMenu: (String) -> Unit = {
 
 @Composable
 fun RoomsCard(room: Room = getRooms()[0]){
-    Card(modifier = Modifier.fillMaxWidth()) {
-        Row() {
+    Card(modifier = Modifier
+        .fillMaxWidth()
+        .padding(8.dp)) {
+        Row(modifier = Modifier.padding(8.dp)) {
             AsyncImage(
                 model = ImageRequest.Builder(LocalContext.current)
-                    .data(room.roomImage)
+                    .data(room.roomImage[0])
                     .build(),
+                modifier = Modifier
+                    .size(100.dp)
+                    .padding(end = 8.dp),
                 contentDescription ="Room Image",
                 contentScale = ContentScale.Crop)
-            Column {
-                Text(text = "Room 3")
-                Text(text = "$2500 a night")
-                Text(text = "2 bedrooms")
+            Column (){
+                Text(text = "Room ${room.roomNumber}",
+                    style = MaterialTheme.typography.labelLarge)
+                Text(text = "$${room.roomCost} a night",
+                    style = MaterialTheme.typography.labelMedium)
+                Text(
+                    text = if (room.roomService) "Room Service Available" else "No Room Service",
+                    style = MaterialTheme.typography.bodySmall,
+                    color = if (room.roomService) MaterialTheme.colorScheme.secondary else MaterialTheme.colorScheme.error
+                )
             }
         }
     }
