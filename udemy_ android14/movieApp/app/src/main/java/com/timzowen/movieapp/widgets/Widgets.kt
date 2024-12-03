@@ -121,7 +121,7 @@ fun MovieCard(movie: Movie = getMovies()[1], onMovieClicked: (String) -> Unit = 
                         }, modifier = Modifier.padding(6.dp))
 
                         HorizontalDivider(modifier = Modifier.padding(6.dp))
-
+ v  
                         Text(text = "Director: ${movie.director}", style = MaterialTheme.typography.labelSmall)
                         Text(text = "Actors: ${movie.actors}", style = MaterialTheme.typography.labelSmall)
                         Text(text = "Rating: ${movie.rating}", style = MaterialTheme.typography.labelSmall)
