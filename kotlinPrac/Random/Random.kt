@@ -123,3 +123,39 @@ fun iterateRangeSteps(){
  class Rectangle(val height: Double, val length: Double): Shape(){
      val perimeter = height * length 
  }
+
+
+ fun parseInt(strVal: String): Int?{
+    return strVal.toIntOrNull()
+}
+
+fun nullSafetyCatch(num1: String, num2: String){
+    
+    val x = parseInt(num1)
+    val y = parseInt(num2)
+    
+    if(x!=null && y!=null) {
+        println (x * y)
+    } else {
+        println("$num1 or $num2 is not a number")
+    }
+}
+
+
+
+fun typeCasting(obj: Any): Int?{
+    if(obj !is String) return null
+    return obj.length
+}
+
+
+
+fun typeCasting(obj: Any): Int?{
+    
+    if(obj !is String) return null
+    return obj.length
+    
+    // Or
+    if(obj is String && obj.length>0) return obj.length
+    return null
+}
