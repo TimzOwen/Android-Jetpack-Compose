@@ -13,6 +13,17 @@ fun	main(){
 }
 
 
+fun iterateCollectionsSetLambda(){
+    val fruits = listOf("Apple", "Banana", "Orange", "Grapes", "Atush",
+                        "Mango", "Pineapple", "Strawberry","Avocado")
+   fruits
+        .filter{it.startsWith("A")}
+        .sortedBy{it}
+        .map{it.uppercase()}
+        .forEach{println(it)}                  
+}
+
+
 fun iterateCollectionsSet(){
     val fruits = setOf("Apple", "Banana", "Orange", "Grapes", 
                         "Mango", "Pineapple", "Strawberry")
