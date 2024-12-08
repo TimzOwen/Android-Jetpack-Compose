@@ -150,7 +150,7 @@ fun typeCasting(obj: Any): Int?{
 
 
 
-fun typeCasting(obj: Any): Int?{
+fun typeCastingCheck2(obj: Any): Int?{
     
     if(obj !is String) return null
     return obj.length
