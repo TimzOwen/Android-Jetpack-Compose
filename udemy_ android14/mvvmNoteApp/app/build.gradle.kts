@@ -1,17 +1,15 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
-    id ("kotlin-kapt")
-    id("org.jetbrains.kotlin.kapt")
 }
 
 android {
-    namespace = "com.timzowen.noteappmvvm"
+    namespace = "com.timzowen.noteapp"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.timzowen.noteappmvvm"
-        minSdk = 27
+        applicationId = "com.timzowen.noteapp"
+        minSdk = 30
         targetSdk = 35
         versionCode = 1
         versionName = "1.0"
@@ -69,22 +67,21 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
-    // View model
-    implementation(libs.androidx.lifecycle.viewmodel.ktx)
-    implementation(libs.androidx.lifecycle.viewmodel.compose)
+    //Hilt-Dagger
+    implementation(libs.androidx.hilt.navigation.compose)
 
-    //coroutines
-    implementation(libs.kotlinx.coroutines.android)
-
-    //Room database
-    implementation(libs.androidx.room.runtime)
-
-    // hilt
-    implementation(libs.androidx.hilt.navigation.fragment)
-    implementation(libs.hilt.android)
-    kapt(libs.hilt.android.compiler)
-
-
-
-
+////Room
+//    implementation ("androidx.room:room-runtime:$room_version")
+//    annotationProcessor ("androidx.room:room-compiler:$room_version")
+//
+//// To use Kotlin annotation processing tool (kapt) MUST HAVE!
+//    kapt("androidx.room:room-compiler:$room_version")
+//    implementation ("androidx.room:room-ktx:$room_version")
+//
+//
+//
+//// Coroutines
+//    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2")
+//    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2")
+//    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.5.2")
 }
