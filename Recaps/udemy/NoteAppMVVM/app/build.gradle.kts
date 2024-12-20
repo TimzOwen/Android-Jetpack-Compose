@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    id ("kotlin-kapt")
+    id("org.jetbrains.kotlin.kapt")
 }
 
 android {
@@ -70,4 +72,13 @@ dependencies {
     // View model
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.lifecycle.viewmodel.compose)
+
+    // hilt
+    implementation(libs.androidx.hilt.navigation.fragment)
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.android.compiler)
+
+
+
+
 }

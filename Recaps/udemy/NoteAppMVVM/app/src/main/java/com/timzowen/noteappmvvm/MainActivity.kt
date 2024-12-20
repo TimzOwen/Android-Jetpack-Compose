@@ -22,7 +22,9 @@ import com.timzowen.noteappmvvm.model.Note
 import com.timzowen.noteappmvvm.screen.NoteScreen
 import com.timzowen.noteappmvvm.ui.theme.NoteAppMVVMTheme
 import com.timzowen.noteappmvvm.viewmodel.NoteViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
