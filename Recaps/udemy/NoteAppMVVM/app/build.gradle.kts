@@ -79,6 +79,9 @@ dependencies {
 
     //Room database
     implementation(libs.androidx.room.runtime)
+    implementation (libs.androidx.room.runtime.v252) // Adjust version as needed
+    kapt (libs.androidx.room.compiler)
+    implementation (libs.androidx.room.ktx)
 
     // hilt
     implementation(libs.androidx.hilt.navigation.fragment)

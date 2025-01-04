@@ -12,6 +12,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
@@ -37,14 +38,14 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun NoteApp(noteViewModel: NoteViewModel = viewModel()) {
-    val notesList = noteViewModel.getAllNotes()
+fun NoteApp(noteViewModel: NoteViewModel) {
+    val notesList = noteViewModel.noteList.collectAsState().value
     NoteAppMVVMTheme {
         Surface(color = MaterialTheme.colorScheme.background) {
             NoteScreen(
                 notes = notesList,
                 onAddNote = { noteViewModel.addNote(it) },
-                onRemoveNote = { noteViewModel.deleteNote(it)}
+                onRemoveNote = { noteViewModel.removeNote(it)}
             )
         }
     }
