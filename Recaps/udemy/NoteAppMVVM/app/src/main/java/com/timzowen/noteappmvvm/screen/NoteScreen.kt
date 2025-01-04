@@ -43,6 +43,7 @@ import com.timzowen.noteappmvvm.components.NoteButton
 import com.timzowen.noteappmvvm.components.NoteInputText
 import com.timzowen.noteappmvvm.data.NoteDataSource
 import com.timzowen.noteappmvvm.model.Note
+import com.timzowen.noteappmvvm.utils.formatDate
 import java.time.format.DateTimeFormatter
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -139,7 +140,7 @@ fun NoteRow(
             horizontalAlignment = Alignment.Start) {
             Text(text = note.title, style = MaterialTheme.typography.titleMedium)
             Text(text = note.description, style = MaterialTheme.typography.titleSmall)
-            Text(text = note.entryDate.format(DateTimeFormatter.ofPattern("EEE,d,MMM")),
+            Text(text = formatDate(note.entryDate.time),
                 style = MaterialTheme.typography.bodySmall)
         }
 
