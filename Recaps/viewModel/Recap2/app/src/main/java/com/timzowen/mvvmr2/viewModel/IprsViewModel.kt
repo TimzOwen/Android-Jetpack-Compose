@@ -14,7 +14,7 @@ class IprsViewModel: ViewModel() {
     private val _iprsData = MutableLiveData<Iprs>()
     val iprsData: LiveData<Iprs> = _iprsData
 
-    private val _isLoading = MutableLiveData<Boolean>(false)
+    private val _isLoading = MutableLiveData(false)
     val isLoading: LiveData<Boolean> = _isLoading
 
     private val _score = MutableLiveData<SecurityScore>()
@@ -37,4 +37,10 @@ class IprsViewModel: ViewModel() {
             _score.value = currentScore
         }
     }
+
+//    fun userRegistration(){
+//        viewModelScope.launch {
+//
+//        }
+//    }
 }

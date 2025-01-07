@@ -13,4 +13,5 @@ class IprsRepository {
         delay(1500)
         return SecurityScore("Hacker",5)
     }
+
 }
