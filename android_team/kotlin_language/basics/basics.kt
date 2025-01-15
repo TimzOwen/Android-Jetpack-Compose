@@ -1,4 +1,4 @@
-// Function declaration 
+// Function declaration  - segment of a program that performs specific task
 fun main(){
     println("Hello android")
 }
