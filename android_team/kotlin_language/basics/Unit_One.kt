@@ -121,3 +121,12 @@ fun happyBirthday(name: String, age:Int): String{
 }
 
 // default arguements
+fun main(){
+    println(happyBirthday(age=59))  // you have to use named arg
+    println(happyBirthday("James",100))
+}
+fun happyBirthday(name:String="Owen", age: Int): String {
+    val greeting = "happy birthday $name"
+    val years = "you are $age years old"
+    return "$greeting \n $years"
+}
