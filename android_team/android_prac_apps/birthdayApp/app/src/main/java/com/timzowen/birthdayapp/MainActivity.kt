@@ -24,6 +24,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.timzowen.birthdayapp.composeArticle.QuadrantApp
 import com.timzowen.birthdayapp.ui.theme.BirthdayAppTheme
 
 class MainActivity : ComponentActivity() {
@@ -36,56 +37,11 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    GreetingImageText()
+                    QuadrantApp()
                 }
             }
         }
     }
 }
 
-@Composable
-fun GreetingImageText(modifier: Modifier=Modifier){
-    Box(modifier = modifier){
-        Image(
-            painter = painterResource(id = R.drawable.androidparty),
-            contentScale = ContentScale.Crop,
-            alpha = 0.5f,
-            contentDescription = "null")
-    }
-    GreetingText(
-        message = stringResource(R.string.happy_birthday_owen),
-        from = stringResource(R.string.from_timz) )
 
-}
-
-@Composable
-fun GreetingText(message: String, from: String, modifier: Modifier = Modifier) {
-
-    Column(
-        verticalArrangement = Arrangement.Center,
-        modifier= modifier
-            .fillMaxSize()
-            .padding(8.dp)) {
-        Text(
-            text = message,
-            fontSize = 100.sp,
-            textAlign = TextAlign.Center,
-            modifier = Modifier
-                .align(Alignment.CenterHorizontally)
-        )
-        Text(
-            text = from,
-            fontSize = 36.sp,
-            modifier = modifier
-                .padding(16.dp)
-                .align(Alignment.CenterHorizontally)
-        )
-    }
-
-}
-
-@Composable
-@Preview(showSystemUi = true, showBackground = true, name = "UI design")
-fun HappyBirthDayPreview() {
-    GreetingImageText()
-}
