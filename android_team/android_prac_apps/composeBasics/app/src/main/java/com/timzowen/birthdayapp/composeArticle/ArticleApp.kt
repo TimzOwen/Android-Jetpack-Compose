@@ -18,7 +18,7 @@ import androidx.compose.ui.unit.sp
 import com.timzowen.birthdayapp.R
 
 @Composable
-fun QuadrantApp(){
+fun ArticleApp(){
     Column(modifier = Modifier
         .fillMaxSize()
         .systemBarsPadding()) {
@@ -54,5 +54,5 @@ fun ArticleText(){
 @Composable
 @Preview(showSystemUi = true, showBackground = true, name = "Quadrant")
 fun QuadrantPreview(){
-    QuadrantApp()
+    ArticleApp()
 }

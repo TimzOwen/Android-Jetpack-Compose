@@ -20,7 +20,7 @@ import androidx.compose.ui.unit.sp
 import com.timzowen.birthdayapp.R
 
 @Composable
-fun GreetingImageText(modifier: Modifier = Modifier){
+fun HappyBirthdayApp(modifier: Modifier = Modifier){
     Box(modifier = modifier){
         Image(
             painter = painterResource(id = R.drawable.androidparty),
@@ -63,5 +63,5 @@ fun GreetingText(message: String, from: String, modifier: Modifier = Modifier) {
 @Composable
 @Preview(showSystemUi = true, showBackground = true, name = "UI design")
 fun HappyBirthDayPreview() {
-    GreetingImageText()
+    HappyBirthdayApp()
 }
