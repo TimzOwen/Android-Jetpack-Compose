@@ -1,6 +1,16 @@
 fun main(){
-    
+//
+// 001 - Assignment and comparison
+//
+val num1 = 1 // assignment
+println(1 ==1) // comparison
+
+
+
+    // 002
+    // Assignment operator vs Comparison operator
     // if else conditions with with multiple options
+// other comparison operators [< > >= <= !=]
     val trafficLights = "Yellow"
     if(trafficLights == "Green"){
         println("Go")
@@ -14,6 +24,7 @@ fun main(){
 
 
     // Use When statements to switch conditions:
+    // improve readability of branches
     val trafficLights = "jkbh"
     when(trafficLights){
         "Green" -> println("Go")
@@ -22,6 +33,18 @@ fun main(){
         else -> println("Error")
     }
 
+    fun main(){
+        val loader = "failed"
+        val messaage = when(loader){
+            "failed" -> "retry"
+            "loading" -> "wait"
+            "blocked" -> "contact support"
+            else -> "unknown error"
+        }
+        
+        println(messaage)
+    }
+    
 
     // When with multiple parameters
     val x = 3
