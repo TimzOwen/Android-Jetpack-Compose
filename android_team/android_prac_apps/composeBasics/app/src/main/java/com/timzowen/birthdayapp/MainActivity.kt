@@ -9,7 +9,8 @@ import androidx.compose.foundation.layout.systemBarsPadding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
-import com.timzowen.birthdayapp.composeQuadrantApp.QuadrantApp
+import com.timzowen.birthdayapp.phonecontact.PhoneContact
+import com.timzowen.birthdayapp.quadrant2.QuadrantApp
 import com.timzowen.birthdayapp.ui.theme.BirthdayAppTheme
 
 class MainActivity : ComponentActivity() {
@@ -19,11 +20,13 @@ class MainActivity : ComponentActivity() {
         setContent {
             BirthdayAppTheme {
                 Surface(
-                    modifier = Modifier.fillMaxSize()
+                    modifier = Modifier
+                        .fillMaxSize()
                         .systemBarsPadding(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    QuadrantApp()
+                    PhoneContact()
+//                    QuadrantApp()
 //                    TaskManager()
 //                    QuadrantApp()
 //                    HappyBirthdayApp()
