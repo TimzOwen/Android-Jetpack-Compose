@@ -17,4 +17,5 @@
     <string name="all_tasks_completed">All tasks completed</string>
     <string name="text_composable">Text composable</string>
     <string name="displays_text_and_follows_the_recommended_material_design_guidelines">Displays text and follows the recommended Material Design guidelines.</string>
+    <string name="roll">Roll</string>
 </resources>
