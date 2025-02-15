@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.systemBarsPadding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
+import com.timzowen.birthdayapp.diceRoller.DiceRollerApp
 import com.timzowen.birthdayapp.phonecontact.PhoneContact
 import com.timzowen.birthdayapp.quadrant2.QuadrantApp
 import com.timzowen.birthdayapp.ui.theme.BirthdayAppTheme
@@ -25,7 +26,8 @@ class MainActivity : ComponentActivity() {
                         .systemBarsPadding(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    PhoneContact()
+                    DiceRollerApp()
+//                    PhoneContact()
 //                    QuadrantApp()
 //                    TaskManager()
 //                    QuadrantApp()
