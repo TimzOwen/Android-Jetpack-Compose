@@ -18,4 +18,9 @@
     <string name="text_composable">Text composable</string>
     <string name="displays_text_and_follows_the_recommended_material_design_guidelines">Displays text and follows the recommended Material Design guidelines.</string>
     <string name="roll">Roll</string>
+    <string name="tap_lemon_tree">Tap the lemon tree to select a lemon</string>
+    <string name="squeeze_lemon">Keep tapping the lemon to squeeze it</string>
+    <string name="tap_to_drink">Tap the lemonade to drink it</string>
+    <string name="tap_to_start">Tap the empty glass to start again</string>
+    <string name="lemon_tree">lemon Tree</string>
 </resources>
