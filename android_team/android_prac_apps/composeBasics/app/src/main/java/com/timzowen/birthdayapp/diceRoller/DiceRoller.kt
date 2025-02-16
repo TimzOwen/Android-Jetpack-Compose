@@ -1,11 +1,14 @@
 package com.timzowen.birthdayapp.diceRoller
 
+import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -23,12 +26,15 @@ import com.timzowen.birthdayapp.R
 
 @Composable
 fun DiceRollerApp(){
-    DiceWithButtonAndImage()
+    DiceWithButtonAndImage(modifier = Modifier
+        .fillMaxSize()
+        .wrapContentSize(Alignment.Center))
 }
 
 @Composable
 fun DiceWithButtonAndImage(modifier: Modifier = Modifier){
     var result by remember { mutableStateOf(1) }
+//    Log.d("result", "result: $result: ")
     val imageResource = when(result){
         1 -> R.drawable.dice_1
         2 -> R.drawable.dice_2
@@ -37,11 +43,9 @@ fun DiceWithButtonAndImage(modifier: Modifier = Modifier){
         5 -> R.drawable.dice_5
         else -> R.drawable.dice_6
     }
-    Column (modifier = modifier
-        .fillMaxSize(),
-        verticalArrangement = Arrangement.Center,
+    Column (
+        modifier=modifier,
         horizontalAlignment = Alignment.CenterHorizontally){
-        
         Image(
             painter = painterResource(imageResource),
             contentDescription = result.toString()
