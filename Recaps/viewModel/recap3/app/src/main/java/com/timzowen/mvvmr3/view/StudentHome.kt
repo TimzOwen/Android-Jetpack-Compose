@@ -35,7 +35,6 @@ fun StudentHome(modifier: Modifier, viewModel: StudentViewModel) {
             CircularProgressIndicator()
         } else {
             student.value?.let {
-
                 Text(text = "Student: ${it.firstName}")
                 Text(text = "Student: ${it.secondName}")
             }
