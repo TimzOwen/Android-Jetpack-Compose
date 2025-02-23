@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">BirthdayApp</string>
+    <string name="app_name">Compose Apps</string>
     <string name="happy_birthday_text">Happy Birthday</string>
     <string name="from_text">Timz Owen</string>
     <string name="happy_birthday_owen">Happy birthday Owen</string>
@@ -23,4 +23,7 @@
     <string name="tap_to_drink">Tap the lemonade to drink it</string>
     <string name="tap_to_start">Tap the empty glass to start again</string>
     <string name="lemon_tree">lemon Tree</string>
+    <string name="calculate_tip">Calculate Tip</string>
+    <string name="bill_amount">Bill Amount</string>
+    <string name="tip_amount">Tip Amount: %s</string>
 </resources>
