@@ -13,6 +13,7 @@ import com.timzowen.birthdayapp.diceRoller.DiceRollerApp
 import com.timzowen.birthdayapp.lemonade.LemonadeApp
 import com.timzowen.birthdayapp.phonecontact.PhoneContact
 import com.timzowen.birthdayapp.quadrant2.QuadrantApp
+import com.timzowen.birthdayapp.tipCalculator.TipCalculator
 import com.timzowen.birthdayapp.ui.theme.BirthdayAppTheme
 
 class MainActivity : ComponentActivity() {
@@ -27,7 +28,8 @@ class MainActivity : ComponentActivity() {
                         .systemBarsPadding(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    LemonadeApp()
+                    TipCalculator()
+//                    LemonadeApp()
 //                    DiceRollerApp()
 //                    PhoneContact()
 //                    QuadrantApp()
