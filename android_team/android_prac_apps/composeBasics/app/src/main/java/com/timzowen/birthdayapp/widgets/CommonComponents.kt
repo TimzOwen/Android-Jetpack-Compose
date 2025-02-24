@@ -74,14 +74,19 @@ fun EditNumberFieldPreview(){
         roundUp = true,
         onRoundUpChanged = {}
     )
+}
 
-//    EditNumberField(
-//        modifier = Modifier.padding(2.dp),
-//        onValueChange = {},
-//        value = "3",
-//        label = R.string.bill_amount,
-//        keyboardOptions = KeyboardOptions.Default.copy(
-//            imeAction = ImeAction.Next
-//        )
-//    )
+@Preview(showBackground = true)
+@Composable
+fun TextFieldPreview(){
+    EditNumberField(
+        modifier = Modifier.padding(2.dp),
+        onValueChange = {},
+        value = "3",
+        label = R.string.bill_amount,
+        keyboardOptions = KeyboardOptions.Default.copy(
+            imeAction = ImeAction.Next
+        ),
+        leadingIcon = R.drawable.baseline_attach_money_24
+    )
 }
