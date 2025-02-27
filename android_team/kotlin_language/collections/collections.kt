@@ -1,3 +1,7 @@
+///////
+//////
+///
+//
 //Arrays
 fun main() { 
     val rockPlanets = arrayOf("Mercury", "Venus","Earth","Neptune")
@@ -12,8 +16,9 @@ fun main() {
 } 
 
 
-
-//
+///////
+//////
+///
 //
 // Lists
 //
@@ -30,7 +35,9 @@ fun main() {
 
 
 
-//
+///////
+//////
+///
 //
 //Iterate thru items
 //Lists
@@ -58,11 +65,9 @@ fun main() {
 } 
 
 
-//
-//
-//
-//
-//
+///////
+//////
+///
 //
 //MUTABLE LIST OF
 fun main(){
@@ -85,8 +90,10 @@ fun main(){
         
 }
 
-//
-//
+/////////
+///////
+//////
+///
 //
 // Empty collections
 val empty = emptyList<String>()  // create an empty collection of String objects
@@ -394,13 +401,328 @@ fun main() {
   val softBaked = cookies.filter{
       it.softBaked
   }
-  
-  
+  // iterate and print the values
   softBaked.forEach{
       println("${it.name} -- $${it.price}")
   }
-
 }
+
+
+
+///////
+/////
+///
+//
+// Group By ---> Allows you to turn a list into a map
+class Cookie(
+    val name: String,
+    val softBaked: Boolean,
+    val hasFilling: Boolean,
+    val price: Double
+)
+
+val cookies = listOf(
+    Cookie(
+        name = "Chocolate Chip",
+        softBaked = false,
+        hasFilling = false,
+        price = 1.69
+    ),
+    Cookie(
+        name = "Banana Walnut", 
+        softBaked = true, 
+        hasFilling = false, 
+        price = 1.49
+    ),
+    Cookie(
+        name = "Vanilla Creme",
+        softBaked = false,
+        hasFilling = true,
+        price = 1.59
+    ),
+    Cookie(
+        name = "Chocolate Peanut Butter",
+        softBaked = false,
+        hasFilling = true,
+        price = 1.49
+    ),
+    Cookie(
+        name = "Snickerdoodle",
+        softBaked = true,
+        hasFilling = false,
+        price = 1.39
+    ),
+    Cookie(
+        name = "Blueberry Tart",
+        softBaked = true,
+        hasFilling = true,
+        price = 1.79
+    ),
+    Cookie(
+        name = "Sugar and Sprinkles",
+        softBaked = false,
+        hasFilling = false,
+        price = 1.39
+    )
+)
+
+fun main() {
+    
+    val groupedMenu = cookies.groupBy{
+        it.softBaked
+    }
+    
+    val softBakedMenu = groupedMenu[true] ?: listOf()
+    val crunchyCake = groupedMenu[false] ?: listOf()
+    
+    println("Soft Cakes.......")
+    softBakedMenu.forEach{
+        println("${it.name} -- $${it.price}")
+    }
+    println()
+    println("Crunchy.......")
+    crunchyCake.forEach{
+        println("${it.name} -- $${it.price}")
+    }
+    
+}
+
+
+
+///////
+/////
+///
+//
+// FOLD --> return a single value from colleciton
+class Cookie(
+    val name: String,
+    val softBaked: Boolean,
+    val hasFilling: Boolean,
+    val price: Double
+)
+
+val cookies = listOf(
+    Cookie(
+        name = "Chocolate Chip",
+        softBaked = false,
+        hasFilling = false,
+        price = 1.69
+    ),
+    Cookie(
+        name = "Banana Walnut", 
+        softBaked = true, 
+        hasFilling = false, 
+        price = 1.49
+    ),
+    Cookie(
+        name = "Vanilla Creme",
+        softBaked = false,
+        hasFilling = true,
+        price = 1.59
+    ),
+    Cookie(
+        name = "Chocolate Peanut Butter",
+        softBaked = false,
+        hasFilling = true,
+        price = 1.49
+    ),
+    Cookie(
+        name = "Snickerdoodle",
+        softBaked = true,
+        hasFilling = false,
+        price = 1.39
+    ),
+    Cookie(
+        name = "Blueberry Tart",
+        softBaked = true,
+        hasFilling = true,
+        price = 1.79
+    ),
+    Cookie(
+        name = "Sugar and Sprinkles",
+        softBaked = false,
+        hasFilling = false,
+        price = 1.39
+    )
+)
+
+fun main() {
+    
+    val totalPrice = cookies.fold(0.0){ total, cookie  ->
+    total + cookie.price
+    }
+    
+    println("Total price: $${totalPrice}")
+    
+}
+
+
+
+
+////////
+//////
+////
+//
+// sortedBy --> sort a list of items with multiple properties by defining the property to sort
+class Cookie(
+    val name: String,
+    val softBaked: Boolean,
+    val hasFilling: Boolean,
+    val price: Double
+)
+
+val cookies = listOf(
+    Cookie(
+        name = "Chocolate Chip",
+        softBaked = false,
+        hasFilling = false,
+        price = 1.69
+    ),
+    Cookie(
+        name = "Banana Walnut", 
+        softBaked = true, 
+        hasFilling = false, 
+        price = 1.49
+    ),
+    Cookie(
+        name = "Vanilla Creme",
+        softBaked = false,
+        hasFilling = true,
+        price = 1.59
+    ),
+    Cookie(
+        name = "Chocolate Peanut Butter",
+        softBaked = false,
+        hasFilling = true,
+        price = 1.49
+    ),
+    Cookie(
+        name = "Snickerdoodle",
+        softBaked = true,
+        hasFilling = false,
+        price = 1.39
+    ),
+    Cookie(
+        name = "Blueberry Tart",
+        softBaked = true,
+        hasFilling = true,
+        price = 1.79
+    ),
+    Cookie(
+        name = "Sugar and Sprinkles",
+        softBaked = false,
+        hasFilling = false,
+        price = 1.39
+    )
+)
+
+fun main() {
+    
+    val sortedCookies = cookies.sortedBy{
+    it.price
+    }
+    
+    println("Sorted cookies by price.....")
+    println()
+    sortedCookies.forEach{
+        println("${it.name} -- $${it.price}")
+    }
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

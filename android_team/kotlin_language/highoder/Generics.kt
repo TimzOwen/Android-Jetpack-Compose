@@ -176,3 +176,45 @@ class Quiz {
 fun main() {
     Quiz.printProgressBar()
 }
+
+
+
+
+//////////
+//////
+/////
+//
+// SCOPE Functions 
+// eliminate repetitive calls to same varibale names with lambda - {it} ---> 
+
+class Question<T>(
+    val question: String,
+    val answer: T,
+    val difficulty: Difficulty
+)
+
+enum class Difficulty{
+    HARD, EASY, MEDIUM
+}
+
+
+fun main() {
+    val question1 = Question<String>("Quoth the raven ___", "nevermore", Difficulty.MEDIUM)
+    val question2 = Question<Boolean>("The sky is green. True or false", false, Difficulty.EASY)
+    val question3 = Question<Int>("How many days are there between full moons?", 28, Difficulty.HARD)
+    
+    question1.let{
+        println(it.question)
+        println(it.answer)
+        println(it.difficulty)
+    }
+    
+    println()
+    
+        question2.let{
+        println(it.question)
+        println(it.answer)
+        println(it.difficulty)
+    }
+}
+
