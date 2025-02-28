@@ -5,12 +5,15 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.systemBarsPadding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 import com.timzowen.birthdayapp.affirmationsApp.AffirmationsApp
 import com.timzowen.birthdayapp.artSpace.ArtSpaceApp
+import com.timzowen.birthdayapp.courseApp.MainCourse
 import com.timzowen.birthdayapp.diceRoller.DiceRollerApp
 import com.timzowen.birthdayapp.lemonade.LemonadeApp
 import com.timzowen.birthdayapp.phonecontact.PhoneContact
@@ -30,7 +33,8 @@ class MainActivity : ComponentActivity() {
                         .systemBarsPadding(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    AffirmationsApp()
+                    MainCourse()
+//                    AffirmationsApp()
 //                    ArtSpaceApp()
 //                    TipCalculator()
 //                    LemonadeApp()
