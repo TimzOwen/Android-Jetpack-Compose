@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.systemBarsPadding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
+import com.timzowen.birthdayapp.affirmationsApp.AffirmationsApp
 import com.timzowen.birthdayapp.artSpace.ArtSpaceApp
 import com.timzowen.birthdayapp.diceRoller.DiceRollerApp
 import com.timzowen.birthdayapp.lemonade.LemonadeApp
@@ -29,7 +30,8 @@ class MainActivity : ComponentActivity() {
                         .systemBarsPadding(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    ArtSpaceApp()
+                    AffirmationsApp()
+//                    ArtSpaceApp()
 //                    TipCalculator()
 //                    LemonadeApp()
 //                    DiceRollerApp()
