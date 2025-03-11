@@ -76,6 +76,9 @@ dependencies {
     // Add Compose UI Test if using Compose
     androidTestImplementation (libs.ui.test.junit4)
 
+    // icons material design
+    implementation(libs.androidx.material.icons.extended)
+
 
 
 }
