@@ -115,14 +115,14 @@ fun WoofAppCard(modifier: Modifier = Modifier, dog: Dog) {
 }
 
 
-//@Preview(showBackground = true)
-//@Composable
-//fun WoofAppDarkThemePreview() {
-//    val dog = Dog(R.drawable.koda, R.string.dog_name_1, 2, R.string.dog_description_1)
-//    AppTheme(darkTheme = true) {
-//        WoofApp()
-//    }
-//}
+@Preview(showBackground = true)
+@Composable
+fun WoofAppDarkThemePreview() {
+    val dog = Dog(R.drawable.koda, R.string.dog_name_1, 2, R.string.dog_description_1)
+    AppTheme(darkTheme = true) {
+        WoofApp()
+    }
+}
 
 @Preview(showBackground = true)
 @Composable
