@@ -1,6 +1,7 @@
 package com.timzowen.birthdayapp.ui.theme
 
 
+import androidx.compose.material3.Shapes
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
@@ -48,6 +49,10 @@ val Typography = Typography(
         fontWeight = FontWeight.Normal,
         fontSize = 14.sp
     )
+)
+
+val shapes = Shapes(
+
 )
 
 val bodyFontFamily = FontFamily(
