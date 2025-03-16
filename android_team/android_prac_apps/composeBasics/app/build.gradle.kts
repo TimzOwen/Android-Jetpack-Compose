@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.ksp)
 }
 
 android {
@@ -75,6 +76,21 @@ dependencies {
 
     // Add Compose UI Test if using Compose
     androidTestImplementation (libs.ui.test.junit4)
+
+    // icons material design
+    implementation(libs.androidx.material.icons.extended)
+
+
+    implementation(libs.androidx.room.runtime)
+    annotationProcessor(libs.room.compiler)
+    ksp(libs.room.compiler)
+    implementation(libs.androidx.room.ktx)
+
+    // ViewModel dependencies
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
+
+    // Coroutines
+    implementation(libs.kotlinx.coroutines.android)
 
 
 
