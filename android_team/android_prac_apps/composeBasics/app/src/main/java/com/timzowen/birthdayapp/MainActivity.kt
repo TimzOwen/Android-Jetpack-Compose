@@ -7,47 +7,54 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.systemBarsPadding
 import androidx.compose.material3.Surface
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.room.Room
+import com.timzowen.birthdayapp.todoapp.screens.TodoScreen
 import com.timzowen.birthdayapp.ui.theme.AppTheme
-import com.timzowen.birthdayapp.woofApp.WoofApp
+import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.lifecycle.ViewModelProvider
+import com.timzowen.birthdayapp.todoapp.TodoRepository
+import com.timzowen.birthdayapp.todoapp.database.TodoDatabase
+import com.timzowen.birthdayapp.todoapp.viewmodel.TodoViewModel
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+
+        // Build the Room database
+        val db = Room.databaseBuilder(
+            applicationContext,
+            TodoDatabase::class.java, "todo-database"
+        ).build()
+
+        // Create the DAO and repository
+        val todoDao = db.todoDao()
+        val repository = TodoRepository(todoDao)
+
+        // Create a ViewModelFactory
+        val viewModelFactory = object : ViewModelProvider.Factory {
+            override fun <T : androidx.lifecycle.ViewModel> create(modelClass: Class<T>): T {
+                if (modelClass.isAssignableFrom(TodoViewModel::class.java)) {
+                    @Suppress("UNCHECKED_CAST")
+                    return TodoViewModel(repository) as T
+                }
+                throw IllegalArgumentException("Unknown ViewModel class")
+            }
+        }
+
         setContent {
-            AppTheme  {
+            AppTheme {
                 Surface(
                     modifier = Modifier
                         .fillMaxSize()
                         .systemBarsPadding()
-//                    color = MaterialTheme.colorScheme.background
                 ) {
-                    WoofApp()
-//                    MainCourse()
-//                    AffirmationsApp()
-//                    ArtSpaceApp()
-//                    TipCalculator()
-//                    LemonadeApp()
-//                    DiceRollerApp()
-//                    PhoneContact()
-//                    QuadrantApp()
-//                    TaskManager()
-//                    QuadrantApp()
-//                    HappyBirthdayApp()
+                    // Get the ViewModel using the factory
+                    val viewModel: TodoViewModel = viewModel(factory = viewModelFactory)
+                    TodoScreen(modifier = Modifier,viewModel)
                 }
             }
         }
-    }
-}
-
-
-@Preview(showBackground = true)
-@Composable
-fun WoofPreview() {
-    AppTheme (darkTheme = false) {
-        WoofApp()
     }
 }
